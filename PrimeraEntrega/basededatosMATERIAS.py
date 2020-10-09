@@ -2,6 +2,7 @@ import os.path
 import os
 
 def menu_principalBDM():
+    os.system('cls')  # NOTA para windows tienes que cambiar clear por cls
     print("Bienvenido a la Base de datos de Materias")  # Saludo :v
     print("MENÚ PRINCIPAL")  # Imprime Menú principal
     print("[0]  Ver la base de datos actual")  # Imprime la primera opción
@@ -93,7 +94,6 @@ while True:
         break
     else:
         print("Opción no valida")
-
 
 
 
