@@ -5,10 +5,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f57ebc4-894a-44b3-ba86-4bd32560bea9" name="Default Changelist" comment="Actualización">
-      <change afterPath="$PROJECT_DIR$/pruebas.py" afterDir="false" />
+    <list default="true" id="2f57ebc4-894a-44b3-ba86-4bd32560bea9" name="Default Changelist" comment="Creación diccionarios y base de datos de pruebas (Materias)">
+      <change afterPath="$PROJECT_DIR$/BD-Materias.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ContadorBD-Materias.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/basededatosMATERIAS.py" beforeDir="false" afterPath="$PROJECT_DIR$/basededatosMATERIAS.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pruebas.py" beforeDir="false" afterPath="$PROJECT_DIR$/pruebas.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,9 +89,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="G:\Mi unidad\UNIVERSIDAD\Séptimo Semestre\Programación orientada a objetos\ProyectoSIA\POO2020\PrimeraEntrega\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pruebas.py" />
@@ -130,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602259396492</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Creación diccionarios y base de datos de pruebas (Materias)">
+      <created>1602261646166</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1602261646166</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -172,48 +181,68 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Actualización" />
-    <option name="LAST_COMMIT_MESSAGE" value="Actualización" />
+    <MESSAGE value="Creación diccionarios y base de datos de pruebas (Materias)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creación diccionarios y base de datos de pruebas (Materias)" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="734" y="354" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602259063940">
+    <state x="734" y="354" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602263926580">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="734" y="354" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602259063940" />
-    <state width="2539" height="401" key="GridCell.Tab.0.bottom" timestamp="1602261439267">
+    <state x="734" y="354" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602263926580" />
+    <state x="1010" y="446" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1602275802764">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.bottom/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602261439267" />
-    <state width="2539" height="401" key="GridCell.Tab.0.center" timestamp="1602261439267">
+    <state x="1010" y="446" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602275802764" />
+    <state x="1188" y="452" key="#xdebugger.XInspectDialog" timestamp="1602263700555">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.center/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602261439267" />
-    <state width="2539" height="401" key="GridCell.Tab.0.left" timestamp="1602261439267">
+    <state x="1188" y="452" key="#xdebugger.XInspectDialog/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602263700555" />
+    <state width="2539" height="401" key="GridCell.Tab.0.bottom" timestamp="1602275825286">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.left/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602261439267" />
-    <state width="2539" height="401" key="GridCell.Tab.0.right" timestamp="1602261439267">
+    <state width="2539" height="401" key="GridCell.Tab.0.bottom/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602275825286" />
+    <state width="2539" height="401" key="GridCell.Tab.0.center" timestamp="1602275825286">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.right/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602261439267" />
-    <state width="2539" height="492" key="GridCell.Tab.1.bottom" timestamp="1602259174264">
+    <state width="2539" height="401" key="GridCell.Tab.0.center/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602275825286" />
+    <state width="2539" height="401" key="GridCell.Tab.0.left" timestamp="1602275825286">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="492" key="GridCell.Tab.1.bottom/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602259174264" />
-    <state width="2539" height="492" key="GridCell.Tab.1.center" timestamp="1602259174264">
+    <state width="2539" height="401" key="GridCell.Tab.0.left/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602275825286" />
+    <state width="2539" height="401" key="GridCell.Tab.0.right" timestamp="1602275825286">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="492" key="GridCell.Tab.1.center/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602259174264" />
-    <state width="2539" height="492" key="GridCell.Tab.1.left" timestamp="1602259174264">
+    <state width="2539" height="401" key="GridCell.Tab.0.right/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602275825286" />
+    <state width="2539" height="492" key="GridCell.Tab.1.bottom" timestamp="1602263819855">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="492" key="GridCell.Tab.1.left/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602259174264" />
-    <state width="2539" height="492" key="GridCell.Tab.1.right" timestamp="1602259174264">
+    <state width="2539" height="492" key="GridCell.Tab.1.bottom/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602263819855" />
+    <state width="2539" height="492" key="GridCell.Tab.1.center" timestamp="1602263819855">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="492" key="GridCell.Tab.1.right/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602259174264" />
-    <state x="872" y="432" key="Vcs.Push.Dialog.v2" timestamp="1602259405689">
+    <state width="2539" height="492" key="GridCell.Tab.1.center/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602263819855" />
+    <state width="2539" height="492" key="GridCell.Tab.1.left" timestamp="1602263819855">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="872" y="432" key="Vcs.Push.Dialog.v2/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602259405689" />
+    <state width="2539" height="492" key="GridCell.Tab.1.left/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602263819855" />
+    <state width="2539" height="492" key="GridCell.Tab.1.right" timestamp="1602263819855">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2539" height="492" key="GridCell.Tab.1.right/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602263819855" />
+    <state x="872" y="432" key="Vcs.Push.Dialog.v2" timestamp="1602261650114">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="872" y="432" key="Vcs.Push.Dialog.v2/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602261650114" />
+    <state x="1097" y="613" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602274053428">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1097" y="613" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602274053428" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="dic_text" language="Python" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
