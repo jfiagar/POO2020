@@ -5,7 +5,7 @@ def menu_principalBDM():
     os.system('cls')  # NOTA para windows tienes que cambiar clear por cls
     print("Bienvenido a la Base de datos de Materias")  # Saludo :v
     print("MENÚ PRINCIPAL")  # Imprime Menú principal
-    print("[0]  Ver la base de datos actual")  # Imprime la primera opción
+    print("[0]  Ver la base de datos actual Completa")  # Imprime la primera opción
     print("[1]  Ingresar Materias a la base de datos")  # Imprime la segunda opción
     print("[2]  Salir del programa")  # Imprime la tercera opción
 

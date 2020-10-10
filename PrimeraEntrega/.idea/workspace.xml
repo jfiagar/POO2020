@@ -5,10 +5,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f57ebc4-894a-44b3-ba86-4bd32560bea9" name="Default Changelist" comment="Correcion, Base de datos ahora como CSV">
+    <list default="true" id="2f57ebc4-894a-44b3-ba86-4bd32560bea9" name="Default Changelist" comment="Pruebas para el ordenamiento">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BD-Materias.txt" beforeDir="false" afterPath="$PROJECT_DIR$/BD-Materias.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ContadorBD-Materias.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ContadorBD-Materias.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basededatosMATERIAS.py" beforeDir="false" afterPath="$PROJECT_DIR$/basededatosMATERIAS.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pruebas.py" beforeDir="false" afterPath="$PROJECT_DIR$/pruebas.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -174,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602297292088</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Pruebas para el ordenamiento">
+      <created>1602299754207</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1602299754207</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -222,7 +229,8 @@
     <MESSAGE value="Mejora de Presentación" />
     <MESSAGE value="Finalizado en esencia" />
     <MESSAGE value="Correcion, Base de datos ahora como CSV" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correcion, Base de datos ahora como CSV" />
+    <MESSAGE value="Pruebas para el ordenamiento" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pruebas para el ordenamiento" />
   </component>
   <component name="WindowStateProjectService">
     <state x="734" y="354" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602263926580">
@@ -237,22 +245,22 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1188" y="452" key="#xdebugger.XInspectDialog/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602263700555" />
-    <state width="2539" height="401" key="GridCell.Tab.0.bottom" timestamp="1602299693653">
+    <state width="2539" height="401" key="GridCell.Tab.0.bottom" timestamp="1602370969946">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.bottom/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602299693653" />
-    <state width="2539" height="401" key="GridCell.Tab.0.center" timestamp="1602299693653">
+    <state width="2539" height="401" key="GridCell.Tab.0.bottom/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602370969946" />
+    <state width="2539" height="401" key="GridCell.Tab.0.center" timestamp="1602370969946">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.center/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602299693653" />
-    <state width="2539" height="401" key="GridCell.Tab.0.left" timestamp="1602299693653">
+    <state width="2539" height="401" key="GridCell.Tab.0.center/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602370969946" />
+    <state width="2539" height="401" key="GridCell.Tab.0.left" timestamp="1602370969945">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.left/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602299693653" />
-    <state width="2539" height="401" key="GridCell.Tab.0.right" timestamp="1602299693653">
+    <state width="2539" height="401" key="GridCell.Tab.0.left/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602370969945" />
+    <state width="2539" height="401" key="GridCell.Tab.0.right" timestamp="1602370969946">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.right/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602299693653" />
+    <state width="2539" height="401" key="GridCell.Tab.0.right/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602370969946" />
     <state width="2539" height="492" key="GridCell.Tab.1.bottom" timestamp="1602285064335">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -269,18 +277,18 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="2539" height="492" key="GridCell.Tab.1.right/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602285064335" />
-    <state x="872" y="432" key="Vcs.Push.Dialog.v2" timestamp="1602297294513">
+    <state x="872" y="432" key="Vcs.Push.Dialog.v2" timestamp="1602299756482">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="872" y="432" key="Vcs.Push.Dialog.v2/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602297294513" />
+    <state x="872" y="432" key="Vcs.Push.Dialog.v2/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602299756482" />
     <state x="887" y="310" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1602276179761">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="887" y="310" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602276179761" />
-    <state x="1097" y="613" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602299735704">
+    <state x="1097" y="613" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602371138718">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1097" y="613" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602299735704" />
+    <state x="1097" y="613" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602371138718" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
