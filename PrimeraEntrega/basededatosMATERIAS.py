@@ -48,37 +48,28 @@ while True:
         CC = input("Ingrese la Cantidad de créditos de la Materia: ")  # Cantidad de créditos
         CMA = input(
             "Ingrese el Código de la materia anterior obligatoria en el plan de estudios: ")  # Código materia anterior obligatoria en el plan de estudios
-        dict = {"CM": CM, "NM": NM, "CF": CF, "CD": CD, "CC": CC, "CMA": CMA}  # Creación del diccionario de la materia
+        dict = "CM:"+ CM + ";" + "NM:"+ NM + ";" + "CF:"+ CF + ";" + "CD:" + CD+ ";"+ "CC:"+CC+ ";"+"CMA:"+CMA  # Creación del diccionario de la materia
 
-        if not os.path.isfile(
-                "BD-Materias.txt"):  # Verificación de que la base de datos exista usando "isfile" de la libreria os.path , si existe el archivo el valor es True, sino False .Por lo tanto si el archivo no existe entonces entra a la condición
-            BDM = open("BD-Materias.txt",
-                       "w")  # Este modo abre el archivo para escritura. Si el archivo no existe, crea un nuevo archivo.
+        if not os.path.isfile("BD-Materias.txt"):  # Verificación de que la base de datos exista usando "isfile" de la libreria os.path , si existe el archivo el valor es True, sino False .Por lo tanto si el archivo no existe entonces entra a la condición
+            BDM = open("BD-Materias.txt","w")  # Este modo abre el archivo para escritura. Si el archivo no existe, crea un nuevo archivo.
             numerodematerias = 1  # Establece el número de materias en 1
-            BDM.write(str(dict) + "\n")  # Escribe los datos de la primera materia
+            BDM.write("IN:"+str(numerodematerias)+";"+str(dict) + "\n")  # Escribe los datos de la primera materia
             BDM.close()  # Cierra el archivo
 
-            with open('ContadorBD-Materias.txt',
-                      'w') as file:  # Este modo abre el archivo para escritura. Si el archivo no existe, crea un nuevo archivo.
-                file.write(
-                    str(numerodematerias))  # Escribe los datos  iniciales del numero de materias en la abse de datos
+            with open('ContadorBD-Materias.txt','w') as file:  # Este modo abre el archivo para escritura. Si el archivo no existe, crea un nuevo archivo.
+                file.write(str(numerodematerias))  # Escribe los datos  iniciales del numero de materias en la abse de datos
 
 
         else:  # Si el archivo ya existe se entra a esta condicion
-            with open("BD-Materias.txt",
-                      "a") as file:  # Abrir archivo en modo adjuntar. Si el archivo no existe, crea un nuevo archivo.
-                file.write(str(dict) + "\n")  # Escribe los datos de la siguiente materia
-
-            with open('ContadorBD-Materias.txt',
-                      'r') as file:  # Abre el archivo del contador de materias en modo lectura
+            with open('ContadorBD-Materias.txt','r') as file:  # Abre el archivo del contador de materias en modo lectura
                 numerodematerias = file.read()  # Almacena el numero de materias leyendo el archivo
-            numerodematerias = int(
-                numerodematerias) + 1  # Como se hizo una adición a la base de datos de materias entonces se aumenta el contador en 1
+            numerodematerias = int(numerodematerias) + 1  # Como se hizo una adición a la base de datos de materias entonces se aumenta el contador en 1
 
-            with open('ContadorBD-Materias.txt',
-                      'w') as file:  # Este modo abre el archivo para escritura. Si el archivo no existe, crea un nuevo archivo.
-                file.write(str(
-                    numerodematerias))  # Actualiza el archivo sobreescribiendo el valor del numero de materias es decir borra los datos del archivo anterior y escribe de nuevo
+            with open("BD-Materias.txt","a") as file:  # Abrir archivo en modo adjuntar. Si el archivo no existe, crea un nuevo archivo.
+                file.write("IN:"+str(numerodematerias)+";"+str(dict) + "\n")  # Escribe los datos de la siguiente materia
+
+            with open('ContadorBD-Materias.txt','w') as file:  # Este modo abre el archivo para escritura. Si el archivo no existe, crea un nuevo archivo.
+                file.write(str(numerodematerias))  # Actualiza el archivo sobreescribiendo el valor del numero de materias es decir borra los datos del archivo anterior y escribe de nuevo
         menu_opcionesBDM()
         opcion2 = input("Ingrese el número de la opción: ")
         if opcion2 == "0":

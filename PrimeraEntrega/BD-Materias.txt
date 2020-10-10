@@ -1,4 +1,3 @@
-{'CM': '1', 'NM': '2', 'CF': '3', 'CD': '4', 'CC': '5', 'CMA': '6'}
-{'CM': '9', 'NM': '8', 'CF': '7', 'CD': '6', 'CC': '5', 'CMA': '4'}
-{'CM': '100009', 'NM': 'Fundamentos de mecánica', 'CF': 'Ingeniería', 'CD': 'Física', 'CC': '4', 'CMA': '100002'}
-{'CM': '2', 'NM': '34', 'CF': 'fsd', 'CD': 'gfd', 'CC': 'xc', 'CMA': 'as'}
+IN:1;CM:1;NM:2;CF:3;CD:4;CC:5;CMA:6
+IN:2;CM:a;NM:b;CF:c;CD:d;CC:e;CMA:
+IN:3;CM:A;NM:B;CF:C;CD:D;CC:E;CMA:F
