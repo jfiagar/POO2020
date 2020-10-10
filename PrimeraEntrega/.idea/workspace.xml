@@ -5,12 +5,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f57ebc4-894a-44b3-ba86-4bd32560bea9" name="Default Changelist" comment="Pruebas para el ordenamiento">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BD-Materias.txt" beforeDir="false" afterPath="$PROJECT_DIR$/BD-Materias.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basededatosMATERIAS.py" beforeDir="false" afterPath="$PROJECT_DIR$/basededatosMATERIAS.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pruebas.py" beforeDir="false" afterPath="$PROJECT_DIR$/pruebas.py" afterDir="false" />
-    </list>
+    <list default="true" id="2f57ebc4-894a-44b3-ba86-4bd32560bea9" name="Default Changelist" comment="Pruebas para el ordenamiento completadas en esencia :v" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -181,7 +176,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602299754207</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Pruebas para el ordenamiento completadas en esencia :v">
+      <created>1602371156168</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1602371156168</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -230,7 +232,8 @@
     <MESSAGE value="Finalizado en esencia" />
     <MESSAGE value="Correcion, Base de datos ahora como CSV" />
     <MESSAGE value="Pruebas para el ordenamiento" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pruebas para el ordenamiento" />
+    <MESSAGE value="Pruebas para el ordenamiento completadas en esencia :v" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pruebas para el ordenamiento completadas en esencia :v" />
   </component>
   <component name="WindowStateProjectService">
     <state x="734" y="354" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602263926580">
@@ -277,10 +280,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="2539" height="492" key="GridCell.Tab.1.right/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602285064335" />
-    <state x="872" y="432" key="Vcs.Push.Dialog.v2" timestamp="1602299756482">
+    <state x="872" y="432" key="Vcs.Push.Dialog.v2" timestamp="1602371161552">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="872" y="432" key="Vcs.Push.Dialog.v2/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602299756482" />
+    <state x="872" y="432" key="Vcs.Push.Dialog.v2/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602371161552" />
     <state x="887" y="310" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1602276179761">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
