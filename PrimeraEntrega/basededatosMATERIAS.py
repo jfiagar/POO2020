@@ -67,19 +67,19 @@ while True:
 
                     for line in file:
                         IN, CM, NM, CF, CD, CC, CMA = line.strip().split(';')
-                        listaIN.append(int(IN[3:]))
-                        listaCM.append(CM[3:])
-                        listaNM.append(NM[3:])
-                        listaCF.append(CF[3:])
-                        listaCD.append(CD[3:])
-                        listaCC.append(CC[3:])
-                        listaCMA.append(CMA[4:])
+                        listaIN.append(int(IN))
+                        listaCM.append(CM)
+                        listaNM.append(NM)
+                        listaCF.append(CF)
+                        listaCD.append(CD)
+                        listaCC.append(CC)
+                        listaCMA.append(CMA)
                 menu_opcionesBDMOrdenada()
                 opcion3 = input("Ingrese el número de la opción: ")
 
                 if opcion3 == "1":
                     dic = dict(zip(listaIN, listaCM))
-                    menu_opcionesBDMOrdenadaalfa()
+                    menu_opcionesBDMOrdenadanum()
                     opcion4 = input("Ingrese el número de la opción: ")
                     if opcion4 == "1":
                         valores_ord = dict(sorted(dic.items(), key=operator.itemgetter(1)))
@@ -92,7 +92,7 @@ while True:
 
                 elif opcion3 == "2":
                     dic = dict(zip(listaIN, listaNM))
-                    menu_opcionesBDMOrdenadanum()
+                    menu_opcionesBDMOrdenadaalfa()
                     opcion4 = input("Ingrese el número de la opción: ")
                     if opcion4 == "1":
                         valores_ord = dict(sorted(dic.items(), key=operator.itemgetter(1)))
@@ -161,10 +161,7 @@ while True:
 
                 with open("BD-Materias-ORDENADA.txt", "w") as file:
                     for indices in val:
-                        listaordenada = "IN:" + str(indices) + ";""CM:" + listaCM[indices - 1] + ";" + "NM:" + listaNM[
-                            indices - 1] + ";" + "CF:" + listaCF[indices - 1] + ";" + "CD:" + listaCD[
-                                            indices - 1] + ";" + "CC:" + listaCC[indices - 1] + ";" + "CMA:" + listaCMA[
-                                            indices - 1]
+                        listaordenada = str(indices) + ";"+ listaCM[indices - 1] + ";"  + listaNM[indices - 1] + ";" + listaCF[indices - 1] + ";" + listaCD[indices - 1] + ";"  + listaCC[indices - 1] + ";"  + listaCMA[indices - 1]
                         file.write(listaordenada + "\n")
             elif opcion2=="2":
                 print("ingrese :v")
@@ -197,12 +194,12 @@ while True:
         CC = input("Ingrese la Cantidad de créditos de la Materia: ")  # Cantidad de créditos
         CMA = input(
             "Ingrese el Código de la materia anterior obligatoria en el plan de estudios: ")  # Código materia anterior obligatoria en el plan de estudios
-        dict = "CM:"+ CM + ";" + "NM:"+ NM + ";" + "CF:"+ CF + ";" + "CD:" + CD+ ";"+ "CC:"+CC+ ";"+"CMA:"+CMA  # Creación del diccionario de la materia
+        dict = CM + ";" + NM + ";" +  CF + ";" + CD+ ";"+ CC+ ";"+CMA  # Creación del diccionario de la materia
 
         if not os.path.isfile("BD-Materias.txt"):  # Verificación de que la base de datos exista usando "isfile" de la libreria os.path , si existe el archivo el valor es True, sino False .Por lo tanto si el archivo no existe entonces entra a la condición
             BDM = open("BD-Materias.txt","w")  # Este modo abre el archivo para escritura. Si el archivo no existe, crea un nuevo archivo.
             numerodematerias = 1  # Establece el número de materias en 1
-            BDM.write("IN:"+str(numerodematerias)+";"+str(dict) + "\n")  # Escribe los datos de la primera materia
+            BDM.write(str(numerodematerias)+";"+str(dict) + "\n")  # Escribe los datos de la primera materia
             BDM.close()  # Cierra el archivo
 
             with open('ContadorBD-Materias.txt','w') as file:  # Este modo abre el archivo para escritura. Si el archivo no existe, crea un nuevo archivo.
@@ -215,7 +212,7 @@ while True:
             numerodematerias = int(numerodematerias) + 1  # Como se hizo una adición a la base de datos de materias entonces se aumenta el contador en 1
 
             with open("BD-Materias.txt","a") as file:  # Abrir archivo en modo adjuntar. Si el archivo no existe, crea un nuevo archivo.
-                file.write("IN:"+str(numerodematerias)+";"+str(dict) + "\n")  # Escribe los datos de la siguiente materia
+                file.write(str(numerodematerias)+";"+str(dict) + "\n")  # Escribe los datos de la siguiente materia
 
             with open('ContadorBD-Materias.txt','w') as file:  # Este modo abre el archivo para escritura. Si el archivo no existe, crea un nuevo archivo.
                 file.write(str(numerodematerias))  # Actualiza el archivo sobreescribiendo el valor del numero de materias es decir borra los datos del archivo anterior y escribe de nuevo

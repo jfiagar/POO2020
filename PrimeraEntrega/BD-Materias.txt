@@ -1,4 +1,4 @@
-IN:1;CM:b;NM:2;CF:3;CD:4;CC:5;CMA:6
-IN:2;CM:a;NM:b;CF:c;CD:d;CC:3;CMA:
-IN:3;CM:d;NM:B;CF:C;CD:D;CC:2;CMA:F
-IN:4;CM:c;NM:Bj;CF:Cj;CD:Dj;CC:1;CMA:Fj
+1;1;A;1;1;1;1
+2;2;b;2;2;2;2
+3;3;c;;3;3;
+4;2016375;Programación orientada a objetos;2055;2545;3;2015734
