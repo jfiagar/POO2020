@@ -3,7 +3,7 @@ import os
 import operator
 
 def menu_principalBDM():
-    os.system('cls')  # Borra los valores de la consola de windows, limpia la consola
+    borrarPantalla()  # Borra los valores de la consola de windows, limpia la consola
     print("Bienvenido a la Base de datos de Materias")  # Saludo :v
     print("MENÚ PRINCIPAL")  # Imprime Menú principal
     print("[0]  Entrar a la base de datos")  # Imprime la primera opción
@@ -11,7 +11,7 @@ def menu_principalBDM():
     print("[2]  Salir del programa")  # Imprime la tercera opción
 
 def menu_mostrarbase():
-    os.system('cls')  # Borra los valores de la consola de windows, limpia la consola
+    borrarPantalla()  # Borra los valores de la consola de windows, limpia la consola
     print("[0]  Ver la base de datos actual COMPLETA")  # Imprime la primera opción
     print("[1]  Ver la base de datos ordenada por un valor")  # Imprime la segunda opción
     print("[2]  Buscar un valor específico en la base de datos")  # Imprime la segunda opción
@@ -40,6 +40,11 @@ def menu_opcionesBDMOrdenadanum():
     print("[1]  Ordenar numéricamente [0->9]")  # Imprime la primera opción
     print("[2]  Ordenar numéricamente [9->0]")  # Imprime la primera opción
 
+def borrarPantalla(): #Definimos la función estableciendo el nombre que queramos
+    if os.name == "posix":
+        os.system ("clear")
+    elif os.name == "ce" or os.name == "nt" or os.name == "dos":\
+        os.system ("cls")
 
 
 def mainBDM():
@@ -64,21 +69,15 @@ def mainBDM():
                     for fila in listatotal:
                         if len(fila[2]) < 19:
                             a, b, c, d, e, f, g = fila
-                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(a, b, c, d, e, f,
-                                                                                                       g)
+                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(a, b, c, d, e, f,g)
                             stringdetabla = stringdetabla
                             print(stringdetabla)
                         else:
                             a, b, c, d, e, f, g = fila
-                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(a, b,
-                                                                                                       c[0:19] + "-",
-                                                                                                       d, e, f, g)
+                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(a, b,c[0:19] + "-",d, e, f, g)
                             stringdetabla = stringdetabla
                             print(stringdetabla)
-                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(" ", " ",
-                                                                                                       c[19:38],
-                                                                                                       " ", " ", " ",
-                                                                                                       " ")
+                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(" ", " ",c[19:38]," ", " ", " "," ")
                             print(stringdetabla)
 
                 elif opcion2 == "1":
@@ -93,14 +92,14 @@ def mainBDM():
                         listaCMA = []
 
                         for line in file:
-                            IN, CM, NM, CF, CD, CC, CMA = line.strip().split(';')
-                            listaIN.append(int(IN))
-                            listaCM.append(CM)
-                            listaNM.append(NM)
-                            listaCF.append(CF)
-                            listaCD.append(CD)
-                            listaCC.append(CC)
-                            listaCMA.append(CMA)
+                            IN1, CM1, NM1, CF1, CD1, CC1, CMA1 = line.strip().split(';')
+                            listaIN.append(int(IN1))
+                            listaCM.append(CM1)
+                            listaNM.append(NM1)
+                            listaCF.append(CF1)
+                            listaCD.append(CD1)
+                            listaCC.append(CC1)
+                            listaCMA.append(CMA1)
                     menu_opcionesBDMOrdenada()
                     opcion3 = input("Ingrese el número de la opción: ")
 
@@ -195,9 +194,7 @@ def mainBDM():
 
                     with open("BD-Materias-ORDENADA.txt", "w") as file:
                         for indices in val:
-                            listaordenada = str(indices) + ";" + listaCM[indices - 1] + ";" + listaNM[
-                                indices - 1] + ";" + listaCF[indices - 1] + ";" + listaCD[indices - 1] + ";" + listaCC[
-                                                indices - 1] + ";" + listaCMA[indices - 1]
+                            listaordenada = str(indices) + ";" + listaCM[indices - 1] + ";" + listaNM[indices - 1] + ";" + listaCF[indices - 1] + ";" + listaCD[indices - 1] + ";" + listaCC[indices - 1] + ";" + listaCMA[indices - 1]
                             file.write(listaordenada + "\n")
                     with open("BD-Materias-ORDENADA.txt", "r") as file:
                         listatotal = []
@@ -211,21 +208,15 @@ def mainBDM():
                     for fila in listatotal:
                         if len(fila[2]) < 19:
                             a, b, c, d, e, f, g = fila
-                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(a, b, c, d, e, f,
-                                                                                                       g)
+                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(a, b, c, d, e, f,g)
                             stringdetabla = stringdetabla
                             print(stringdetabla)
                         else:
                             a, b, c, d, e, f, g = fila
-                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(a, b,
-                                                                                                       c[0:19] + "-",
-                                                                                                       d, e, f, g)
+                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(a, b,c[0:19] + "-",d, e, f, g)
                             stringdetabla = stringdetabla
                             print(stringdetabla)
-                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(" ", " ",
-                                                                                                       c[19:38],
-                                                                                                       " ", " ", " ",
-                                                                                                       " ")
+                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(" ", " ",c[19:38]," ", " ", " "," ")
                             print(stringdetabla)
                     print(
                         "+-----------------------------------------------------------------------------------------------------------------------------------------------------------+")
@@ -241,7 +232,6 @@ def mainBDM():
                                     indicador = True
                             if indicador:
                                 lista_ME.append(linea)
-                                print(lista_ME)
                                 indicador = False
                     Tabla = "+-----------------------------------------------------------------------------------------------------------------------------------------------------------+\n| Indice | Código de la Materia | Nombre de la Materia | Código de facultad | Código de departamento | Cantidad de créditos | Código de la materia anterior |\n|-----------------------------------------------------------------------------------------------------------------------------------------------------------|"
 
@@ -249,21 +239,15 @@ def mainBDM():
                     for fila in lista_ME:
                         if len(fila[2]) < 19:
                             a, b, c, d, e, f, g = fila
-                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(a, b, c, d, e, f,
-                                                                                                       g)
+                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(a, b, c, d, e, f,g)
                             stringdetabla = stringdetabla
                             print(stringdetabla)
                         else:
                             a, b, c, d, e, f, g = fila
-                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(a, b,
-                                                                                                       c[0:19] + "-",
-                                                                                                       d, e, f, g)
+                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(a, b,c[0:19] + "-",d, e, f, g)
                             stringdetabla = stringdetabla
                             print(stringdetabla)
-                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(" ", " ",
-                                                                                                       c[19:38],
-                                                                                                       " ", " ", " ",
-                                                                                                       " ")
+                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(" ", " ",c[19:38]," ", " ", " "," ")
                             print(stringdetabla)
                     print(
                         "+-----------------------------------------------------------------------------------------------------------------------------------------------------------+")
@@ -334,14 +318,13 @@ def mainBDM():
                 else:
                     print("El texto es demasiado grande, intentelo de nuevo")
 
-            dict = CM + ";" + NM + ";" + CF + ";" + CD + ";" + CC + ";" + CMA  # Creación del diccionario de la materia
+            diccionario = CM + ";" + NM + ";" + CF + ";" + CD + ";" + CC + ";" + CMA  # Creación del diccionario de la materia
 
             if not os.path.isfile(
                     "BD-Materias.txt"):  # Verificación de que la base de datos exista usando "isfile" de la libreria os.path , si existe el archivo el valor es True, sino False .Por lo tanto si el archivo no existe entonces entra a la condición
-                BDM = open("BD-Materias.txt",
-                           "w")  # Este modo abre el archivo para escritura. Si el archivo no existe, crea un nuevo archivo.
+                BDM = open("BD-Materias.txt","w")  # Este modo abre el archivo para escritura. Si el archivo no existe, crea un nuevo archivo.
                 numerodematerias = 1  # Establece el número de materias en 1
-                BDM.write(str(numerodematerias) + ";" + str(dict) + "\n")  # Escribe los datos de la primera materia
+                BDM.write(str(numerodematerias) + ";" + str(diccionario) + "\n")  # Escribe los datos de la primera materia
                 BDM.close()  # Cierra el archivo
 
                 with open('ContadorBD-Materias.txt',
@@ -360,7 +343,7 @@ def mainBDM():
                 with open("BD-Materias.txt",
                           "a") as file:  # Abrir archivo en modo adjuntar. Si el archivo no existe, crea un nuevo archivo.
                     file.write(
-                        str(numerodematerias) + ";" + str(dict) + "\n")  # Escribe los datos de la siguiente materia
+                        str(numerodematerias) + ";" + str(diccionario) + "\n")  # Escribe los datos de la siguiente materia
 
                 with open('ContadorBD-Materias.txt',
                           'w') as file:  # Este modo abre el archivo para escritura. Si el archivo no existe, crea un nuevo archivo.
