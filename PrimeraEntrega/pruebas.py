@@ -26,16 +26,43 @@
 #         stringdetabla="|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(" "," ", c[19:38], " ", " ", " ", " ")
 #         print(stringdetabla)
 # print("+-----------------------------------------------------------------------------------------------------------------------------------------------------------+")
+#
+# palabra="3"
+# indicador = False
+# lista_ME=[]
+# with open("BD-Materias.txt","r") as file:
+#     for linea in file:
+#         linea=linea.strip().split(";")
+#         for items in linea:
+#             if palabra== items:
+#                 indicador=True
+#         if indicador:
+#             lista_ME.append(linea)
+#             print(lista_ME)
+#             indicador = False
+# Tabla = """\
+# +-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+# | Indice | Código de la Materia | Nombre de la Materia | Código de facultad | Código de departamento | Cantidad de créditos | Código de la materia anterior |
+# |-----------------------------------------------------------------------------------------------------------------------------------------------------------|\
+# """
+#
+# print(Tabla)
+# for fila in lista_ME:
+#     if len(fila[2])<19:
+#         a,b,c,d,e,f,g=fila
+#         stringdetabla="|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(a,b,c,d,e,f,g)
+#         stringdetabla=stringdetabla
+#         print(stringdetabla)
+#     else:
+#         a, b, c, d, e, f, g = fila
+#         stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(a, b, c[0:19]+"-", d, e, f, g)
+#         stringdetabla = stringdetabla
+#         print(stringdetabla)
+#         stringdetabla="|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(" "," ", c[19:38], " ", " ", " ", " ")
+#         print(stringdetabla)
+# print("+-----------------------------------------------------------------------------------------------------------------------------------------------------------+")
 
-palabra="Programación orientada a objetos"
-indicador = False
-with open("BD-Materias.txt","r") as file:
-    for linea in file:
-        linea=linea.strip().split(";")
-        for items in linea:
-            if palabra== items:
-                indicador=True
-        if indicador:
-            print("linea encontrada"+str(linea))
-            indicador = False
-        print(linea)
+import basededatosMATERIAS as BDM
+
+
+BDM.mainBDM()

@@ -1,4 +1,5 @@
-1;1;A;1;1;1;1
-2;2;b;2;2;2;2
-3;3;c;;3;3;
-4;2016375;Programación orientada a objetos;2055;2545;3;2015734
+1;1;Algebra;1;1;1;1
+2;2;Base;2;2;2;2
+3;3;programacion;;3;3;
+4;2016375;Programacion orientada a objetos;2055;2545;3;2015734
+7;1234567;123;123;13;43;345
