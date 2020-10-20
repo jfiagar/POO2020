@@ -5,19 +5,21 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f57ebc4-894a-44b3-ba86-4bd32560bea9" name="Default Changelist" comment="Finalizado corregido y puesto en  modulo">
-      <change afterPath="$PROJECT_DIR$/123456789.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BD-Estudiantes.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BD-Materias-Antigua.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BDEstudiantes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BDMateriasAntigua.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BM-Inscritas.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ContadorBD-Materias_Antiguas123456789.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/inscripcion.py" afterDir="false" />
+    <list default="true" id="2f57ebc4-894a-44b3-ba86-4bd32560bea9" name="Default Changelist" comment="Uniendo modulos lunes">
+      <change afterPath="$PROJECT_DIR$/123456789-inscripcion.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BD-Docentes.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BD-Estudiantes-ORDENADA.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BD-Materias-Antigua-ORDENADA.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BDEstudiantes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ContadorBD-Estudiantes.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BD-Materias-ORDENADA.txt" beforeDir="false" afterPath="$PROJECT_DIR$/BD-Materias-ORDENADA.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SIA.py" beforeDir="false" afterPath="$PROJECT_DIR$/SIA.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pruebas.py" beforeDir="false" afterPath="$PROJECT_DIR$/pruebas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/123456789.txt" beforeDir="false" afterPath="$PROJECT_DIR$/123456789.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BD-Estudiantes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/BD-Estudiantes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BD-Materias-Antigua.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BDEstudiantes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BDMateriasAntigua.py" beforeDir="false" afterPath="$PROJECT_DIR$/BDMateriasAntigua.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ContadorBD-Materias_Antiguas123456789.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ContadorBD-Materias_Antiguas123456789.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inscripcion.py" beforeDir="false" afterPath="$PROJECT_DIR$/inscripcion.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +51,27 @@
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RunManager" selected="Python.SIA">
+    <configuration name="BDEstudiantes" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="PrimeraEntrega" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BDEstudiantes" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="BDMateriasAntigua" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PrimeraEntrega" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -83,27 +106,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SIA.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="basededatosMATERIAS" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="PrimeraEntrega" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/basededatosMATERIAS.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -155,19 +157,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.basededatosMATERIAS" />
       <item itemvalue="Python.pruebas" />
       <item itemvalue="Python.inscripcion" />
       <item itemvalue="Python.SIA" />
       <item itemvalue="Python.BDMateriasAntigua" />
+      <item itemvalue="Python.BDEstudiantes" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.SIA" />
         <item itemvalue="Python.BDMateriasAntigua" />
+        <item itemvalue="Python.BDEstudiantes" />
         <item itemvalue="Python.inscripcion" />
         <item itemvalue="Python.pruebas" />
-        <item itemvalue="Python.basededatosMATERIAS" />
       </list>
     </recent_temporary>
   </component>
@@ -285,7 +287,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602971656398</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Uniendo modulos lunes">
+      <created>1603160700427</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1603160700427</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -340,7 +349,8 @@
     <MESSAGE value="Prueba para buscador" />
     <MESSAGE value="Finalizado" />
     <MESSAGE value="Finalizado corregido y puesto en  modulo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finalizado corregido y puesto en  modulo" />
+    <MESSAGE value="Uniendo modulos lunes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Uniendo modulos lunes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="734" y="354" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602263926580">
@@ -351,30 +361,30 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1027" y="501" key="#com.intellij.fileTypes.FileTypeChooser/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603160610991" />
-    <state x="1010" y="446" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1602459051262">
+    <state x="1010" y="446" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603162858039">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1010" y="446" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602459051262" />
+    <state x="1010" y="446" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603162858039" />
     <state x="1188" y="452" key="#xdebugger.XInspectDialog" timestamp="1602263700555">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1188" y="452" key="#xdebugger.XInspectDialog/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602263700555" />
-    <state width="2539" height="401" key="GridCell.Tab.0.bottom" timestamp="1603158481434">
+    <state width="2539" height="401" key="GridCell.Tab.0.bottom" timestamp="1603164054517">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.bottom/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603158481434" />
-    <state width="2539" height="401" key="GridCell.Tab.0.center" timestamp="1603158481434">
+    <state width="2539" height="401" key="GridCell.Tab.0.bottom/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603164054517" />
+    <state width="2539" height="401" key="GridCell.Tab.0.center" timestamp="1603164054516">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.center/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603158481434" />
-    <state width="2539" height="401" key="GridCell.Tab.0.left" timestamp="1603158481433">
+    <state width="2539" height="401" key="GridCell.Tab.0.center/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603164054516" />
+    <state width="2539" height="401" key="GridCell.Tab.0.left" timestamp="1603164054516">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.left/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603158481433" />
-    <state width="2539" height="401" key="GridCell.Tab.0.right" timestamp="1603158481434">
+    <state width="2539" height="401" key="GridCell.Tab.0.left/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603164054516" />
+    <state width="2539" height="401" key="GridCell.Tab.0.right" timestamp="1603164054516">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.right/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603158481434" />
+    <state width="2539" height="401" key="GridCell.Tab.0.right/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603164054516" />
     <state width="2539" height="492" key="GridCell.Tab.1.bottom" timestamp="1602466080043">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -395,10 +405,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="781" y="344" key="SettingsEditor/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603157383400" />
-    <state x="872" y="432" key="Vcs.Push.Dialog.v2" timestamp="1602971661387">
+    <state x="872" y="432" key="Vcs.Push.Dialog.v2" timestamp="1603160702062">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="872" y="432" key="Vcs.Push.Dialog.v2/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602971661387" />
+    <state x="872" y="432" key="Vcs.Push.Dialog.v2/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603160702062" />
     <state x="887" y="310" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1602276179761">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -407,10 +417,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1097" y="613" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602371138718" />
-    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1602980176589">
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1603161415797">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602980176589" />
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603161415797" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

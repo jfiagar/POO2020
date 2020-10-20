@@ -342,7 +342,7 @@ def main_inscripciones():
                         indicador = False
 
                         variabledecomprobacion2 = prerquisito + ID
-                        with open(ID".txt", "r") as file:
+                        with open(ID+".txt", "r") as file:
                             for linea in file:
                                 linea = linea.strip().split(";")
                                 variabledecomprobacion=linea[1]+ID
@@ -358,12 +358,16 @@ def main_inscripciones():
                                 for linea in file:
                                     linea = linea.strip().split(";")
                                     for items in linea:
-                                        if CM=items:
+                                        if CM==items:
                                             nombremateria = linea[2]
                                             creditosmateria = linea[5]
                             with open("BD-Docentes.txt","r") as file:
                                 for linea in file:
                                     linea = linea.strip().split(";")
+                                    nombredocente=linea[2]
+                                    apellidodocente=linea[3]
+                                    diaclase=linea[5]
+                                    horaclase=linea[6]
 
 
 
