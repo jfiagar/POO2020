@@ -6,20 +6,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f57ebc4-894a-44b3-ba86-4bd32560bea9" name="Default Changelist" comment="Uniendo modulos lunes">
-      <change afterPath="$PROJECT_DIR$/123456789-inscripcion.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BD-Docentes.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BD-Estudiantes-ORDENADA.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BD-Materias-Antigua-ORDENADA.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BDEstudiantes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ContadorBD-Estudiantes.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BaseDocentes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123456789.txt" beforeDir="false" afterPath="$PROJECT_DIR$/123456789.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BD-Estudiantes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/BD-Estudiantes.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BD-Materias-Antigua.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BDEstudiantes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BDMateriasAntigua.py" beforeDir="false" afterPath="$PROJECT_DIR$/BDMateriasAntigua.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ContadorBD-Materias_Antiguas123456789.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ContadorBD-Materias_Antiguas123456789.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inscripcion.py" beforeDir="false" afterPath="$PROJECT_DIR$/inscripcion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SIA.py" beforeDir="false" afterPath="$PROJECT_DIR$/SIA.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

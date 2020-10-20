@@ -2,10 +2,10 @@ import basededatosMATERIAS as BDM
 import BDMateriasAntigua as BDMA
 import inscripcion as INS
 import BDEstudiantes as BDE
-
+import BaseDocentes as BDD
 import os
 import os.path
-import operator
+
 
 
 
@@ -35,8 +35,8 @@ while True:
         BDMA.mainBDMAntigua()
     elif opcion_elegida=="2":
         BDE.mainBDE()
-    # elif opcion_elegida == "3":
-    #     BDMD.mainBDMD()
+    elif opcion_elegida == "3":
+        BDD.baseDocentes()
     elif opcion_elegida == "4":
         INS.main_inscripciones()
     elif opcion_elegida == "5":
