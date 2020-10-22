@@ -5,10 +5,29 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f57ebc4-894a-44b3-ba86-4bd32560bea9" name="Default Changelist" comment="Uniendo modulos lunes">
-      <change afterPath="$PROJECT_DIR$/BaseDocentes.py" afterDir="false" />
+    <list default="true" id="2f57ebc4-894a-44b3-ba86-4bd32560bea9" name="Default Changelist" comment="Todos los modulos integrados">
+      <change afterPath="$PROJECT_DIR$/BD-Docentes-ORDENADA.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ContadorBD-Docentes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/123456789-inscripcion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/123456789-inscripcion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/123456789.txt" beforeDir="false" afterPath="$PROJECT_DIR$/123456789.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BD-Docentes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/BD-Docentes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BD-Estudiantes-ORDENADA.txt" beforeDir="false" afterPath="$PROJECT_DIR$/BD-Estudiantes-ORDENADA.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BD-Estudiantes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/BD-Estudiantes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BD-Materias-Antigua-ORDENADA.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BD-Materias-ORDENADA.txt" beforeDir="false" afterPath="$PROJECT_DIR$/BD-Materias-ORDENADA.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BD-Materias.txt" beforeDir="false" afterPath="$PROJECT_DIR$/BD-Materias.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BDEstudiantes.py" beforeDir="false" afterPath="$PROJECT_DIR$/BDEstudiantes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BDMateriasAntigua.py" beforeDir="false" afterPath="$PROJECT_DIR$/BDMateriasAntigua.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BM-Inscritas.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseDocentes.py" beforeDir="false" afterPath="$PROJECT_DIR$/BaseDocentes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ContadorBD-Estudiantes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ContadorBD-Estudiantes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ContadorBD-Materias_Antiguas123456789.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ContadorBD-Materias_Antiguas123456789.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SIA.py" beforeDir="false" afterPath="$PROJECT_DIR$/SIA.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basededatosMATERIAS.py" beforeDir="false" afterPath="$PROJECT_DIR$/basededatosMATERIAS.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inscripcion.py" beforeDir="false" afterPath="$PROJECT_DIR$/inscripcion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pruebas.py" beforeDir="false" afterPath="$PROJECT_DIR$/pruebas.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,19 +165,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.pruebas" />
-      <item itemvalue="Python.inscripcion" />
-      <item itemvalue="Python.SIA" />
-      <item itemvalue="Python.BDMateriasAntigua" />
       <item itemvalue="Python.BDEstudiantes" />
+      <item itemvalue="Python.BDMateriasAntigua" />
+      <item itemvalue="Python.SIA" />
+      <item itemvalue="Python.inscripcion" />
+      <item itemvalue="Python.pruebas" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.SIA" />
+        <item itemvalue="Python.pruebas" />
         <item itemvalue="Python.BDMateriasAntigua" />
         <item itemvalue="Python.BDEstudiantes" />
         <item itemvalue="Python.inscripcion" />
-        <item itemvalue="Python.pruebas" />
       </list>
     </recent_temporary>
   </component>
@@ -283,7 +302,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603160700427</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Todos los modulos integrados">
+      <created>1603231614595</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1603231614595</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -339,7 +365,8 @@
     <MESSAGE value="Finalizado" />
     <MESSAGE value="Finalizado corregido y puesto en  modulo" />
     <MESSAGE value="Uniendo modulos lunes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Uniendo modulos lunes" />
+    <MESSAGE value="Todos los modulos integrados" />
+    <option name="LAST_COMMIT_MESSAGE" value="Todos los modulos integrados" />
   </component>
   <component name="WindowStateProjectService">
     <state x="734" y="354" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602263926580">
@@ -350,54 +377,54 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1027" y="501" key="#com.intellij.fileTypes.FileTypeChooser/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603160610991" />
-    <state x="1010" y="446" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603162858039">
+    <state x="1010" y="446" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603387286780">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1010" y="446" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603162858039" />
+    <state x="1010" y="446" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603387286780" />
     <state x="1188" y="452" key="#xdebugger.XInspectDialog" timestamp="1602263700555">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1188" y="452" key="#xdebugger.XInspectDialog/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602263700555" />
-    <state width="2539" height="401" key="GridCell.Tab.0.bottom" timestamp="1603164054517">
+    <state width="2539" height="492" key="GridCell.Tab.0.bottom" timestamp="1603401183711">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.bottom/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603164054517" />
-    <state width="2539" height="401" key="GridCell.Tab.0.center" timestamp="1603164054516">
+    <state width="2539" height="492" key="GridCell.Tab.0.bottom/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603401183711" />
+    <state width="2539" height="492" key="GridCell.Tab.0.center" timestamp="1603401183711">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.center/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603164054516" />
-    <state width="2539" height="401" key="GridCell.Tab.0.left" timestamp="1603164054516">
+    <state width="2539" height="492" key="GridCell.Tab.0.center/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603401183711" />
+    <state width="2539" height="492" key="GridCell.Tab.0.left" timestamp="1603401183711">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.left/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603164054516" />
-    <state width="2539" height="401" key="GridCell.Tab.0.right" timestamp="1603164054516">
+    <state width="2539" height="492" key="GridCell.Tab.0.left/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603401183711" />
+    <state width="2539" height="492" key="GridCell.Tab.0.right" timestamp="1603401183711">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.right/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603164054516" />
-    <state width="2539" height="492" key="GridCell.Tab.1.bottom" timestamp="1602466080043">
+    <state width="2539" height="492" key="GridCell.Tab.0.right/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603401183711" />
+    <state width="2539" height="492" key="GridCell.Tab.1.bottom" timestamp="1603401183711">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="492" key="GridCell.Tab.1.bottom/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602466080043" />
-    <state width="2539" height="492" key="GridCell.Tab.1.center" timestamp="1602466080043">
+    <state width="2539" height="492" key="GridCell.Tab.1.bottom/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603401183711" />
+    <state width="2539" height="492" key="GridCell.Tab.1.center" timestamp="1603401183711">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="492" key="GridCell.Tab.1.center/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602466080043" />
-    <state width="2539" height="492" key="GridCell.Tab.1.left" timestamp="1602466080043">
+    <state width="2539" height="492" key="GridCell.Tab.1.center/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603401183711" />
+    <state width="2539" height="492" key="GridCell.Tab.1.left" timestamp="1603401183711">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="492" key="GridCell.Tab.1.left/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602466080043" />
-    <state width="2539" height="492" key="GridCell.Tab.1.right" timestamp="1602466080043">
+    <state width="2539" height="492" key="GridCell.Tab.1.left/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603401183711" />
+    <state width="2539" height="492" key="GridCell.Tab.1.right" timestamp="1603401183711">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="492" key="GridCell.Tab.1.right/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602466080043" />
+    <state width="2539" height="492" key="GridCell.Tab.1.right/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603401183711" />
     <state x="781" y="344" key="SettingsEditor" timestamp="1603157383400">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="781" y="344" key="SettingsEditor/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603157383400" />
-    <state x="872" y="432" key="Vcs.Push.Dialog.v2" timestamp="1603160702062">
+    <state x="872" y="432" key="Vcs.Push.Dialog.v2" timestamp="1603231621581">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="872" y="432" key="Vcs.Push.Dialog.v2/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603160702062" />
+    <state x="872" y="432" key="Vcs.Push.Dialog.v2/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603231621581" />
     <state x="887" y="310" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1602276179761">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -406,6 +433,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1097" y="613" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602371138718" />
+    <state x="987" y="256" width="738" height="888" key="find.popup" timestamp="1603310052756">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="987" y="256" width="738" height="888" key="find.popup/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603310052756" />
     <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1603161415797">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

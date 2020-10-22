@@ -1,9 +1,9 @@
-import os.path
-import os
-import operator
+import os               #El módulo "os" nos permite acceder a funcionalidades dependientes del Sistema Operativo. en este caso lo usamos para limpiar la consola
+import os.path          # submódulo path (os.path) el cual nos permite acceder a ciertas funcionalidades relacionadas con los nombres de las rutas de archivos y directorios
+import operator         #Importa la libreria Operator
 
 def menu_principalBDM():
-    os.system('cls')  # Borra los valores de la consola de windows, limpia la consola
+    borrarPantalla()  # Borra los valores de la consola, limpia la consola
     print("Bienvenido a la Base de datos de Estudiantes")  # Saludo :v
     print("MENÚ PRINCIPAL")  # Imprime Menú principal
     print("[0]  Entrar a la base de datos")  # Imprime la primera opción
@@ -11,7 +11,7 @@ def menu_principalBDM():
     print("[2]  Salir del programa")  # Imprime la tercera opción
 
 def menu_mostrarbase():
-    os.system('cls')  # Borra los valores de la consola de windows, limpia la consola
+    borrarPantalla()  # Borra los valores de la consola, limpia la consola
     print("[0]  Ver la base de datos actual COMPLETA")  # Imprime la primera opción
     print("[1]  Ver la base de datos ordenada por un valor")  # Imprime la segunda opción
     print("[2]  Buscar un valor específico en la base de datos")  # Imprime la segunda opción
@@ -40,6 +40,13 @@ def menu_opcionesBDMOrdenadanum():
     print("[1]  Oredenar numéricamente [0->9]")  # Imprime la primera opción
     print("[2]  Oredenar numéricamente [9->0]")  # Imprime la primera opción
 
+def borrarPantalla():                       #Definimos la función estableciendo el nombre de Borrar pantalla
+    if os.name == "posix":              #Verifica si el sistema operativo es Unix/Linux/MacOS/BSD
+        os.system ("clear")             #Si el sistema es Unix/Linux/MacOS/BSD limpia la consola con la función system clear
+    elif os.name == "ce" or os.name == "nt" or os.name == "dos":        #Verifica si el sistema operativo es Windows, o sistemas desarrollados por Microsoft
+        os.system ("cls")                       #Si el sistema es DOS/Windows limpia la consola con la función system cls
+
+
 
 def mainBDE():
     while True:
@@ -52,8 +59,26 @@ def mainBDE():
                 menu_mostrarbase()
                 opcion2 = input("Ingrese el número de la opción: ")
                 if opcion2 == "0":
-                    with open("BD-Estudiantes.txt", "r") as file:
-                        print(file.read())
+                    with open("BD-Estudiantes.txt","r") as file:  # el metodo with  abre el archivo de la base de datos de Estudiantes como modo lectura, lo abre con el nombre de "file" y ejecuta el codigo siguiente mientras esté abierto, luego cierra el archivo
+                        listatotal = []  # Crea una lista llamada listatotal
+                        for lineas in file:  # Recorre cada linea en el archivo usando un ciclo for
+                            lineas = lineas.strip().split(";")  # con la función strip quita los saltos de linea "\n", con la función split, divide las palabras segun cuando encuentra un ";" y devuelve una lista, la cual es almacenada en la variable lineas
+                            listatotal.append(lineas)  # se agregan las listas creadas a la lista total, creando una lista de listas con los valores separados
+
+                    Tabla = "+----------------------------------------------------------------------------------------------------------------------------------------------------+\n| Indice | Documento de Identidad |        Nombre        |       Apellido       | Código del plan de estudio | Calidad de estudiante | PAPA (actual) |\n|----------------------------------------------------------------------------------------------------------------------------------------------------|"
+                    # Crea un string para las primeras casillas de la tabla
+                    print(Tabla)  # Imprime ese string
+                    for fila in listatotal:  # Para cada lista en la lista total realiza el codigo siguiente:
+                        if len(fila[2]) < 20:  # Si la longitud del item 2 de la lista es menor a 20 entra al ciclo, esto se hace para verificar si la palabra cabe en la celda
+                            a, b, c, d, e, f, g = fila  # Desempaqueta las variables de la lista en varias variables llamadas a,b,c, etc que en realidad serían a=Indice, b= Codidog de la materia, C= Nombre. etc--
+                            stringdetabla = "|{:^8}|{:^24}|{:^22}|{:^22}|{:^28}|{:^23}|{:^15}|".format(a, b, c, d, e, f, g)  # Usando el metodo format crea un string con los valores de las variables almacenadas y los centra segun el valor, por ejemplo "^8" lo centra a 8 espacios a izquierda y derecha
+                            print(stringdetabla)  # imprime cada string, o sea cada fila de la tabla y continua el ciclo para la siguiente fila
+                        else:
+                            a, b, c, d, e, f, g = fila  # entra a esta parte si el Nombre de la Materia es muy largo, y hace el mismo procedimiento ya explicado desempaquetando y almacenando las variables
+                            stringdetabla = "|{:^8}|{:^24}|{:^22}|{:^22}|{:^28}|{:^23}|{:^15}|".format(a, b, c[0:19] + "-", d,e, f,g)  # con el metodo format pone las varibales, y en el caso de la variable del nombre de la amteria imprime los primeros 19 caracteres mas un guion
+                            print(stringdetabla)
+                            stringdetabla = "|{:^8}|{:^24}|{:^22}|{:^22}|{:^28}|{:^23}|{:^15}|".format(" ", " ", c[19:38], " "," ", " ", " ")  # Imprime la siguiente parte que faltó del Nombre de la materia
+                            print(stringdetabla)
                 elif opcion2 == "1":
 
                     with open('BD-Estudiantes.txt', "r") as file:
@@ -104,7 +129,7 @@ def mainBDE():
                             print("Opción no valida")
                     elif opcion3 == "3":
                         dic = dict(zip(listaIN, listaA))
-                        menu_opcionesBDMOrdenadanum()
+                        menu_opcionesBDMOrdenadaalfa()
                         opcion4 = input("Ingrese el número de la opción: ")
                         if opcion4 == "1":
                             valores_ord = dict(sorted(dic.items(), key=operator.itemgetter(1)))
@@ -128,7 +153,7 @@ def mainBDE():
                             print("Opción no valida")
                     elif opcion3 == "5":
                         dic = dict(zip(listaIN, listaCE))
-                        menu_opcionesBDMOrdenadanum()
+                        menu_opcionesBDMOrdenadaalfa()
                         opcion4 = input("Ingrese el número de la opción: ")
                         if opcion4 == "1":
                             valores_ord = dict(sorted(dic.items(), key=operator.itemgetter(1)))
@@ -161,10 +186,29 @@ def mainBDE():
 
                     with open("BD-Estudiantes-ORDENADA.txt", "w") as file:
                         for indices in val:
-                            listaordenada = str(indices) + ";" + listaDI[indices - 1] + ";" + listaN[
-                                indices - 1] + ";" + listaA[indices - 1] + ";" + listaCP[indices - 1] + ";" + listaCE[
-                                                indices - 1] + ";" + listaPA[indices - 1]
+                            listaordenada = str(indices) + ";" + listaDI[indices - 1] + ";" + listaN[indices - 1] + ";" + listaA[indices - 1] + ";" + listaCP[indices - 1] + ";" + listaCE[indices - 1] + ";" + listaPA[indices - 1]
                             file.write(listaordenada + "\n")
+                    with open("BD-eSTUDIANTES-ORDENADA.txt","r") as file:  # el metodo with  abre el archivo de la base de datos de Estudiantes como modo lectura, lo abre con el nombre de "file" y ejecuta el codigo siguiente mientras esté abierto, luego cierra el archivo
+                        listatotal = []  # Crea una lista llamada listatotal
+                        for lineas in file:  # Recorre cada linea en el archivo usando un ciclo for
+                            lineas = lineas.strip().split(";")  # con la función strip quita los saltos de linea "\n", con la función split, divide las palabras segun cuando encuentra un ";" y devuelve una lista, la cual es almacenada en la variable lineas
+                            listatotal.append(lineas)  # se agregan las listas creadas a la lista total, creando una lista de listas con los valores separados
+
+                    Tabla = "+----------------------------------------------------------------------------------------------------------------------------------------------------+\n| Indice | Documento de Identidad |        Nombre        |       Apellido       | Código del plan de estudio | Calidad de estudiante | PAPA (actual) |\n|----------------------------------------------------------------------------------------------------------------------------------------------------|"
+                    # Crea un string para las primeras casillas de la tabla
+                    print(Tabla)  # Imprime ese string
+                    for fila in listatotal:  # Para cada lista en la lista total realiza el codigo siguiente:
+                        if len(fila[2]) < 20:  # Si la longitud del item 2 de la lista es menor a 20 entra al ciclo, esto se hace para verificar si la palabra cabe en la celda
+                            a, b, c, d, e, f, g = fila  # Desempaqueta las variables de la lista en varias variables llamadas a,b,c, etc que en realidad serían a=Indice, b= Codidog de la materia, C= Nombre. etc--
+                            stringdetabla = "|{:^8}|{:^24}|{:^22}|{:^22}|{:^28}|{:^23}|{:^15}|".format(a, b, c, d, e, f, g)  # Usando el metodo format crea un string con los valores de las variables almacenadas y los centra segun el valor, por ejemplo "^8" lo centra a 8 espacios a izquierda y derecha
+                            print(stringdetabla)  # imprime cada string, o sea cada fila de la tabla y continua el ciclo para la siguiente fila
+                        else:
+                            a, b, c, d, e, f, g = fila  # entra a esta parte si el Nombre de la Materia es muy largo, y hace el mismo procedimiento ya explicado desempaquetando y almacenando las variables
+                            stringdetabla = "|{:^8}|{:^24}|{:^22}|{:^22}|{:^28}|{:^23}|{:^15}|".format(a, b, c[0:19] + "-", d,e, f,g)  # con el metodo format pone las varibales, y en el caso de la variable del nombre de la amteria imprime los primeros 19 caracteres mas un guion
+                            print(stringdetabla)
+                            stringdetabla = "|{:^8}|{:^24}|{:^22}|{:^22}|{:^28}|{:^23}|{:^15}|".format(" ", " ", c[19:38], " "," ", " ", " ")  # Imprime la siguiente parte que faltó del Nombre de la materia
+                            print(stringdetabla)
+
                 elif opcion2 == "2":
                     palabra = input("Ingrese el valor a buscar:")
                     indicador = False
@@ -178,30 +222,22 @@ def mainBDE():
                             if indicador:
                                 lista_ME.append(linea)
                                 indicador = False
-                    Tabla = "+-----------------------------------------------------------------------------------------------------------------------------------------------------------+\n| Indice | Código de la Materia | Nombre de la Materia | Código de facultad | Código de departamento | Cantidad de créditos | Código de la materia anterior |\n|-----------------------------------------------------------------------------------------------------------------------------------------------------------|"
+                    Tabla = "+----------------------------------------------------------------------------------------------------------------------------------------------------+\n| Indice | Documento de Identidad |        Nombre        |       Apellido       | Código del plan de estudio | Calidad de estudiante | PAPA (actual) |\n|----------------------------------------------------------------------------------------------------------------------------------------------------|"
 
                     print(Tabla)
                     for fila in lista_ME:
-                        if len(fila[2]) < 19:
+                        if len(fila[2]) < 20:
                             a, b, c, d, e, f, g = fila
-                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(a, b, c, d, e, f,
-                                                                                                       g)
+                            stringdetabla = "|{:^8}|{:^24}|{:^22}|{:^22}|{:^28}|{:^23}|{:^15}|".format(a, b, c, d, e, f,g)
                             stringdetabla = stringdetabla
                             print(stringdetabla)
                         else:
                             a, b, c, d, e, f, g = fila
-                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(a, b,
-                                                                                                       c[0:19] + "-",
-                                                                                                       d, e, f, g)
+                            stringdetabla = "|{:^8}|{:^24}|{:^22}|{:^22}|{:^28}|{:^23}|{:^15}|".format(a, b, c[0:19] + "-", d, e, f, g)
                             stringdetabla = stringdetabla
                             print(stringdetabla)
-                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(" ", " ",
-                                                                                                       c[19:38],
-                                                                                                       " ", " ", " ",
-                                                                                                       " ")
+                            stringdetabla = "|{:^8}|{:^24}|{:^22}|{:^22}|{:^28}|{:^23}|{:^15}|".format(" ", " ", c[19:38], " ", " ", " ", " ")
                             print(stringdetabla)
-                    print(
-                        "+-----------------------------------------------------------------------------------------------------------------------------------------------------------+")
                 elif opcion2 == "3":
                     continue
                 elif opcion2 == "4":
@@ -210,8 +246,7 @@ def mainBDE():
                     print("Opción no valida")
             else:
                 print("Aún no existe una Base de datos")
-            print(
-                "----------------------------------------------------------------------------------------------------------------------------------------------------------------")
+            print("+----------------------------------------------------------------------------------------------------------------------------------------------------+")
             menu_opcionesBDM()
             opcion2 = input("Ingrese el número de la opción: ")
             if opcion2 == "0":
@@ -235,36 +270,27 @@ def mainBDE():
                 "Ingrese el PAPA actual: ")  # Código materia anterior obligatoria en el plan de estudios
             diccionario = DI + ";" + N + ";" + A + ";" + CP + ";" + CE + ";" + PA  # Creación del diccionario de la materia
 
-            if not os.path.isfile(
-                    "BD-Estudiantes.txt"):  # Verificación de que la base de datos exista usando "isfile" de la libreria os.path , si existe el archivo el valor es True, sino False .Por lo tanto si el archivo no existe entonces entra a la condición
-                BDM = open("BD-Estudiantes.txt",
-                           "w")  # Este modo abre el archivo para escritura. Si el archivo no existe, crea un nuevo archivo.
+            if not os.path.isfile("BD-Estudiantes.txt"):  # Verificación de que la base de datos exista usando "isfile" de la libreria os.path , si existe el archivo el valor es True, sino False .Por lo tanto si el archivo no existe entonces entra a la condición
+                BDM = open("BD-Estudiantes.txt","w")  # Este modo abre el archivo para escritura. Si el archivo no existe, crea un nuevo archivo.
                 numerodeestudiantes = 1  # Establece el número de materias en 1
-                BDM.write(str(numerodeestudiantes) + ";" + str(dict) + "\n")  # Escribe los datos de la primera materia
+                BDM.write(str(numerodeestudiantes) + ";" + str(diccionario) + "\n")  # Escribe los datos de la primera materia
                 BDM.close()  # Cierra el archivo
 
-                with open('ContadorBD-Estudiantes.txt',
-                          'w') as file:  # Este modo abre el archivo para escritura. Si el archivo no existe, crea un nuevo archivo.
-                    file.write(str(
-                        numerodeestudiantes))  # Escribe los datos  iniciales del numero de materias en la abse de datos
+                with open('ContadorBD-Estudiantes.txt','w') as file:  # Este modo abre el archivo para escritura. Si el archivo no existe, crea un nuevo archivo.
+                    file.write(str(numerodeestudiantes))  # Escribe los datos  iniciales del numero de materias en la abse de datos
 
 
             else:  # Si el archivo ya existe se entra a esta condicion
-                with open('ContadorBD-Estudiantes.txt',
-                          'r') as file:  # Abre el archivo del contador de materias en modo lectura
+                with open('ContadorBD-Estudiantes.txt','r') as file:  # Abre el archivo del contador de materias en modo lectura
                     numerodeestudiantes = file.read()  # Almacena el numero de materias leyendo el archivo
-                numerodeestudiantes = int(
-                    numerodeestudiantes) + 1  # Como se hizo una adición a la base de datos de materias entonces se aumenta el contador en 1
+                numerodeestudiantes = int(numerodeestudiantes) + 1  # Como se hizo una adición a la base de datos de materias entonces se aumenta el contador en 1
 
-                with open("BD-Estudiantes.txt",
-                          "a") as file:  # Abrir archivo en modo adjuntar. Si el archivo no existe, crea un nuevo archivo.
+                with open("BD-Estudiantes.txt","a") as file:  # Abrir archivo en modo adjuntar. Si el archivo no existe, crea un nuevo archivo.
                     file.write(
-                        str(numerodeestudiantes) + ";" + str(dict) + "\n")  # Escribe los datos de la siguiente materia
+                        str(numerodeestudiantes) + ";" + str(diccionario) + "\n")  # Escribe los datos de la siguiente materia
 
-                with open('ContadorBD-Estudiantes.txt',
-                          'w') as file:  # Este modo abre el archivo para escritura. Si el archivo no existe, crea un nuevo archivo.
-                    file.write(str(
-                        numerodeestudiantes))  # Actualiza el archivo sobreescribiendo el valor del numero de materias es decir borra los datos del archivo anterior y escribe de nuevo
+                with open('ContadorBD-Estudiantes.txt','w') as file:  # Este modo abre el archivo para escritura. Si el archivo no existe, crea un nuevo archivo.
+                    file.write(str(numerodeestudiantes))  # Actualiza el archivo sobreescribiendo el valor del numero de materias es decir borra los datos del archivo anterior y escribe de nuevo
             menu_opcionesBDM()
             opcion2 = input("Ingrese el número de la opción: ")
             if opcion2 == "0":

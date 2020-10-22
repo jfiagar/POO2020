@@ -1,6 +1,6 @@
-1;1;Algebra;1;1;1;1
-2;2;Base;2;2;2;2
-3;3;programacion;;3;3;
-4;2016375;Programacion orientada a objetos;2055;2545;3;2015734
-5;1234567;123;123;13;43;345
-6;2;3;fre;123;2;sdfsd
+1;2016375;Programación orientada a objetos;2055;2543;3;2015734
+2;2015734;Programación de computadores;2055;2543;3;
+3;1000003-B;Álgebra Lineal;2050;2518;4;1000004-B
+4;1000004-B;Cálculo diferencial;2050;2518;4;1000001-B
+5;1000001-B;Matemáticas Básicas;2050;2518;4;
+6;1000019-B;Fundamentos de mecánica;2050;2516;4;1000004-B

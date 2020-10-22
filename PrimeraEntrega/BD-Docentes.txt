@@ -1,1 +1,2 @@
-1;00000000;Jorge;Amaya;2016375;L;18:00;2
+1;1122334455;Jorge Enrique;Amaya Cala;2016375;M - J;18:00;2
+2;4488996622;Andres Cristian;Torres Castillo;1000001-B;J-V;07:00;2

@@ -1,2 +1,1 @@
-1;2015734;Programacion de computadores;1243;3255;3;;a
-2;2075564;gsdfgsd;5454;65464;4;3121564;a
+1;2015734;Programación de computadores;2055;2543;3;;a

@@ -1,17 +1,17 @@
-import os.path
-import os
-import operator
+import os               #El módulo "os" nos permite acceder a funcionalidades dependientes del Sistema Operativo. en este caso lo usamos para limpiar la consola
+import os.path          # submódulo path (os.path) el cual nos permite acceder a ciertas funcionalidades relacionadas con los nombres de las rutas de archivos y directorios
+import operator         #Importa la libreria Operator
 
 def menu_principalBDD():
-    os.system('clear')  # Borra los valores de la consola de windows, limpia la consola
+    borrarPantalla()  # Borra los valores de la consola, limpia la consola
     print("Bienvenido a la Base de datos de Docentes")  # Saludo :v
     print("MENÚ PRINCIPAL")  # Imprime Menú principal
-    print("[0]  Entrar a la base de datos")  # Imprime la primera opción
-    print("[1]  Ingresar información a la base de datos")  # Imprime la segunda opción
-    print("[2]  Salir del programa")  # Imprime la tercera opción
+    print("\t[0]  Entrar a la base de datos de DOCENTES")  # Imprime la primera opción
+    print("\t[1]  Ingresar información a la base de datos")  # Imprime la segunda opción
+    print("\t[2]  Salir del Modulo de la Base de datos de Docentes")  # Imprime la tercera opción
 
 def menu_mostrarbase():
-    os.system('clear')  # Borra los valores de la consola de windows, limpia la consola
+    borrarPantalla()  # Borra los valores de la consola, limpia la consola
     print("[0]  Ver la base de datos actual completa")  # Imprime la primera opción
     print("[1]  Ver la base de datos ordenada por un valor")  # Imprime la segunda opción
     print("[2]  Buscar un valor específico en la base de datos")  # Imprime la segunda opción
@@ -20,11 +20,11 @@ def menu_mostrarbase():
 
 def menu_opcionesBDD():
     print("[0]  Volver al menú principal")  # Imprime la primera opción
-    print("[1]  Salir del programa")  # Imprime la segunda opción
+    print("[1]  Salir del programa\n")  # Imprime la segunda opción
 
 def menu_opcionesBDDingresar():
     print("[0]  Ingresar nuevo Docente")  # Imprime la primera opción
-    print("[1]  Ingresar nueva materia a Docente")  # Imprime la segunda opción
+    print("[1]  Ingresar nueva materia a Docente\n")  # Imprime la segunda opción
 
 def menu_opcionesBDDOrdenada():
     print("[1]  Ordenar por Número de documento de identidad")  # Imprime la primera opción
@@ -35,15 +35,21 @@ def menu_opcionesBDDOrdenada():
     print("[6]  Ordenar por Hora de clase")  # Imprime la primera opción
     print("[7]  Ordenar por Número de horas dictadas")  # Imprime la primera opción
     print("[8]  Volver al menú principal")
-    print("[9]  Salir del programa")  # Imprime la segunda opción
+    print("[9]  Salir del programa\n")  # Imprime la segunda opción
 
 def menu_opcionesBDDordenadaalfa():
     print("[1]  Ordenar alfabéticamente [A->Z]")  # Imprime la primera opción
-    print("[2]  Ordenar alfabéticamente [Z->A]")  # Imprime la primera opción
+    print("[2]  Ordenar alfabéticamente [Z->A]\n")  # Imprime la primera opción
 
 def menu_opcionesBDDordenadanum():
     print("[1]  Ordenar numéricamente [0->9]")  # Imprime la primera opción
-    print("[2]  Ordenar numéricamente [9->0]")  # Imprime la primera opción
+    print("[2]  Ordenar numéricamente [9->0]\n")  # Imprime la primera opción
+
+def borrarPantalla():                       #Definimos la función estableciendo el nombre que queramos
+    if os.name == "posix":              #Verifica si el sistema operativo es Unix/Linux/MacOS/BSD
+        os.system ("clear")             #Si el sistema es Unix/Linux/MacOS/BSD limpia la consola con la función system clear
+    elif os.name == "ce" or os.name == "nt" or os.name == "dos":        #Verifica si el sistema operativo es Windows, o sistemas desarrollados por Microsoft
+        os.system ("cls")                       #Si el sistema es DOS/Windows limpia la consola con la función system cls
 
 
 
@@ -62,7 +68,7 @@ def baseDocentes():
                         for lineas in file:
                             lineas = lineas.strip().split(";")
                             listatotal.append(lineas)
-                    Tabla = "\+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n| Indice | Numero de documento  |        Nombre        |       Apellido       |Código de materia que dicta|        Dia        |        Hora        |   Numero de Horas  |\n|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|"
+                    Tabla = "+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n| Indice | Numero de documento  |        Nombre        |       Apellido       |Código de materia que dicta|        Dia        |        Hora        |   Numero de Horas  |\n|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|"
 
                     print(Tabla)
                     for fila in listatotal:
@@ -83,8 +89,7 @@ def baseDocentes():
                                 for i in range(1,len(e)):
                                     stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^22}|{:^27}|{:^19}|{:^20}|{:^20}|".format(" ", " ", " ", " ", e[i], f[i], g[i], h[i])
                                     print(stringdetabla)
-                    print(
-                        "+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+")
+                    print("+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+")
 
                 elif opcion2=="1":
 
@@ -223,15 +228,13 @@ def baseDocentes():
                             lineas = lineas.strip().split(";")
                             listatotal.append(lineas)
 
-                    Tabla = "\+-----------------------------------------------------------------------------------------------------------------------------------------------------------+\n| Indice | Numero de documento  |        Nombre        |       Apellido       |Código de materia que dicta|        Dia        |        Hora        |   Numero de Horas  |\n|-----------------------------------------------------------------------------------------------------------------------------------------------------------|"
+                    Tabla = "+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n| Indice | Numero de documento  |        Nombre        |       Apellido       |Código de materia que dicta|        Dia        |        Hora        |   Numero de Horas  |\n|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|"
 
                     print(Tabla)
                     for fila in listatotal:
                         if len(fila[2]) < 19:
                             a, b, c, d, e, f, g, h = fila
-                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^22}|{:^27}|{:^19}|{:^20}|{:^20}|".format(a, b, c,
-                                                                                                              d, e, f,
-                                                                                                              g, h)
+                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^22}|{:^27}|{:^19}|{:^20}|{:^20}|".format(a, b, c, d, e, f, g, h)
                             stringdetabla = stringdetabla
                             print(stringdetabla)
                         else:
@@ -246,8 +249,7 @@ def baseDocentes():
                                                                                                        " ", " ", " ",
                                                                                                        " ", "")
                             print(stringdetabla)
-                    print(
-                        "+-----------------------------------------------------------------------------------------------------------------------------------------------------------+")
+                    print("+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+")
 
                 elif opcion2=="2":
                     palabra = input("Ingrese el valor a buscar:")
@@ -262,7 +264,7 @@ def baseDocentes():
                             if indicador:
                                 lista_ME.append(linea)
                                 indicador = False
-                    Tabla = "\+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n| Indice | Numero de documento  |        Nombre        |       Apellido       |Código de materia que dicta|        Dia        |        Hora        |   Numero de Horas  |\n|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|"
+                    Tabla = "+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n| Indice | Numero de documento  |        Nombre        |       Apellido       |Código de materia que dicta|        Dia        |        Hora        |   Numero de Horas  |\n|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|"
 
                     print(Tabla)
                     for fila in lista_ME:
@@ -308,7 +310,7 @@ def baseDocentes():
                     print("Opción no valida")
             else:
                 print("Aún no existe una Base de datos")
-            print("----------------------------------------------------------------------------------------------------------------------------------------------------------------")
+            print("\n")
             menu_opcionesBDD()
             opcion2 = input("Ingrese el número de la opción: ")
             if opcion2 == "0":

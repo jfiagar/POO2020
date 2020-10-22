@@ -1,2 +1,3 @@
-1;123456789;Juan;Pablo;2544;M;5.0
-2;123456789;Juan;Pablo;2544;M;4.0
+1;123456789;Donald;Trump;2050;M;3.0
+2;1023658931;Daniel Esteban;Gonzalez Garcia;2040;P;2.0
+3;788901391;Oscar Fernando;Fajardo Pulido;2031;G;3.4

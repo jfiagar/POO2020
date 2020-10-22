@@ -1,10 +1,10 @@
-import os.path
-import os
-import operator
+import os               #El módulo "os" nos permite acceder a funcionalidades dependientes del Sistema Operativo. en este caso lo usamos para limpiar la consola
+import os.path          # submódulo path (os.path) el cual nos permite acceder a ciertas funcionalidades relacionadas con los nombres de las rutas de archivos y directorios
+import operator         #Importa la libreria Operator
 
 
 def menu_principalBDM():
-    os.system('cls')  # Borra los valores de la consola de windows, limpia la consola
+    borrarPantalla()  # Borra los valores de la consola, limpia la consola
     print("Bienvenido a la Base de datos de Materias")  # Saludo :v
     print("MENÚ PRINCIPAL")  # Imprime Menú principal
     print("[0]  Entrar a la base de datos")  # Imprime la primera opción
@@ -14,7 +14,7 @@ def menu_principalBDM():
 
 
 def menu_mostrarbase():
-    os.system('cls')  # Borra los valores de la consola de windows, limpia la consola
+    borrarPantalla()  # Borra los valores de la consola, limpia la consola
     print("[0]  Ver la base de datos actual COMPLETA")  # Imprime la primera opción
     print("[1]  Ver la base de datos ordenada por un valor")  # Imprime la segunda opción
     print("[2]  Buscar un valor específico en la base de datos")  # Imprime la segunda opción
@@ -48,6 +48,14 @@ def menu_opcionesBDMOrdenadanum():
     print("[1]  Oredenar numéricamente [0->9]")  # Imprime la primera opción
     print("[2]  Oredenar numéricamente [9->0]")  # Imprime la primera opción
 
+def borrarPantalla():                       #Definimos la función estableciendo el nombre de Borrar pantalla
+    if os.name == "posix":              #Verifica si el sistema operativo es Unix/Linux/MacOS/BSD
+        os.system ("clear")             #Si el sistema es Unix/Linux/MacOS/BSD limpia la consola con la función system clear
+    elif os.name == "ce" or os.name == "nt" or os.name == "dos":        #Verifica si el sistema operativo es Windows, o sistemas desarrollados por Microsoft
+        os.system ("cls")                       #Si el sistema es DOS/Windows limpia la consola con la función system cls
+
+
+
 def mainBDMAntigua():
     while True:
         menu_principalBDM()
@@ -69,7 +77,7 @@ def mainBDMAntigua():
 
                     print(Tabla)
                     for fila in listatotal:
-                        if len(fila[2]) < 19:
+                        if len(fila[2]) < 20:
                             a, b, c, d, e, f, g = fila
                             stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(a, b, c, d, e, f,g)
                             stringdetabla = stringdetabla
@@ -223,7 +231,7 @@ def mainBDMAntigua():
 
                     print(Tabla)
                     for fila in listatotal:
-                        if len(fila[2]) < 19:
+                        if len(fila[2]) < 20:
                             a, b, c, d, e, f, g = fila
                             stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(a, b, c, d, e, f,g)
                             stringdetabla = stringdetabla
@@ -277,7 +285,7 @@ def mainBDMAntigua():
             else:
                 print("Aún no existe una Base de datos")
             print(
-                "----------------------------------------------------------------------------------------------------------------------------------------------------------------")
+                "-------------------------------------------------------------------------------------------------------------------------------------------------------------")
             menu_opcionesBDM()
             opcion2 = input("Ingrese el número de la opción: ")
             if opcion2 == "0":
@@ -402,7 +410,7 @@ def mainBDMAntigua():
                 print(Tabla)
 
                 for fila in listatotal:
-                    if len(fila[2]) < 19:
+                    if len(fila[2]) < 20:
                         a, b, c, d, e, f, g, h = fila
                         stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^36}|{:^22}|".format(a, b, c, d, e,
                                                                                                           f,

@@ -1,5 +1,6 @@
-import os
-import os.path
+import os               #El módulo "os" nos permite acceder a funcionalidades dependientes del Sistema Operativo. en este caso lo usamos para limpiar la consola
+import os.path          # submódulo path (os.path) el cual nos permite acceder a ciertas funcionalidades relacionadas con los nombres de las rutas de archivos y directorios
+import operator         #Importa la libreria Operator
 
 def menu_mostrarbase():
     borrarPantalla()  # Borra los valores de la consola de windows, limpia la consola
@@ -40,13 +41,13 @@ def menu_principalINS():
     print("Bienvenido al proceso de Auto-Matricula")  # Saludo :v
     print("MENÚ PRINCIPAL")  # Imprime Menú principal
 
+def borrarPantalla():                       #Definimos la función estableciendo el nombre de Borrar Pantalla
+    if os.name == "posix":              #Verifica si el sistema operativo es Unix/Linux/MacOS/BSD
+        os.system ("clear")             #Si el sistema es Unix/Linux/MacOS/BSD limpia la consola con la función system clear
+    elif os.name == "ce" or os.name == "nt" or os.name == "dos":        #Verifica si el sistema operativo es Windows, o sistemas desarrollados por Microsoft
+        os.system ("cls")                       #Si el sistema es DOS/Windows limpia la consola con la función system cls
 
 
-def borrarPantalla(): #Definimos la función estableciendo el nombre que queramos
-    if os.name == "posix":
-        os.system ("clear")
-    elif os.name == "ce" or os.name == "nt" or os.name == "dos":\
-        os.system ("cls")
 
 def main_inscripciones():
     while True:
@@ -83,7 +84,7 @@ def main_inscripciones():
 
                     print(Tabla)
                     for fila in listatotal:
-                        if len(fila[2]) < 19:
+                        if len(fila[2]) < 20:
                             a, b, c, d, e, f, g = fila
                             stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(a, b, c, d, e, f,
                                                                                                        g)
@@ -103,7 +104,7 @@ def main_inscripciones():
                                                                                                        " ", " ")
                             print(stringdetabla)
                             comprobar=1
-                            menu_inscripcionmateria()
+
 
 
                 elif opcion2 == "1":
@@ -307,7 +308,7 @@ def main_inscripciones():
             print(
                 "----------------------------------------------------------------------------------------------------------------------------------------------------------------")
 
-            menu_opcionesBDM()
+
 
         elif opcion_elegida=="2":
             while comprobar == 0:
@@ -329,7 +330,7 @@ def main_inscripciones():
                         print("Esta materia ya fue cursada")
                     else:
                         indicador = False
-                        lista_ME = []
+
                         with open("BD-Materias.txt", "r") as file:
                             for linea in file:
                                 linea = linea.strip().split(";")
@@ -346,14 +347,16 @@ def main_inscripciones():
                             for linea in file:
                                 linea = linea.strip().split(";")
                                 variabledecomprobacion=linea[1]+ID
-                                if variabledecomprobacion==variabledecomprobacion2:
+                                if variabledecomprobacion==variabledecomprobacion2 or variabledecomprobacion2==""+ID:
                                     comprobar=1
                         if comprobar==1:
                             with open("BD-Estudiantes.txt","r") as file:
                                 for linea in file:
                                     linea = linea.strip().split(";")
-                                    nombre = linea[2]
-                                    apellido=linea[3]
+                                    for items in linea:
+                                        if ID==items:
+                                            nombre = linea[2]
+                                            apellido=linea[3]
                             with open("BD-Materias.txt","r") as file:
                                 for linea in file:
                                     linea = linea.strip().split(";")
@@ -364,10 +367,12 @@ def main_inscripciones():
                             with open("BD-Docentes.txt","r") as file:
                                 for linea in file:
                                     linea = linea.strip().split(";")
-                                    nombredocente=linea[2]
-                                    apellidodocente=linea[3]
-                                    diaclase=linea[5]
-                                    horaclase=linea[6]
+                                    for items in linea:
+                                        if CM==items:
+                                            nombredocente = linea[2]
+                                            apellidodocente = linea[3]
+                                            diaclase = linea[5]
+                                            horaclase = linea[6]
 
 
 
@@ -378,8 +383,41 @@ def main_inscripciones():
                             else:
                                 with open(ID + "-inscripcion.txt", "a") as file:
                                     file.write(infomateria)
+                            with open(ID + "-inscripcion.txt", "r") as file:
+                                listatotal = []  # Crea una lista llamada listatotal
+                                for lineas in file:  # Recorre cada linea en el archivo usando un ciclo for
+                                    lineas = lineas.strip().split(
+                                        ";")  # con la función strip quita los saltos de linea "\n", con la función split, divide las palabras segun cuando encuentra un ";" y devuelve una lista, la cual es almacenada en la variable lineas
+                                    listatotal.append(
+                                        lineas)  # se agregan las listas creadas a la lista total, creando una lista de listas con los valores separados
 
-                            print("La Inscricpción ha sido satisfactoria")
+                            Tabla = "\+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n| Documento de Identidad |        Nombre        |       Apellido       | Código de la Materia |  Nombre de la Materia  | Créditos |  Nombre del Docente  | Apellido del Docente | Dias de Clase | Hora de Clase |\n|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|"
+                            # Crea un string para las primeras casillas de la tabla
+                            print(Tabla)  # Imprime ese string
+                            for fila in listatotal:  # Para cada lista en la lista total realiza el codigo siguiente:
+                                if len(fila[
+                                           4]) < 20:  # Si la longitud del item 2 de la lista es menor a 20 entra al ciclo, esto se hace para verificar si la palabra cabe en la celda
+                                    a, b, c, d, e, f, g, h, i, j = fila  # Desempaqueta las variables de la lista en varias variables llamadas a,b,c, etc que en realidad serían a=Indice, b= Codidog de la materia, C= Nombre. etc--
+                                    stringdetabla = "|{:^24}|{:^22}|{:^22}|{:^22}|{:^24}|{:^10}|{:^22}|{:^22}|{:^15}|{:^15}|".format(
+                                        a, b, c, d, e, f, g, h, i,
+                                        j)  # Usando el metodo format crea un string con los valores de las variables almacenadas y los centra segun el valor, por ejemplo "^8" lo centra a 8 espacios a izquierda y derecha
+                                    print(
+                                        stringdetabla)  # imprime cada string, o sea cada fila de la tabla y continua el ciclo para la siguiente fila
+                                else:
+                                    a, b, c, d, e, f, g, h, i, j = fila  # entra a esta parte si el Nombre de la Materia es muy largo, y hace el mismo procedimiento ya explicado desempaquetando y almacenando las variables
+                                    stringdetabla = "|{:^24}|{:^22}|{:^22}|{:^22}|{:^24}|{:^10}|{:^22}|{:^22}|{:^15}|{:^15}|".format(
+                                        a, b, c, d, e[0:19] + "-", f, g, h, i,
+                                        j)  # con el metodo format pone las varibales, y en el caso de la variable del nombre de la amteria imprime los primeros 19 caracteres mas un guion
+
+                                    print(stringdetabla)
+                                    stringdetabla = "|{:^24}|{:^22}|{:^22}|{:^22}|{:^24}|{:^10}|{:^22}|{:^22}|{:^15}|{:^15}|".format(
+                                        " ", " ", " ", " ", e[19:38], " ", " ", " ", " ",
+                                        " ")  # Imprime la siguiente parte que faltó del Nombre de la materia
+                                    print(stringdetabla)
+                            print(
+                                "+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n")
+
+                            print("La Inscricpción ha sido satisfactoria\n")
                             print("¿Desea continuar inscribiendo?")
                             print("[0]  Continuar inscribiendo")
                             print("[1]  Finalizar inscripicion")

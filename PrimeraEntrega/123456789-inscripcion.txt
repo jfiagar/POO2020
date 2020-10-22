@@ -1,1 +1,1 @@
-123456789;Juan;Pablo;2016375;Programacion orientada a objetos;3;Jorge;Amaya;L;18:00
+123456789;Donald;Trump;2016375;Programación orientada a objetos;3;Jorge Enrique;Amaya Cala;M - J;18:00
