@@ -73,21 +73,21 @@ def mainBDMAntigua():
                             lineas = lineas.strip().split(";")
                             listatotal.append(lineas)
 
-                    Tabla = "\+-----------------------------------------------------------------------------------------------------------------------------------------------------------+\n| Indice | Código de la Materia | Nombre de la Materia | Código de facultad | Código de departamento | Cantidad de créditos | Código de la materia anterior |\n|-----------------------------------------------------------------------------------------------------------------------------------------------------------|"
+                    Tabla = "\+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n| Indice | Código de la Materia | Nombre de la Materia | Código de facultad | Código de departamento | Cantidad de créditos | Código de la materia anterior |Estado de la materia|\n|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|"
 
                     print(Tabla)
                     for fila in listatotal:
                         if len(fila[2]) < 20:
-                            a, b, c, d, e, f, g = fila
-                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(a, b, c, d, e, f,g)
+                            a, b, c, d, e, f, g,h = fila
+                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|{:^21}|".format(a, b, c, d, e, f,g,h)
                             stringdetabla = stringdetabla
                             print(stringdetabla)
                         else:
-                            a, b, c, d, e, f, g = fila
-                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(a, b,c[0:19] + "-",d, e, f, g)
+                            a, b, c, d, e, f, g,h = fila
+                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|{:^21}|".format(a, b,c[0:19] + "-",d, e, f, g,h)
                             stringdetabla = stringdetabla
                             print(stringdetabla)
-                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(" ", " ",c[19:38]," ", " ", " "," ")
+                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|{:^21}|".format(" ", " ",c[19:38]," ", " ", " "," "," ")
                             print(stringdetabla)
 
                 elif opcion2 == "1":
@@ -227,21 +227,21 @@ def mainBDMAntigua():
                             lineas = lineas.strip().split(";")
                             listatotal.append(lineas)
 
-                    Tabla = "+-----------------------------------------------------------------------------------------------------------------------------------------------------------+\n| Indice | Código de la Materia | Nombre de la Materia | Código de facultad | Código de departamento | Cantidad de créditos | Código de la materia anterior |\n|-----------------------------------------------------------------------------------------------------------------------------------------------------------|"
+                    Tabla = "+-----------------------------------------------------------------------------------------------------------------------------------------------------------+\n| Indice | Código de la Materia | Nombre de la Materia | Código de facultad | Código de departamento | Cantidad de créditos | Código de la materia anterior |Estado de la materia|\n|-----------------------------------------------------------------------------------------------------------------------------------------------------------|"
 
                     print(Tabla)
                     for fila in listatotal:
                         if len(fila[2]) < 20:
-                            a, b, c, d, e, f, g = fila
-                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(a, b, c, d, e, f,g)
+                            a, b, c, d, e, f, g,h = fila
+                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|{:^22}|".format(a, b, c, d, e, f,g,h)
                             stringdetabla = stringdetabla
                             print(stringdetabla)
                         else:
-                            a, b, c, d, e, f, g = fila
-                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(a, b,c[0:19] + "-",d, e, f, g)
+                            a, b, c, d, e, f, g,h = fila
+                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|{:^22}|".format(a, b,c[0:19] + "-",d, e, f, g,h)
                             stringdetabla = stringdetabla
                             print(stringdetabla)
-                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(" ", " ",c[19:38]," ", " ", " "," ")
+                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|{:^22}|".format(" ", " ",c[19:38]," ", " ", " "," "," ")
                             print(stringdetabla)
                     print(
                         "+-----------------------------------------------------------------------------------------------------------------------------------------------------------+")
@@ -258,24 +258,24 @@ def mainBDMAntigua():
                             if indicador:
                                 lista_ME.append(linea)
                                 indicador = False
-                    Tabla = "+-----------------------------------------------------------------------------------------------------------------------------------------------------------+\n| Indice | Código de la Materia | Nombre de la Materia | Código de facultad | Código de departamento | Cantidad de créditos | Código de la materia anterior |\n|-----------------------------------------------------------------------------------------------------------------------------------------------------------|"
+                    Tabla = "+-----------------------------------------------------------------------------------------------------------------------------------------------------------+\n| Indice | Código de la Materia | Nombre de la Materia | Código de facultad | Código de departamento | Cantidad de créditos | Código de la materia anterior |Estado de la materia|\n|-----------------------------------------------------------------------------------------------------------------------------------------------------------|"
 
                     print(Tabla)
                     for fila in lista_ME:
                         if len(fila[2]) < 19:
-                            a, b, c, d, e, f, g = fila
-                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(a, b, c, d, e, f,g)
+                            a, b, c, d, e, f, g,h = fila
+                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|{:^22}|".format(a, b, c, d, e, f,g,h)
                             stringdetabla = stringdetabla
                             print(stringdetabla)
                         else:
-                            a, b, c, d, e, f, g = fila
-                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(a, b,c[0:19] + "-",d, e, f, g)
+                            a, b, c, d, e, f, g,h = fila
+                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|{:^22}|".format(a, b,c[0:19] + "-",d, e, f, g,h)
                             stringdetabla = stringdetabla
                             print(stringdetabla)
-                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(" ", " ",c[19:38]," ", " ", " "," ")
+                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|{:^22}|".format(" ", " ",c[19:38]," ", " ", " "," "," ")
                             print(stringdetabla)
                     print(
-                        "+-----------------------------------------------------------------------------------------------------------------------------------------------------------+")
+                        "+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+")
                 elif opcion2 == "3":
                     continue
                 elif opcion2 == "4":
@@ -285,7 +285,7 @@ def mainBDMAntigua():
             else:
                 print("Aún no existe una Base de datos")
             print(
-                "-------------------------------------------------------------------------------------------------------------------------------------------------------------")
+                "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------")
             menu_opcionesBDM()
             opcion2 = input("Ingrese el número de la opción: ")
             if opcion2 == "0":
@@ -406,7 +406,7 @@ def mainBDMAntigua():
                         lineas = lineas.strip().split(";")
                         listatotal.append(lineas)
 
-                Tabla = "+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n| Indice | Código de la Materia | Nombre de la Materia | Código de facultad | Código de departamento | Cantidad de créditos | Código de la materia prerrequisito | Estado de la materia |\n|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|"
+                Tabla = "+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n| Indice | Código de la Materia | Nombre de la Materia | Código de facultad | Código de departamento | Cantidad de créditos | Código de la materia prerrequisito | Estado de la materia |\n|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|"
                 print(Tabla)
 
                 for fila in listatotal:
@@ -431,7 +431,7 @@ def mainBDMAntigua():
                                                                                                           " ")
                         print(stringdetabla)
                 print(
-                    "+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+")
+                    "+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+")
 
                 print("[0]  Volver al menú principal: ")
                 opcionSE = input("Ingrese el número de la opción: ")

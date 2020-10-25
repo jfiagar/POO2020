@@ -421,9 +421,10 @@ def main_inscripciones():
                             print("¿Desea continuar inscribiendo?")
                             print("[0]  Continuar inscribiendo")
                             print("[1]  Finalizar inscripicion")
-                            opcioninscripcion=input("Ingrese el número de la opción: ")
+
 
                             while True:
+                                opcioninscripcion = input("Ingrese el número de la opción: ")
                                 if opcioninscripcion == "0":
                                     comprobar = 0
                                     break
