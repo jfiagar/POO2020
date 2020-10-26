@@ -16,11 +16,11 @@ def menu_mostrarbase():
     print("[1]  Ver la base de datos ordenada por un valor")  # Imprime la segunda opción
     print("[2]  Buscar un valor específico en la base de datos")  # Imprime la segunda opción
     print("[3]  Volver al menú principal")  # Imprime la primera opción
-    print("[4]  Salir del programa")  # Imprime la tercera opción
+    print("[4]  Salir")  # Imprime la tercera opción
 
 def menu_opcionesBDD():
     print("[0]  Volver al menú principal")  # Imprime la primera opción
-    print("[1]  Salir del programa\n")  # Imprime la segunda opción
+    print("[1]  Salir\n")  # Imprime la segunda opción
 
 def menu_opcionesBDDingresar():
     print("[0]  Ingresar nuevo Docente")  # Imprime la primera opción
@@ -35,7 +35,7 @@ def menu_opcionesBDDOrdenada():
     print("[6]  Ordenar por Hora de clase")  # Imprime la primera opción
     print("[7]  Ordenar por Número de horas dictadas")  # Imprime la primera opción
     print("[8]  Volver al menú principal")
-    print("[9]  Salir del programa\n")  # Imprime la segunda opción
+    print("[9]  Salir\n")  # Imprime la segunda opción
 
 def menu_opcionesBDDordenadaalfa():
     print("[1]  Ordenar alfabéticamente [A->Z]")  # Imprime la primera opción
@@ -51,14 +51,86 @@ def borrarPantalla():                       #Definimos la función estableciendo
     elif os.name == "ce" or os.name == "nt" or os.name == "dos":        #Verifica si el sistema operativo es Windows, o sistemas desarrollados por Microsoft
         os.system ("cls")                       #Si el sistema es DOS/Windows limpia la consola con la función system cls
 
+def Comprobacion(dato,longitud,texto):#Función para comprobar si la longitud y el tipo de dato corresponde
+    if texto:
+        a = dato.isalpha()
+    else:
+        a = dato.isdigit()
+    if len(dato) <= longitud:
+        if a:
+            return True
+        else:
+            print("Carácteres no válido")
+            return False
+    else:
+        print("El dato ingresado es demasiado grande, por favor inténtelo de nuevo")
+        return False
 
+def ComprobarEsp(dato,longitud,texto,comparar,parametro,mensaje):#Función para comprobar si la longitud y el tipo de dato corresponde, ademas de comparar el dato con parametro e imprimir un mensaje cuando este no se cumple
+    if texto:
+        a = dato.isalpha()
+    else:
+        a = dato.isdigit()
+    if len(dato) <= longitud:
+        if a:
+            if comparar in parametro:
+                return True
+            else:
+                print(mensaje)
+                return False
+        else:
+            print("Carácteres no válido")
+            return False
+    else:
+        print("El dato ingresado es demasiado grande, por favor inténtelo de nuevo")
+        return False
+
+def mostrartabla(listatotal):
+    Tabla = "+----------------------------------------------------------------------------------------------------------------------------------------------------------------+\n| Indice | Numero de documento  |        Nombre        |       Apellido       |Código de materia que dicta|        Dia        |        Hora        |   Duración  |\n|----------------------------------------------------------------------------------------------------------------------------------------------------------------|"
+
+    print(Tabla)
+    for fila in listatotal:
+        a, b, c, d, e, f, g, h = fila
+        e = e.strip().split("-")
+        f = f.strip().split("-")
+        g = g.strip().split("-")
+        h = h.strip().split("-")
+        if len(e) == 1:
+            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^22}|{:^27}|{:^19}|{:^20}|{:^13}|".format(a, b, c, d, e[0], f[0], g[0], h[0])
+            stringdetabla = stringdetabla
+            print(stringdetabla)
+        else:
+            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^22}|{:^27}|{:^19}|{:^20}|{:^13}|".format(a, b, c, d, e[0], f[0], g[0], h[0])
+            stringdetabla = stringdetabla
+            print(stringdetabla)
+            for i in range(1, len(e)):
+                stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^22}|{:^27}|{:^19}|{:^20}|{:^13}|".format(" ", " ", " ", " ", e[i], f[i], g[i], h[i])
+                print(stringdetabla)
+    print(
+        "+----------------------------------------------------------------------------------------------------------------------------------------------------------------+")
+
+def listasordenarytexto(lista): #ordenar y pone en texto las casillas con mas de un dato
+    for i in range(len(lista)):
+        lista[i] = lista[i].strip().split("-")
+    for i in range(len(lista)):
+        lista[i] = sorted(lista[i])
+    for i in range(len(lista)):
+        a = lista[i]
+        listatexto = ""
+        for j in range(len(a)):
+            if j == (len(a) - 1):
+                listatexto = listatexto + a[j]
+            else:
+                listatexto = listatexto + a[j] + "-"
+        lista[i] = listatexto
+    return lista
 
 def baseDocentes():
     while True:
         menu_principalBDD()
         opcion_elegida = input("Ingrese el número de la opción: ")
         if opcion_elegida == "0":
-            print("----------------------------------------------------------------------------------------------------------------------------------------------------------------")
+            print("---------------------------------------------------------------------------------------------------------------------------------------------------------")
             if os.path.isfile("BD-Docentes.txt"):
                 menu_mostrarbase()
                 opcion2 = input("Ingrese el número de la opción: ")
@@ -68,29 +140,7 @@ def baseDocentes():
                         for lineas in file:
                             lineas = lineas.strip().split(";")
                             listatotal.append(lineas)
-                    Tabla = "+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n| Indice | Numero de documento  |        Nombre        |       Apellido       |Código de materia que dicta|        Dia        |        Hora        |   Numero de Horas  |\n|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|"
-
-                    print(Tabla)
-                    for fila in listatotal:
-                        a, b, c, d, e, f, g, h = fila
-                        e = e.strip().split("-")
-                        f = f.strip().split("-")
-                        g = g.strip().split("-")
-                        h = h.strip().split("-")
-
-                        if len(e) <= 1:
-                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^22}|{:^27}|{:^19}|{:^20}|{:^20}|".format(a, b, c, d, e[0], f[0], g[0], h[0])
-                            stringdetabla = stringdetabla
-                            print(stringdetabla)
-                        else:
-                                stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^22}|{:^27}|{:^19}|{:^20}|{:^20}|".format(a, b, c, d, e[0], f[0], g[0], h[0])
-                                stringdetabla = stringdetabla
-                                print(stringdetabla)
-                                for i in range(1,len(e)):
-                                    stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^22}|{:^27}|{:^19}|{:^20}|{:^20}|".format(" ", " ", " ", " ", e[i], f[i], g[i], h[i])
-                                    print(stringdetabla)
-                    print("+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+")
-
+                    mostrartabla(listatotal)
                 elif opcion2=="1":
 
                     with open('BD-Docentes.txt') as file:
@@ -113,6 +163,7 @@ def baseDocentes():
                             listaDC.append(DC)
                             listaHC.append(HC)
                             listaCH.append(CH)
+
                     menu_opcionesBDDOrdenada()
                     opcion3 = input("Ingrese el número de la opción: ")
 
@@ -156,6 +207,7 @@ def baseDocentes():
                             print("Opción no valida")
 
                     elif opcion3 == "4":
+                        listaCM = listasordenarytexto(listaCM)
                         dic = dict(zip(listaIN, listaCM))
                         menu_opcionesBDDordenadanum()
                         opcion4 = input("Ingrese el número de la opción: ")
@@ -169,6 +221,7 @@ def baseDocentes():
                             print("Opción no valida")
 
                     elif opcion3 == "5":
+                        listaDC = listasordenarytexto(listaDC)
                         dic = dict(zip(listaIN, listaDC))
                         menu_opcionesBDDordenadaalfa()
                         opcion4 = input("Ingrese el número de la opción: ")
@@ -183,6 +236,7 @@ def baseDocentes():
 
 
                     elif opcion3 == "6":
+                        listaHC = listasordenarytexto(listaHC)
                         dic = dict(zip(listaIN, listaHC))
                         menu_opcionesBDDordenadanum()
                         opcion4 = input("Ingrese el número de la opción: ")
@@ -196,6 +250,7 @@ def baseDocentes():
                             print("Opción no valida")
 
                     elif opcion3 == "7":
+                        listaCH = listasordenarytexto(listaCH)
                         dic = dict(zip(listaIN, listaCH))
                         menu_opcionesBDDordenadanum()
                         opcion4 = input("Ingrese el número de la opción: ")
@@ -217,6 +272,8 @@ def baseDocentes():
 
                     val = list(valores_ord.keys())
 
+
+
                     with open("BD-Docentes-ORDENADA.txt", "w") as file:
                         for indices in val:
                             listaordenada = str(indices) + ";" + str(listaID[indices - 1]) + ";" + listaN[indices - 1] + ";" + listaA[indices - 1] + ";" + listaCM[indices - 1] + ";"  + listaDC[indices - 1] + ";"  + listaHC[indices - 1] + ";" + listaCH[indices-1]
@@ -228,33 +285,12 @@ def baseDocentes():
                             lineas = lineas.strip().split(";")
                             listatotal.append(lineas)
 
-                    Tabla = "+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n| Indice | Numero de documento  |        Nombre        |       Apellido       |Código de materia que dicta|        Dia        |        Hora        |   Numero de Horas  |\n|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|"
-
-                    print(Tabla)
-                    for fila in listatotal:
-                        if len(fila[2]) < 19:
-                            a, b, c, d, e, f, g, h = fila
-                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^22}|{:^27}|{:^19}|{:^20}|{:^20}|".format(a, b, c, d, e, f, g, h)
-                            stringdetabla = stringdetabla
-                            print(stringdetabla)
-                        else:
-                            a, b, c, d, e, f, g = fila
-                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(a, b,
-                                                                                                       c[0:19] + "-",
-                                                                                                       d, e, f, g, h)
-                            stringdetabla = stringdetabla
-                            print(stringdetabla)
-                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(" ", " ",
-                                                                                                       c[19:38],
-                                                                                                       " ", " ", " ",
-                                                                                                       " ", "")
-                            print(stringdetabla)
-                    print("+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+")
+                    mostrartabla(listatotal)
 
                 elif opcion2=="2":
                     palabra = input("Ingrese el valor a buscar:")
                     indicador = False
-                    lista_ME = []
+                    lista_DE = []
                     with open("BD-Docentes.txt", "r") as file:
                         for linea in file:
                             linea = linea.strip().split(";")
@@ -262,46 +298,9 @@ def baseDocentes():
                                 if palabra == items:
                                     indicador = True
                             if indicador:
-                                lista_ME.append(linea)
+                                lista_DE.append(linea)
                                 indicador = False
-                    Tabla = "+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n| Indice | Numero de documento  |        Nombre        |       Apellido       |Código de materia que dicta|        Dia        |        Hora        |   Numero de Horas  |\n|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|"
-
-                    print(Tabla)
-                    for fila in lista_ME:
-                        a, b, c, d, e, f, g, h = fila
-                        e = e.strip().split("-")
-                        f = f.strip().split("-")
-                        g = g.strip().split("-")
-                        h = h.strip().split("-")
-
-                        if len(e) <= 1:
-                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^22}|{:^27}|{:^19}|{:^20}|{:^20}|".format(a, b, c, d, e[0],
-                                                                                                              f[0],
-                                                                                                              g[0],
-                                                                                                              h[0])
-                            stringdetabla = stringdetabla
-                            print(stringdetabla)
-                        else:
-                            stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^22}|{:^27}|{:^19}|{:^20}|{:^20}|".format(a, b, c,
-                                                                                                              d, e[0],
-                                                                                                              f[0],
-                                                                                                              g[0],
-                                                                                                              h[0])
-                            stringdetabla = stringdetabla
-                            print(stringdetabla)
-                            for i in range(1, len(e)):
-                                stringdetabla = "|{:^8}|{:^22}|{:^22}|{:^22}|{:^27}|{:^19}|{:^20}|{:^20}|".format(" ",
-                                                                                                                  " ",
-                                                                                                                  " ",
-                                                                                                                  " ",
-                                                                                                                  e[i],
-                                                                                                                  f[i],
-                                                                                                                  g[i],
-                                                                                                                  h[i])
-                                print(stringdetabla)
-                    print(
-                        "+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+")
-
+                    mostrartabla(lista_DE)
                 elif opcion2=="3":
                     continue
                 elif opcion2=="4":
@@ -324,13 +323,22 @@ def baseDocentes():
         elif opcion_elegida == "1":
             menu_opcionesBDDingresar()
             opcion2 = input("Ingrese el número de la opción: ")
-            if opcion2=="0":
-                comprobar = 0
-                ID = input("Ingrese el Número de documento de indentidad del Docente: ")  # Número de documento del Docente
-                N = input("Ingrese el Nombre: ")  # Nombre del Docente
-                A = input("Ingrese el Apellido: ")  # Apellido del Docente
-                while comprobar == 0:
-                    CM = input("Ingrese el Código de la Materia que dicta: ")  # Código de la materia que dicta
+            if opcion2 == "0":
+                comprobar = False
+                while not comprobar:
+                    ID = input("Ingrese el número de documento de indentidad del Docente: ")# Número de documento del Docente
+                    comprobar = Comprobacion(ID, 10, False)
+                comprobar = False
+                while not comprobar:
+                    N = input("Ingrese el nombre: ")  # Nombre del Docente
+                    comprobar = Comprobacion(N, 50, True)
+                comprobar = False
+                while not comprobar:
+                    A = input("Ingrese el apellido: ")  # Apellido del Docente
+                    comprobar = Comprobacion(A, 50, True)
+                comprobar = False
+                while not comprobar:
+                    CM = input("Ingrese el código de la materia que dicta: ")  # Código de la materia que dicta
                     with open('BD-Materias.txt') as file:
                         listaCMB = []
                         for line in file:
@@ -338,15 +346,23 @@ def baseDocentes():
                             CMB = listamaterias[1]
                             listaCMB.append(CMB)
                     if CM in listaCMB:
-                        comprobar = 1
+                        comprobar = True
                     else:
-                        comprobar = 0
                         print("La materia no se encuentra en la base de datos")
+                comprobar = False
+                while not comprobar:
+                    DC = input("Ingrese el día que se dicta la clase (L,M,C,J,V): ")  # Día de que se dicta la materia
+                    comprobar = ComprobarEsp(DC, 1, True, DC, ("L", "M", "C", "J", "V"), "Dia no válido,por favor ingresar uno válido (L,M,C,J,V)")
+                comprobar = False
+                while not comprobar:
+                    HC = input("Ingrese la hora que se dicta la clase (Si la clase es a las 7 am ingrese 700): ")# Hora que se dicta la materia
+                    comprobar = ComprobarEsp(HC, 4, False, int(HC), range(700, 2000), "La hora esta fuera del horario permitido, desde las 700 hasta las 2000")
+                comprobar = False
+                while not comprobar:
+                    DH = input("Ingrese la cantidad de horas dictadas: ")  # Cantidad de horas dictadas
+                    comprobar = ComprobarEsp(DH, 1, False, int(HC)+int(DH)*100, range(700, 2001), "La duración esta fuera del horario permitido, desde las 700 hasta las 2000")
 
-                DC = input("Ingrese el Día que se dicta la clase: ")  # Día de que se dicta la materia
-                HC = input("Ingrese la Hora que se dicta la clase: ")  # Hora que se dicta la materia
-                CH = input("Ingrese la Cantidad de horas dictadas: ")  # Cantidad de horas dictadas
-                docente = ID + ";" + N + ";" + A + ";" + CM + ";" + DC + ";" + HC + ";" + CH  # Creación del diccionario con el docente
+                docente = ID + ";" + N + ";" + A + ";" + CM + ";" + DC + ";" + HC + ";" + DH  # Creación del diccionario con el docente
 
                 if not os.path.isfile(
                         "BD-Docentes.txt"):  # Verificación de que la base de datos exista usando "isfile" de la libreria os.path , si existe el archivo el valor es True, sino False .Por lo tanto si el archivo no existe entonces entra a la condición
@@ -380,70 +396,85 @@ def baseDocentes():
                     break
                 else:
                     print("Opción no valida")
-            elif opcion2=="1":
-                comprobar=0
-                while comprobar==0:
+            elif opcion2 == "1":
+                comprobar = False
+                while not comprobar:
                     palabra = input("Ingrese documento de identidad del Docente:")
                     indicador = False
                     lista_D = []
-                    with open("BD-Docentes.txt", "r") as file:
+                    with open("BD-Docentes.txt", "r") as file:#Verifica si el docente existe en la base de datos de docentes
                         for linea in file:
                             linea = linea.strip().split(";")
                             for items in linea:
                                 if palabra == items:
                                     indicador = True
-                                    lista_D.append(linea)
-                    if indicador== True:
-                        comprobar=1
+                                    lista_D=linea
+                    if indicador == True:
+                        comprobar = True
                     else:
                         print("Docente no se encuentra en la base de datos")
-                comprobar=0
-                while comprobar==0:
+                comprobar = False
+                while comprobar==False:
                     materia = input("Ingrese el Código de la materia que dicta: ")  # Código de la materia que dicta
-                    with open('BD-Materias.txt') as file:
+                    with open('BD-Materias.txt') as file:#Verifica si La materia esta en la base de datos
                         listaCMB = []
                         for line in file:
                             listamaterias = line.strip().split(';')
                             CMB = listamaterias[1]
                             listaCMB.append(CMB)
                     if materia in listaCMB:
-                        comprobar = 1
+                        comprobar = True
                     else:
-                        comprobar = 0
+                        comprobar = False
                         print("La materia no se encuentra en la base de datos")
-                comprobar=0
-                while comprobar==0:
+                comprobar = False
+                while not comprobar:
                     dia = input("Ingrese el dia de clase:")
-                    dias=("L","M","C","J","V")
-                    if dia in dias:
-                        comprobar=1
-                    else:
-                        print("Día no valido, es L,M,C,J,V")
-                comprobar=0
-                while comprobar==0:
-                    hora = int(input("Ingrese la hora de clase:"))
-                    if int(hora)>=700 and int(hora)<=2000:
-                        for i in lista_D:
-                            if hora not in range(int(i[6]),int(i[6])+(int(i[7])*100)-1) or dia not in i[5]:
-                                comprobar=1
+                    comprobar = ComprobarEsp(dia, 1, True, dia, ("L", "M", "C", "J", "V"), "Dia no válido,por favor ingresar uno válido (L,M,C,J,V)")
+                comprobar = False
+                f = lista_D[5].strip().split("-")#Convertir en lista los dias almacenados con string en la base de datos para facilitar las comprobaciones
+                g = lista_D[6].strip().split("-")#Convertir en lista las horas almacenados con string en la base de datos para facilitar las comprobaciones
+                h = lista_D[7].strip().split("-")#Convertir en lista las duraciones almacenados con string en la base de datos para facilitar las comprobaciones
+                while not comprobar:
+                    hora = input("Ingrese la hora de clase(Si la clase es a las 7 am ingrese 700):")
+                    comprobar2=False
+                    if ComprobarEsp(hora, 4, False, int(hora), range(700, 2000), "La hora esta fuera del horario permitido, desde las 700 hasta las 2000"):#Comprueba la longitud y el tipo de dato, ademas de que este entre las 700 y las 2000
+                        for i in range(len(g)):
+                            if int(hora) not in range(int(g[i]),int(g[i])+(int(h[i])*100)-1):#Comprueba que la hora no coincidad con otra clase
+                                comprobar2 = True
                             else:
-                                print("El horario coinceden con otra materia")
-                    else:
-                        print("La hora esta fuera del horario permitido, es 700 a las 2000")
-                comprobar = 0
-                while comprobar == 0:
-                    duracion = int(input("Ingrese la duración de la clase:"))
-                    for i in lista_D:
-                        if (hora+duracion*100)-1 not in range(int(i[6]), int(i[6]) + (int(i[7]) * 100) - 1):
-                            comprobar=1
+                                if int(hora) not in range(int(g[i]), int(g[i]) + (int(h[i]) * 100) - 1) and dia in f:#Si exite una hora en la lista comprueba el dia ingresado sea diferente con la concidencia
+                                    comprobar2 = True
+                                else:
+                                    comprobar2 = False
+                        if comprobar2:#si la comprobacion es exitosa continua o si no muestra porque no se puede continuar
+                            comprobar = True
                         else:
-                            print("El horario coinceden con otra materia")
+                            print("El horario coincide con otra materia")
+                comprobar = False
+                while not comprobar:
+                    comprobar2 = False
+                    duracion = input("Ingrese la duración de la clase:")
+                    if ComprobarEsp(duracion, 1, False, int(hora)+int(duracion)*100, range(700, 2001), "La duración esta fuera del horario permitido, desde las 700 hasta las 2000"):#Comprueba de la longitud y el tipo de dato sean correctos y la duracion de la clase no se salga del horario
+                        for i in range(len(g)):
+                            if (int(hora)+int(duracion)*100)-1 not in range(int(g[i]), int(g[i]) + (int(h[i]) * 100) - 1):#Comprueba que la duracion no coincidad con otra clase
+                                comprobar2 = True
+                            else:
+                                if int(hora) not in range(int(g[i]), int(g[i]) + (int(h[i]) * 100) - 1) and dia in f:#Si exite una duracion en la lista comprueba el dia ingresado sea diferente con la concidencia
+                                    comprobar2 = True
+                                else:
+                                    comprobar2 = False
+                        if comprobar2:#si la comprobacion es exitosa continua o si no muestra porque no se puede continuar
+                            comprobar = True
+                        else:
+                            print("El horario coincide con otra materia")
+
                 lista_M=[]
                 with open("BD-Docentes.txt", "r") as file:
                     for linea in file:
                         linea = linea.strip().split(";")
                         for items in linea:
-                            if palabra == items:
+                            if palabra == items:#Guarda la materia añadida al docente en dato tipo string para exportar a la base de datos
                                 linea[4]=linea[4]+"-"+materia
                                 linea[5]=linea[5]+"-"+dia
                                 linea[6]=linea[6]+"-"+str(hora)
@@ -463,5 +494,4 @@ def baseDocentes():
             break
         else:
             print("Opción no valida")
-
 

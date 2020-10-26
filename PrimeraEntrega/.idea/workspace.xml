@@ -5,12 +5,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f57ebc4-894a-44b3-ba86-4bd32560bea9" name="Default Changelist" comment="Comentarios y correcciones">
+    <list default="true" id="2f57ebc4-894a-44b3-ba86-4bd32560bea9" name="Default Changelist" comment="Comentarios y correcciones finales">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/123456789-inscripcion.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/BD-Docentes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/BD-Docentes.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BDMateriasAntigua.py" beforeDir="false" afterPath="$PROJECT_DIR$/BDMateriasAntigua.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inscripcion.py" beforeDir="false" afterPath="$PROJECT_DIR$/inscripcion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseDocentes.py" beforeDir="false" afterPath="$PROJECT_DIR$/BaseDocentes.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -299,7 +297,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603401793738</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Comentarios y correcciones finales">
+      <created>1603664201572</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1603664201572</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -357,7 +362,8 @@
     <MESSAGE value="Uniendo modulos lunes" />
     <MESSAGE value="Todos los modulos integrados" />
     <MESSAGE value="Comentarios y correcciones" />
-    <option name="LAST_COMMIT_MESSAGE" value="Comentarios y correcciones" />
+    <MESSAGE value="Comentarios y correcciones finales" />
+    <option name="LAST_COMMIT_MESSAGE" value="Comentarios y correcciones finales" />
   </component>
   <component name="WindowStateProjectService">
     <state x="734" y="354" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602263926580">
@@ -376,22 +382,22 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1188" y="452" key="#xdebugger.XInspectDialog/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602263700555" />
-    <state width="2539" height="386" key="GridCell.Tab.0.bottom" timestamp="1603664166037">
+    <state width="2539" height="386" key="GridCell.Tab.0.bottom" timestamp="1603727887234">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="386" key="GridCell.Tab.0.bottom/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603664166037" />
-    <state width="2539" height="386" key="GridCell.Tab.0.center" timestamp="1603664166037">
+    <state width="2539" height="386" key="GridCell.Tab.0.bottom/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603727887234" />
+    <state width="2539" height="386" key="GridCell.Tab.0.center" timestamp="1603727887234">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="386" key="GridCell.Tab.0.center/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603664166037" />
-    <state width="2539" height="386" key="GridCell.Tab.0.left" timestamp="1603664166037">
+    <state width="2539" height="386" key="GridCell.Tab.0.center/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603727887234" />
+    <state width="2539" height="386" key="GridCell.Tab.0.left" timestamp="1603727887234">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="386" key="GridCell.Tab.0.left/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603664166037" />
-    <state width="2539" height="386" key="GridCell.Tab.0.right" timestamp="1603664166037">
+    <state width="2539" height="386" key="GridCell.Tab.0.left/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603727887234" />
+    <state width="2539" height="386" key="GridCell.Tab.0.right" timestamp="1603727887234">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="386" key="GridCell.Tab.0.right/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603664166037" />
+    <state width="2539" height="386" key="GridCell.Tab.0.right/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603727887234" />
     <state width="2539" height="492" key="GridCell.Tab.1.bottom" timestamp="1603401183711">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -412,10 +418,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="781" y="344" key="SettingsEditor/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603157383400" />
-    <state x="872" y="432" key="Vcs.Push.Dialog.v2" timestamp="1603401794689">
+    <state x="872" y="432" key="Vcs.Push.Dialog.v2" timestamp="1603664231505">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="872" y="432" key="Vcs.Push.Dialog.v2/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603401794689" />
+    <state x="872" y="432" key="Vcs.Push.Dialog.v2/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603664231505" />
     <state x="887" y="310" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1602276179761">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

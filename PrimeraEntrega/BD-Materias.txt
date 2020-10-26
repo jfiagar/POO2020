@@ -1,6 +1,6 @@
 1;2016375;Programación orientada a objetos;2055;2543;3;2015734
 2;2015734;Programación de computadores;2055;2543;3;
-3;1000003-B;Álgebra Lineal;2050;2518;4;1000004-B
-4;1000004-B;Cálculo diferencial;2050;2518;4;1000001-B
-5;1000001-B;Matemáticas Básicas;2050;2518;4;
-6;1000019-B;Fundamentos de mecánica;2050;2516;4;1000004-B
+3;1000003;Álgebra Lineal;2050;2518;4;1000004
+4;1000004;Cálculo diferencial;2050;2518;4;1000001
+5;1000001;Matemáticas Básicas;2050;2518;4;
+6;1000019;Fundamentos de mecánica;2050;2516;4;1000004
