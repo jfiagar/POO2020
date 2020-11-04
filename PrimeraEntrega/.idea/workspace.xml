@@ -5,10 +5,20 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f57ebc4-894a-44b3-ba86-4bd32560bea9" name="Default Changelist" comment="Comentarios y correcciones finales">
+    <list default="true" id="2f57ebc4-894a-44b3-ba86-4bd32560bea9" name="Default Changelist" comment="Finalizado, finito, bellísimo">
+      <change afterPath="$PROJECT_DIR$/123456789-inscripcion.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BD-Materias-Antigua-ORDENADA.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BD-Materias-Antigua.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ContadorBD-Materias-Antigua.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BD-Docentes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/BD-Docentes.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BaseDocentes.py" beforeDir="false" afterPath="$PROJECT_DIR$/BaseDocentes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BD-Estudiantes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/BD-Estudiantes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BD-Materias.txt" beforeDir="false" afterPath="$PROJECT_DIR$/BD-Materias.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BDMateriasAntigua.py" beforeDir="false" afterPath="$PROJECT_DIR$/BDMateriasAntigua.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ContadorBD-Estudiantes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ContadorBD-Estudiantes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ContadorBD-Materias.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ContadorBD-Materias.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basededatosMATERIAS.py" beforeDir="false" afterPath="$PROJECT_DIR$/basededatosMATERIAS.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inscripcion.py" beforeDir="false" afterPath="$PROJECT_DIR$/inscripcion.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -304,7 +314,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603664201572</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Finalizado, finito, bellísimo">
+      <created>1603728054813</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1603728054813</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -363,7 +380,8 @@
     <MESSAGE value="Todos los modulos integrados" />
     <MESSAGE value="Comentarios y correcciones" />
     <MESSAGE value="Comentarios y correcciones finales" />
-    <option name="LAST_COMMIT_MESSAGE" value="Comentarios y correcciones finales" />
+    <MESSAGE value="Finalizado, finito, bellísimo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finalizado, finito, bellísimo" />
   </component>
   <component name="WindowStateProjectService">
     <state x="734" y="354" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602263926580">
@@ -382,46 +400,46 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1188" y="452" key="#xdebugger.XInspectDialog/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1602263700555" />
-    <state width="2539" height="386" key="GridCell.Tab.0.bottom" timestamp="1603727887234">
+    <state width="2539" height="726" key="GridCell.Tab.0.bottom" timestamp="1604529896933">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="386" key="GridCell.Tab.0.bottom/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603727887234" />
-    <state width="2539" height="386" key="GridCell.Tab.0.center" timestamp="1603727887234">
+    <state width="2539" height="726" key="GridCell.Tab.0.bottom/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1604529896933" />
+    <state width="2539" height="726" key="GridCell.Tab.0.center" timestamp="1604529896933">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="386" key="GridCell.Tab.0.center/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603727887234" />
-    <state width="2539" height="386" key="GridCell.Tab.0.left" timestamp="1603727887234">
+    <state width="2539" height="726" key="GridCell.Tab.0.center/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1604529896933" />
+    <state width="2539" height="726" key="GridCell.Tab.0.left" timestamp="1604529896933">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="386" key="GridCell.Tab.0.left/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603727887234" />
-    <state width="2539" height="386" key="GridCell.Tab.0.right" timestamp="1603727887234">
+    <state width="2539" height="726" key="GridCell.Tab.0.left/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1604529896933" />
+    <state width="2539" height="726" key="GridCell.Tab.0.right" timestamp="1604529896933">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="386" key="GridCell.Tab.0.right/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603727887234" />
-    <state width="2539" height="492" key="GridCell.Tab.1.bottom" timestamp="1603401183711">
+    <state width="2539" height="726" key="GridCell.Tab.0.right/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1604529896933" />
+    <state width="2539" height="492" key="GridCell.Tab.1.bottom" timestamp="1603753799591">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="492" key="GridCell.Tab.1.bottom/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603401183711" />
-    <state width="2539" height="492" key="GridCell.Tab.1.center" timestamp="1603401183711">
+    <state width="2539" height="492" key="GridCell.Tab.1.bottom/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603753799591" />
+    <state width="2539" height="492" key="GridCell.Tab.1.center" timestamp="1603753799591">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="492" key="GridCell.Tab.1.center/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603401183711" />
-    <state width="2539" height="492" key="GridCell.Tab.1.left" timestamp="1603401183711">
+    <state width="2539" height="492" key="GridCell.Tab.1.center/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603753799591" />
+    <state width="2539" height="492" key="GridCell.Tab.1.left" timestamp="1603753799591">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="492" key="GridCell.Tab.1.left/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603401183711" />
-    <state width="2539" height="492" key="GridCell.Tab.1.right" timestamp="1603401183711">
+    <state width="2539" height="492" key="GridCell.Tab.1.left/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603753799591" />
+    <state width="2539" height="492" key="GridCell.Tab.1.right" timestamp="1603753799591">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="492" key="GridCell.Tab.1.right/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603401183711" />
+    <state width="2539" height="492" key="GridCell.Tab.1.right/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603753799591" />
     <state x="781" y="344" key="SettingsEditor" timestamp="1603157383400">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="781" y="344" key="SettingsEditor/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603157383400" />
-    <state x="872" y="432" key="Vcs.Push.Dialog.v2" timestamp="1603664231505">
+    <state x="872" y="432" key="Vcs.Push.Dialog.v2" timestamp="1603728058934">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="872" y="432" key="Vcs.Push.Dialog.v2/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603664231505" />
+    <state x="872" y="432" key="Vcs.Push.Dialog.v2/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1603728058934" />
     <state x="887" y="310" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1602276179761">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

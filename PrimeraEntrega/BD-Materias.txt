@@ -4,3 +4,5 @@
 4;1000004;Cálculo diferencial;2050;2518;4;1000001
 5;1000001;Matemáticas Básicas;2050;2518;4;
 6;1000019;Fundamentos de mecánica;2050;2516;4;1000004
+7;1000;Fisica 1;1000;100;3;100
+8;100;Elementos de Fisica;1000;100;3;

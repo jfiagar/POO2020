@@ -279,9 +279,13 @@ def mainBDM():   #Función Principal de la Base de datos de Materias
             while comprobado == True:
                 CM = input("Ingrese el Código de la Materia: ")  # Código de la materia
                 if len(CM) <= 9:
-                    comprobado = False
+                        comprobado = False
                 else:
                     print("El texto es demasiado grande, intentelo de nuevo")
+
+
+
+
             comprobado = True
             while comprobado == True:
                 NM = input("Ingrese el Nombre de la materia: ")  # Nombre de la materia
@@ -314,10 +318,19 @@ def mainBDM():   #Función Principal de la Base de datos de Materias
             while comprobado == True:
                 CMA = input(
                     "Ingrese el Código de la materia anterior obligatoria en el plan de estudios: ")  # Código materia anterior obligatoria en el plan de estudios
-                if len(CMA) <= 9:
-                    comprobado = False
+                with open('BD-Materias.txt') as file:
+                    listaCMB = []
+                    for line in file:
+                        listamaterias = line.strip().split(';')
+                        CMB = listamaterias[6]
+                        listaCMB.append(CMB)
+                if CMA in listaCMB:
+                    if len(CMA) <= 9:
+                        comprobado = False
+                    else:
+                        print("El texto es demasiado grande, intentelo de nuevo")
                 else:
-                    print("El texto es demasiado grande, intentelo de nuevo")
+                    print("La materia de prerequisito no está en la base de datos")
 
             diccionario = CM + ";" + NM + ";" + CF + ";" + CD + ";" + CC + ";" + CMA  # Creación del diccionario de la materia
 

@@ -1,0 +1,2 @@
+123456789;Donald;Trump;1000001;Matemáticas Básicas;4;Andres Cristian;Torres Castillo;J-V;700
+123456789;Donald;Trump;2016375;Programación orientada a objetos;3;Jorge Enrique;Amaya Cala;M-J;1800-1100

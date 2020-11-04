@@ -320,7 +320,7 @@ def main_inscripciones():
                         CMB = listalinea[1]
                         listaCM.append(CMB)
                 if CM in listaCM:
-                    with open(ID+".txt", "r") as file: #Verifica que no inscriba una materia de nuevo
+                    with open("BD-Materias-Antigua.txt", "r") as file: #Verifica que no inscriba una materia de nuevo
                         listaCMA = []
                         for line in file:
                             listalinea = line.strip().split(';')
@@ -343,7 +343,7 @@ def main_inscripciones():
                         indicador = False
 
                         variabledecomprobacion2 = prerquisito + ID
-                        with open(ID+".txt", "r") as file:
+                        with open("BD-Materias-Antigua.txt", "r") as file:
                             for linea in file:
                                 linea = linea.strip().split(";")
                                 variabledecomprobacion=linea[1]+ID
