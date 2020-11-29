@@ -1,6 +1,12 @@
-4;1000004-B;Cálculo diferencial;2050;2518;4;1000001-B
-6;1000019-B;Fundamentos de mecánica;2050;2516;4;1000004-B
-5;1000001-B;Matemáticas Básicas;2050;2518;4;
-2;2015734;Programación de computadores;2055;2543;3;
+11;100;Fisica 1;200;200;2;
 1;2016375;Programación orientada a objetos;2055;2543;3;2015734
-3;1000003-B;Álgebra Lineal;2050;2518;4;1000004-B
+2;2015734;Programación de computadores;2055;2543;3;
+7;;Fisica 1;1000;100;3;100
+8;100;Elementos de Fisica;1000;100;3;
+10;100;calculo 1;100;100;3;
+3;1000003;Álgebra Lineal;2050;2518;4;1000004
+4;1000004;Cálculo diferencial;2050;2518;4;1000001
+5;1000001;Matemáticas Básicas;2050;2518;4;
+6;1000019;Fundamentos de mecánica;2050;2516;4;1000004
+9;45646;gbkjgjcgv;15;654;4;
+12;200;Fisica 2;200;200;4;100

@@ -2,3 +2,5 @@
 2;1023658931;Daniel Esteban;Gonzalez Garcia;2040;P;2.0
 3;788901391;Oscar Fernando;Fajardo Pulido;2031;G;3.4
 4;1000;Pablo Perez;Perez;25000;M;4.0
+5;100;Pedro;Perez;100;P;2
+6;100;Laura;Franco;200;M;4.0
