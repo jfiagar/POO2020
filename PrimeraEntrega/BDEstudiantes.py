@@ -46,27 +46,17 @@ def borrarPantalla():                       #Definimos la función estableciendo
     elif os.name == "ce" or os.name == "nt" or os.name == "dos":        #Verifica si el sistema operativo es Windows, o sistemas desarrollados por Microsoft
         os.system ("cls")                       #Si el sistema es DOS/Windows limpia la consola con la función system cls
 
-class Estudiante:
+class Persona:
     def __init__(self):
         self.__DI = ""
         self.__N = ""
         self.__A = ""
-        self.__CP = ""
-        self.__CE = ""
-        self.__PA = ""
     def getDI(self):
         return self.__DI
     def getN(self):
         return self.__N
     def getA(self):
         return self.__A
-    def getCP(self):
-        return self.__CP
-    def getCE(self):
-        return self.__CE
-    def getPA(self):
-        return self.__PA
-
     def setDI(self):
         comprobado = True
         while comprobado == True:
@@ -94,6 +84,20 @@ class Estudiante:
                 comprobado = False
             else:
                 print("El texto es demasiado grande, intentelo de nuevo")
+class Estudiante(Persona):
+    def __init__(self):
+        self.__CP = ""
+        self.__CE = ""
+        self.__PA = ""
+
+    def getCP(self):
+        return self.__CP
+    def getCE(self):
+        return self.__CE
+    def getPA(self):
+        return self.__PA
+
+
     def setCP(self):
         comprobado = True
         while comprobado == True:

@@ -73,17 +73,27 @@ class Materia:
         comprobado = True
         while comprobado == True:
             CM = input("Ingrese el Código de la Materia: ")  # Código de la materia
-            if len(CM) <= 9:
-                self.__CM=CM
-                comprobado = False
+            with open('BD-Materias.txt') as file:
+                listaCMB = []
+                for line in file:
+                    listamaterias = line.strip().split(';')
+                    CMB = listamaterias[1]
+                    listaCMB.append(CMB)
+            if CM in listaCMB:
+                print("La materia ya esta en la base de datos")
             else:
-                print("El texto es demasiado grande, intentelo de nuevo")
+                if len(CM) <= 9 and CC.isnumeric() and not(""):
+                    self.__CM = CM
+                    comprobado = False
+                else:
+                    print("El texto es demasiado grande o no es un número, intentelo de nuevo")
+
 
     def setNM(self):
         comprobado = True
         while comprobado == True:
             NM = input("Ingrese el Nombre de la materia: ")  # Nombre de la materia
-            if len(NM) <= 100:
+            if len(NM) <= 100 and not(""):
                 self.__NM = NM
                 comprobado = False
             else:
@@ -92,26 +102,26 @@ class Materia:
         comprobado = True
         while comprobado == True:
             CF = input("Ingrese el Código facultad que dicta la Materia: ")  # Código facultad que la dicta
-            if len(CF) <= 5:
+            if len(CF) <= 5 and CC.isnumeric() and not(""):
                 self.__CF=CF
                 comprobado = False
             else:
-                print("El texto es demasiado grande, intentelo de nuevo")
+                print("El texto es demasiado grande o es un número, intentelo de nuevo")
 
     def setCD(self):
         comprobado = True
         while comprobado == True:
             CD = input("Ingrese el Código departamento que dicta la Materia: ")  # Código departamento que la dicta
-            if len(CD) <= 5:
+            if len(CD) <= 5 and CC.isnumeric() and not(""):
                 self.__CD=CD
                 comprobado = False
             else:
-                print("El texto es demasiado grande, intentelo de nuevo")
+                print("El texto es demasiado grande o es un número, intentelo de nuevo")
     def setCC(self):
         comprobado = True
         while comprobado == True:
             CC = input("Ingrese la Cantidad de créditos de la Materia: ")  # Cantidad de créditos
-            if len(CC) <= 2 and CC.isnumeric():
+            if len(CC) <= 2 and CC.isnumeric() and not(""):
                 self.__CC=CC
                 comprobado = False
             else:
@@ -128,11 +138,11 @@ class Materia:
                     CMB = listamaterias[1]
                     listaCMB.append(CMB)
             if CMA in listaCMB:
-                if len(CMA) <= 9:
+                if len(CMA) <= 9 and CC.isnumeric():
                     self.__CMA=CMA
                     comprobado = False
                 else:
-                    print("El texto es demasiado grande, intentelo de nuevo")
+                    print("El texto es demasiado grande o no es un número, intentelo de nuevo")
             elif CMA == "":
                 self.__CMA = CMA
                 comprobado = False
@@ -186,11 +196,11 @@ def mainBDM():   #Función Principal de la Base de datos de Materias
                         for line in file:  #Recorre la base de datos linea por linea
                             IN1, CM1, NM1, CF1, CD1, CC1, CMA1 = line.strip().split(';')    #Desempaqueta las variables de la lista en varias variables Indice,  Codidog de la materia, Nombre. etc--
                             listaIN.append(int(IN1))        #Almacena el valor del indice en la lista y lo convierte en un Int para asegurar que sea un numero y que el ordenamiento sea correcto
-                            listaCM.append(CM1)             #Almacena el codigo de la materia en la lista de codigos de materia "listaCM"
+                            listaCM.append(int(CM1))             #Almacena el codigo de la materia en la lista de codigos de materia "listaCM"
                             listaNM.append(NM1)             #Almacena el nombre de la materia en la lista de nombres de la materia
-                            listaCF.append(CF1)             # """""""""
-                            listaCD.append(CD1)
-                            listaCC.append(CC1)
+                            listaCF.append(int(CF1))            # """""""""
+                            listaCD.append(int(CD1))
+                            listaCC.append(int(CC1))
                             listaCMA.append(CMA1)
                     menu_opcionesBDMOrdenada()         #Imprime el menu de opciones de ordenamiento
                     opcion3 = input("Ingrese el número de la opción: ")        #Solicita una opcion y la almacena como string
@@ -286,7 +296,7 @@ def mainBDM():   #Función Principal de la Base de datos de Materias
 
                     with open("BD-Materias-ORDENADA.txt", "w") as file:
                         for indices in val:
-                            listaordenada = str(indices) + ";" + listaCM[indices - 1] + ";" + listaNM[indices - 1] + ";" + listaCF[indices - 1] + ";" + listaCD[indices - 1] + ";" + listaCC[indices - 1] + ";" + listaCMA[indices - 1]
+                            listaordenada = str(indices) + ";" + str(listaCM[indices - 1]) + ";" + listaNM[indices - 1] + ";" + str(listaCF[indices - 1]) + ";" + str(listaCD[indices - 1]) + ";" + str(listaCC[indices - 1]) + ";" + listaCMA[indices - 1]
                             file.write(listaordenada + "\n")
                     with open("BD-Materias-ORDENADA.txt", "r") as file:
                         listatotal = []

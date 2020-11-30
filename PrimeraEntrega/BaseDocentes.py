@@ -125,30 +125,18 @@ def listasordenarytexto(lista): #ordenar y pone en texto las casillas con mas de
         lista[i] = listatexto
     return lista
 
-
-class Docente:
+class Persona:
     def __init__(self):
-        self.__ID =  ""
+        self.__ID = ""
         self.__N = ""
         self.__A = ""
-        self.__CM = ""
-        self.__DC = ""
-        self.__HC = ""
-        self.__DH = ""
+
     def getID(self):
         return self.__ID
     def getN(self):
         return self.__N
     def getA(self):
         return self.__A
-    def getCM(self):
-        return self.__CM
-    def getDC(self):
-        return self.__DC
-    def getHC(self):
-        return self.__HC
-    def getDH(self):
-        return self.__DH
 
     def setID(self):
         comprobar = False
@@ -170,6 +158,23 @@ class Docente:
             A = input("Ingrese el apellido: ")  # Apellido del Docente
             comprobar = Comprobacion(A, 50, True)
         self.__A = A
+
+class Docente(Persona):
+    def __init__(self):
+        self.__CM = ""
+        self.__DC = ""
+        self.__HC = ""
+        self.__DH = ""
+
+    def getCM(self):
+        return self.__CM
+    def getDC(self):
+        return self.__DC
+    def getHC(self):
+        return self.__HC
+    def getDH(self):
+        return self.__DH
+
 
     def setCM(self):
         comprobar = False

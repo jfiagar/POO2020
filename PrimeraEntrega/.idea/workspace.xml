@@ -7,7 +7,14 @@
   <component name="ChangeListManager">
     <list default="true" id="2f57ebc4-894a-44b3-ba86-4bd32560bea9" name="Default Changelist" comment="Bases de datos con Objetos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BDMateriasAntigua.py" beforeDir="false" afterPath="$PROJECT_DIR$/BDMateriasAntigua.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BD-Estudiantes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/BD-Estudiantes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BD-Materias-ORDENADA.txt" beforeDir="false" afterPath="$PROJECT_DIR$/BD-Materias-ORDENADA.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BD-Materias.txt" beforeDir="false" afterPath="$PROJECT_DIR$/BD-Materias.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BDEstudiantes.py" beforeDir="false" afterPath="$PROJECT_DIR$/BDEstudiantes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseDocentes.py" beforeDir="false" afterPath="$PROJECT_DIR$/BaseDocentes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ContadorBD-Estudiantes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ContadorBD-Estudiantes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ContadorBD-Materias.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ContadorBD-Materias.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basededatosMATERIAS.py" beforeDir="false" afterPath="$PROJECT_DIR$/basededatosMATERIAS.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -332,7 +339,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606695819462</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Bases de datos con Objetos">
+      <created>1606696769500</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1606696769500</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -417,22 +431,22 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1059" y="454" key="FileChooserDialogImpl/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1606606174331" />
-    <state width="2539" height="234" key="GridCell.Tab.0.bottom" timestamp="1606695799790">
+    <state width="2539" height="437" key="GridCell.Tab.0.bottom" timestamp="1606699714079">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="234" key="GridCell.Tab.0.bottom/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1606695799790" />
-    <state width="2539" height="234" key="GridCell.Tab.0.center" timestamp="1606695799789">
+    <state width="2539" height="437" key="GridCell.Tab.0.bottom/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1606699714079" />
+    <state width="2539" height="437" key="GridCell.Tab.0.center" timestamp="1606699714079">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="234" key="GridCell.Tab.0.center/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1606695799789" />
-    <state width="2539" height="234" key="GridCell.Tab.0.left" timestamp="1606695799789">
+    <state width="2539" height="437" key="GridCell.Tab.0.center/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1606699714079" />
+    <state width="2539" height="437" key="GridCell.Tab.0.left" timestamp="1606699714079">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="234" key="GridCell.Tab.0.left/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1606695799789" />
-    <state width="2539" height="234" key="GridCell.Tab.0.right" timestamp="1606695799790">
+    <state width="2539" height="437" key="GridCell.Tab.0.left/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1606699714079" />
+    <state width="2539" height="437" key="GridCell.Tab.0.right" timestamp="1606699714079">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="234" key="GridCell.Tab.0.right/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1606695799790" />
+    <state width="2539" height="437" key="GridCell.Tab.0.right/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1606699714079" />
     <state width="2539" height="492" key="GridCell.Tab.1.bottom" timestamp="1603753799591">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -453,10 +467,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="781" y="344" key="SettingsEditor/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1606606253911" />
-    <state x="872" y="432" key="Vcs.Push.Dialog.v2" timestamp="1606695826911">
+    <state x="872" y="432" key="Vcs.Push.Dialog.v2" timestamp="1606696778408">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="872" y="432" key="Vcs.Push.Dialog.v2/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1606695826911" />
+    <state x="872" y="432" key="Vcs.Push.Dialog.v2/2560.0.2560.1413/0.0.2560.1400@0.0.2560.1400" timestamp="1606696778408" />
     <state x="887" y="310" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1602276179761">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
