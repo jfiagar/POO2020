@@ -72,6 +72,7 @@ class MateriaAprobada:
                 CodigoM = input("Ingrese el código de la Materia: ")
                 if CodigoM <= 12:
                     a = False
+        self.__CodigoM = CodigoM
 
     def setID(self):
         comprobado = True
