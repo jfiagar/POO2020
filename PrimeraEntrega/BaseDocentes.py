@@ -125,6 +125,91 @@ def listasordenarytexto(lista): #ordenar y pone en texto las casillas con mas de
         lista[i] = listatexto
     return lista
 
+
+class Docente:
+    def __init__(self):
+        self.__ID =  ""
+        self.__N = ""
+        self.__A = ""
+        self.__CM = ""
+        self.__DC = ""
+        self.__HC = ""
+        self.__DH = ""
+    def getID(self):
+        return self.__ID
+    def getN(self):
+        return self.__N
+    def getA(self):
+        return self.__A
+    def getCM(self):
+        return self.__CM
+    def getDC(self):
+        return self.__DC
+    def getHC(self):
+        return self.__HC
+    def getDH(self):
+        return self.__DH
+
+    def setID(self):
+        comprobar = False
+        while not comprobar:
+            ID = input("Ingrese el número de documento de indentidad del Docente: ")  # Número de documento del Docente
+            comprobar = Comprobacion(ID, 10, False)
+        self.__ID = ID
+
+    def setN(self):
+        comprobar = False
+        while not comprobar:
+            N = input("Ingrese el nombre: ")  # Nombre del Docente
+            comprobar = Comprobacion(N, 50, True)
+        self.__N = N
+
+    def setA(self):
+        comprobar = False
+        while not comprobar:
+            A = input("Ingrese el apellido: ")  # Apellido del Docente
+            comprobar = Comprobacion(A, 50, True)
+        self.__A = A
+
+    def setCM(self):
+        comprobar = False
+        while not comprobar:
+            CM = input("Ingrese el código de la materia que dicta: ")  # Código de la materia que dicta
+            with open('BD-Materias.txt') as file:
+                listaCMB = []
+                for line in file:
+                    listamaterias = line.strip().split(';')
+                    CMB = listamaterias[1]
+                    listaCMB.append(CMB)
+            if CM in listaCMB:
+                comprobar = True
+            else:
+                print("La materia no se encuentra en la base de datos")
+        self.__CM = CM
+
+    def setDC(self):
+        comprobar = False
+        while not comprobar:
+            DC = input("Ingrese el día que se dicta la clase (L,M,C,J,V): ")  # Día de que se dicta la materia
+            comprobar = ComprobarEsp(DC, 1, True, DC, ("L", "M", "C", "J", "V"),"Dia no válido,por favor ingresar uno válido (L,M,C,J,V)")
+        self.__DC = DC
+
+    def setHC(self):
+        comprobar = False
+        while not comprobar:
+            HC = input(
+                "Ingrese la hora que se dicta la clase (Si la clase es a las 7 am ingrese 700): ")  # Hora que se dicta la materia
+            comprobar = ComprobarEsp(HC, 4, False, int(HC), range(700, 2000),
+                                     "La hora esta fuera del horario permitido, desde las 700 hasta las 2000")
+        self.__HC = HC
+
+    def setDH(self):
+        comprobar = False
+        while not comprobar:
+            DH = input("Ingrese la cantidad de horas dictadas: ")  # Cantidad de horas dictadas
+            comprobar = ComprobarEsp(DH, 1, False, int(HC) + int(DH) * 100, range(700, 2001), "La duración esta fuera del horario permitido, desde las 700 hasta las 2000")
+        self.__DH = DH
+
 def baseDocentes():
     while True:
         menu_principalBDD()
@@ -324,45 +409,18 @@ def baseDocentes():
             menu_opcionesBDDingresar()
             opcion2 = input("Ingrese el número de la opción: ")
             if opcion2 == "0":
-                comprobar = False
-                while not comprobar:
-                    ID = input("Ingrese el número de documento de indentidad del Docente: ")# Número de documento del Docente
-                    comprobar = Comprobacion(ID, 10, False)
-                comprobar = False
-                while not comprobar:
-                    N = input("Ingrese el nombre: ")  # Nombre del Docente
-                    comprobar = Comprobacion(N, 50, True)
-                comprobar = False
-                while not comprobar:
-                    A = input("Ingrese el apellido: ")  # Apellido del Docente
-                    comprobar = Comprobacion(A, 50, True)
-                comprobar = False
-                while not comprobar:
-                    CM = input("Ingrese el código de la materia que dicta: ")  # Código de la materia que dicta
-                    with open('BD-Materias.txt') as file:
-                        listaCMB = []
-                        for line in file:
-                            listamaterias = line.strip().split(';')
-                            CMB = listamaterias[1]
-                            listaCMB.append(CMB)
-                    if CM in listaCMB:
-                        comprobar = True
-                    else:
-                        print("La materia no se encuentra en la base de datos")
-                comprobar = False
-                while not comprobar:
-                    DC = input("Ingrese el día que se dicta la clase (L,M,C,J,V): ")  # Día de que se dicta la materia
-                    comprobar = ComprobarEsp(DC, 1, True, DC, ("L", "M", "C", "J", "V"), "Dia no válido,por favor ingresar uno válido (L,M,C,J,V)")
-                comprobar = False
-                while not comprobar:
-                    HC = input("Ingrese la hora que se dicta la clase (Si la clase es a las 7 am ingrese 700): ")# Hora que se dicta la materia
-                    comprobar = ComprobarEsp(HC, 4, False, int(HC), range(700, 2000), "La hora esta fuera del horario permitido, desde las 700 hasta las 2000")
-                comprobar = False
-                while not comprobar:
-                    DH = input("Ingrese la cantidad de horas dictadas: ")  # Cantidad de horas dictadas
-                    comprobar = ComprobarEsp(DH, 1, False, int(HC)+int(DH)*100, range(700, 2001), "La duración esta fuera del horario permitido, desde las 700 hasta las 2000")
 
-                docente = ID + ";" + N + ";" + A + ";" + CM + ";" + DC + ";" + HC + ";" + DH  # Creación del diccionario con el docente
+                mi_docente=Docente()
+                mi_docente.setID()
+                mi_docente.setN()
+                mi_docente.setA()
+                mi_docente.setCM()
+                mi_docente.setDC()
+                mi_docente.setHC()
+                mi_docente.setDH()
+
+
+                docente = mi_docente.getID() + ";" + mi_docente.getN() + ";" + mi_docente.getA() + ";" + mi_docente.getCM() + ";" + mi_docente.getDC() + ";" + mi_docente.getHC() + ";" + mi_docente.getDH()  # Creación del diccionario con el docente
 
                 if not os.path.isfile(
                         "BD-Docentes.txt"):  # Verificación de que la base de datos exista usando "isfile" de la libreria os.path , si existe el archivo el valor es True, sino False .Por lo tanto si el archivo no existe entonces entra a la condición

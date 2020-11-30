@@ -49,7 +49,39 @@ def borrarPantalla():                       #Definimos la función estableciendo
     elif os.name == "ce" or os.name == "nt" or os.name == "dos":        #Verifica si el sistema operativo es Windows, o sistemas desarrollados por Microsoft
         os.system ("cls")                       #Si el sistema es DOS/Windows limpia la consola con la función system cls
 
+class MateriaAprobada:
+    def __init__(self):
+        self.__CodigoM =  ""
+        self.__ID = ""
 
+    def getCodigoM(self):
+        return self.__CodigoM
+    def getID(self):
+        return self.__ID
+
+
+    def setCodigoM(self):
+        CodigoM = input("Ingrese el código de la Materia: ")  # Código de la materia
+
+        Contcm = len(CodigoM)
+
+        if Contcm >= 12 or Contcm < 5:  # Comprobación de caracteres
+            a = True
+            while a == True:
+                print("El código superó el límite o el minímo de caracteres")
+                CodigoM = input("Ingrese el código de la Materia: ")
+                if CodigoM <= 12:
+                    a = False
+
+    def setID(self):
+        comprobado = True
+        while comprobado == True:
+            ID = input("Ingrese el Documento de Identidad: ")  # Código de la materia
+            if len(ID) < 12 and ID.isnumeric():
+                self.__ID = ID
+                comprobado = False
+            else:
+                print("El número es demasiado grande o no es un número, intentelo de nuevo")
 
 def mainBDMAntigua():
     while True:
@@ -57,21 +89,12 @@ def mainBDMAntigua():
         opcion_elegida = input("Ingrese el número de la opción: ")
 
         if opcion_elegida == "1":
-            CodigoM = input("Ingrese el código de la Materia: ")  # Código de la materia
+            mi_materiaaprobada=MateriaAprobada()
+            mi_materiaaprobada.setCodigoM()
+            mi_materiaaprobada.setID()
 
-            Contcm = len(CodigoM)
 
-            if Contcm >= 12 or Contcm < 5:  # Comprobación de caracteres
-                a = True
-                while a == True:
-                    print("El código superó el límite o el minímo de caracteres")
-                    CodigoM = input("Ingrese el código de la Materia: ")
-                    if CodigoM <= 12:
-                        a = False
-
-            ID = input("Ingrese el documento de identificacion del estudiante: ")  # Nombre de la materia
-
-            diccionario = CodigoM + ";" + ID  # Creación de la info de la materia
+            diccionario = mi_materiaaprobada.getCodigoM() + ";" + mi_materiaaprobada.getID()  # Creación de la info de la materia
             if not os.path.isfile("BD-Materias-Antigua.txt"):  # Verificación de que la base de datos exista usando "isfile" de la libreria os.path , si existe el archivo el valor es True, sino False .Por lo tanto si el archivo no existe entonces entra a la condición
                 BDM = open("BD-Materias-Antigua.txt","w")  # Este modo abre el archivo para escritura. Si el archivo no existe, crea un nuevo archivo.
                 numerodematerias = 1  # Establece el número de materias en 1
