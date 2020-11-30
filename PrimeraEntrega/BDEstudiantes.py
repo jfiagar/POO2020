@@ -7,7 +7,7 @@ def menu_principalBDM():
     print("Bienvenido a la Base de datos de Estudiantes")  # Saludo :v
     print("MENÚ PRINCIPAL")  # Imprime Menú principal
     print("[0]  Entrar a la base de datos")  # Imprime la primera opción
-    print('[1]  Ingresar info. Estudiantes a la base de datos')  # Imprime la segunda opción
+    print('[1]  Ingresar información Estudiantes a la base de datos')  # Imprime la segunda opción
     print("[2]  Salir del programa")  # Imprime la tercera opción
 
 def menu_mostrarbase():
@@ -47,6 +47,7 @@ def borrarPantalla():                       #Definimos la función estableciendo
         os.system ("cls")                       #Si el sistema es DOS/Windows limpia la consola con la función system cls
 
 class Persona:
+
     def __init__(self):
         self.__DI = ""
         self.__N = ""
@@ -70,20 +71,21 @@ class Persona:
         comprobado = True
         while comprobado == True:
             N = input("Ingrese el Nombre: ")  # Nombre de la materia
-            if len(N) < 40:
+            if len(N) < 40 and N.isalpha():
                 self.__N=N
                 comprobado = False
             else:
-                print("El texto es demasiado grande, intentelo de nuevo")
+                print("El texto es demasiado grande o es un número, intentelo de nuevo")
     def setA(self):
         comprobado = True
         while comprobado == True:
             A = input("Ingrese el Apellido: ")  # Código facultad que la dicta
-            if len(A) < 40:
+            if len(A) < 40 and A.isalpha():
                 self.__A=A
                 comprobado = False
             else:
-                print("El texto es demasiado grande, intentelo de nuevo")
+                print("El texto es demasiado grande o es un número, intentelo de nuevo")
+
 class Estudiante(Persona):
     def __init__(self):
         self.__CP = ""
@@ -102,29 +104,40 @@ class Estudiante(Persona):
         comprobado = True
         while comprobado == True:
             CP = input("Ingrese el Codigo del plan de estudio: ")  # Código departamento que la dicta
-            if len(CP) < 14:
+            if len(CP) < 14 and CP.isnumeric():
                 self.__CP=CP
                 comprobado = False
             else:
-                print("El texto es demasiado grande, intentelo de nuevo")
+                print("El texto es demasiado grande o no es un número, intentelo de nuevo")
     def setCE(self):
         comprobado = True
         while comprobado == True:
             CE = input("Ingrese la calidad de estudiante (matriculado [M], graduado [G], perdida de cupo [P]): ")  # Cantidad de créditos
-            if len(CE) ==1 and CE.isalpha():
+            if CE == "M" or CE == "G" or CE == "P":
                 self.__CE=CE
                 comprobado = False
             else:
                 print("El texto es incorrecto, intentelo de nuevo")
     def setPA(self):
         comprobado = True
+        Ed = False
         while comprobado == True:
             PA = input("Ingrese el PAPA actual: ")  # Código materia anterior obligatoria en el plan de estudios
-            if len(PA) < 8:
-                self.__PA=PA
-                comprobado = False
+            for a in PA:
+                if a == "." or a == ",":
+                    Ed = True
+            if Ed:
+                if len(PA) < 8 and int(PA[0]) < 5 or int(PA[0]) == 5 and int(PA[2]) == 0:
+                    self.__PA = PA
+                    comprobado = False
+                else:
+                    print("El texto es demasiado grande o el PAPA se pasa de lo establecido, intentelo de nuevo")
             else:
-                print("El texto es demasiado grande, intentelo de nuevo")
+                if int(PA) < 5 and int(PA) > -1:
+                    self.__PA = PA
+                    comprobado = False
+                else:
+                    print("El texto es demasiado grande o el PAPA se pasa de lo establecido, intentelo de nuevo")
 
 def mainBDE():
     while True:
@@ -181,7 +194,7 @@ def mainBDE():
                     opcion3 = input("Ingrese el número de la opción: ")
 
                     if opcion3 == "1":
-                        dic = dict(zip(listaDI, listaDI))
+                        dic = dict(zip(listaIN, listaDI))
                         menu_opcionesBDMOrdenadanum()
                         opcion4 = input("Ingrese el número de la opción: ")
                         if opcion4 == "1":
@@ -384,4 +397,3 @@ def mainBDE():
             break
         else:
             print("Opción no valida")
-

@@ -17,8 +17,9 @@ def menu_mostrarbase():
     print("[0]  Ver la base de datos actual COMPLETA")  # Imprime la primera opción
     print("[1]  Ver la base de datos ordenada por un valor")  # Imprime la segunda opción
     print("[2]  Buscar un valor específico en la base de datos")  # Imprime la segunda opción
-    print("[3]  Volver al menú principal")  # Imprime la primera opción
-    print("[4]  Salir del programa")  # Imprime la tercera opción
+    print("[3]  Ver la base de datos por estudiante") # Imprime la esta opción
+    print("[4]  Volver al menú principal")  # Imprime la primera opción
+    print("[5]  Salir del programa")  # Imprime la tercera opción
 
 
 def menu_opcionesBDM():
@@ -61,28 +62,50 @@ class MateriaAprobada:
 
 
     def setCodigoM(self):
-        CodigoM = input("Ingrese el código de la Materia: ")  # Código de la materia
-
-        Contcm = len(CodigoM)
-
-        if Contcm >= 12 or Contcm < 5:  # Comprobación de caracteres
-            a = True
-            while a == True:
-                print("El código superó el límite o el minímo de caracteres")
-                CodigoM = input("Ingrese el código de la Materia: ")
-                if CodigoM <= 12:
-                    a = False
+        
+        comprobado = True
+        while comprobado == True:
+            CodigoM = input("Ingrese el código de la Materia: ")  # Código de la materia
+            Contcm = len(CodigoM)
+            with open('BD-Materias.txt') as file:
+                listaCMB = []
+                for line in file:
+                    listamaterias = line.strip().split(';')
+                    CMB = listamaterias[1]
+                    listaCMB.append(CMB)
+            if CodigoM not in listaCMB:
+                print("La materia no está en la base de datos")
+            elif Contcm >= 12 or Contcm < 5 or not CodigoM.isnumeric():  # Comprobación de caracteres
+                a = True
+                while a :
+                    print("El código superó el límite o el minímo de caracteres, o no ingresó un número")
+                    CodigoM = input("Ingrese el código de la Materia: ")
+                    if CodigoM <= 12 and CodigoM.isnumeric():
+                        a = False
+            else:
+                comprobado = False
         self.__CodigoM = CodigoM
 
     def setID(self):
         comprobado = True
         while comprobado == True:
             ID = input("Ingrese el Documento de Identidad: ")  # Código de la materia
-            if len(ID) < 12 and ID.isnumeric():
-                self.__ID = ID
-                comprobado = False
-            else:
-                print("El número es demasiado grande o no es un número, intentelo de nuevo")
+
+            with open('BD-Estudiantes.txt') as file:
+                listaCMB = []
+                for line in file:
+                    listamaterias = line.strip().split(';')
+                    CMB = listamaterias[1]
+                    listaCMB.append(CMB)
+            if ID not in listaCMB:
+                print("El documento del estudiante no se encuentra en la base de datos")
+            
+            else: 
+                if len(ID) < 12 and ID.isnumeric() and not "":
+                    self.__ID = ID
+                    comprobado = False
+                else:
+                    print("El número es demasiado grande o no es un número, intentelo de nuevo")
 
 def mainBDMAntigua():
     while True:
@@ -93,7 +116,6 @@ def mainBDMAntigua():
             mi_materiaaprobada=MateriaAprobada()
             mi_materiaaprobada.setCodigoM()
             mi_materiaaprobada.setID()
-
 
             diccionario = mi_materiaaprobada.getCodigoM() + ";" + mi_materiaaprobada.getID()  # Creación de la info de la materia
             if not os.path.isfile("BD-Materias-Antigua.txt"):  # Verificación de que la base de datos exista usando "isfile" de la libreria os.path , si existe el archivo el valor es True, sino False .Por lo tanto si el archivo no existe entonces entra a la condición
@@ -154,15 +176,16 @@ def mainBDMAntigua():
                             listatotal.append(
                                 lineas)  # se agregan las listas creadas a la lista total, creando una lista de listas con los valores separados
 
-                    Tabla = "\+-----------------------------------------------------------------------------------------------------------------------------------------------------------+\n| Indice | Código de la Materia | Documento de Identidad |\n|-----------------------------------------------------------------------------------------------------------------------------------------------------------|"
+                    Tabla = "+--------------------------------------------------------+\n| Indice | Código de la Materia | Documento de Identidad |\n|--------------------------------------------------------|"
                     # Crea un string para las primeras casillas de la tabla
                     print(Tabla)  # Imprime ese string
                     for fila in listatotal:  # Para cada lista en la lista total realiza el codigo siguiente:
                         a, b, c = fila  # Desempaqueta las variables de la lista en varias variables llamadas a,b,c, etc que en realidad serían a=Indice, b= Codidog de la materia, C= Nombre. etc--
-                        stringdetabla = "|{:^8}|{:^22}|{:^22}|".format(a, b,
+                        stringdetabla = "|{:^8}|{:^22}|{:^24}|".format(a, b,
                                                                        c)  # Usando el metodo format crea un string con los valores de las variables almacenadas y los centra segun el valor, por ejemplo "^8" lo centra a 8 espacios a izquierda y derecha
                         print(
                             stringdetabla)  # imprime cada string, o sea cada fila de la tabla y continua el ciclo para la siguiente fila
+                        print("+--------------------------------------------------------+")
 
                 elif opcion2 == "1":  # Condicion dada por la variable "Opcion2"
 
@@ -202,7 +225,7 @@ def mainBDMAntigua():
 
                     elif opcion3 == "2":  # Explicacion en la parte de arriba, lo unico que cambia es la lista usada, usando en ese caso el nombre de la materia
                         dic = dict(zip(listaIN, listaNM))
-                        menu_opcionesBDMOrdenadaalfa()
+                        menu_opcionesBDMOrdenadanum()
                         opcion4 = input("Ingrese el número de la opción: ")
                         if opcion4 == "1":
                             valores_ord = dict(sorted(dic.items(), key=operator.itemgetter(1)))
@@ -233,18 +256,16 @@ def mainBDMAntigua():
                         for lineas in file:
                             lineas = lineas.strip().split(";")
                             listatotal.append(lineas)
-
-                    Tabla = "+-----------------------------------------------------------------------------------------------------------------------------------------------------------+\n| Indice | Código de la Materia | Documento de Identidad |\n|-----------------------------------------------------------------------------------------------------------------------------------------------------------|"
+                    Tabla = "+--------------------------------------------------------+\n| Indice | Código de la Materia | Documento de Identidad |\n|--------------------------------------------------------|"
 
                     print(Tabla)
                     for fila in listatotal:  # Para cada lista en la lista total realiza el codigo siguiente:
                         a, b, c = fila  # Desempaqueta las variables de la lista en varias variables llamadas a,b,c, etc que en realidad serían a=Indice, b= Codidog de la materia, C= Nombre. etc--
-                        stringdetabla = "|{:^8}|{:^22}|{:^22}|".format(a, b,
+                        stringdetabla = "|{:^8}|{:^22}|{:^24}|".format(a, b,
                                                                        c)  # Usando el metodo format crea un string con los valores de las variables almacenadas y los centra segun el valor, por ejemplo "^8" lo centra a 8 espacios a izquierda y derecha
                         print(
                             stringdetabla)  # imprime cada string, o sea cada fila de la tabla y continua el ciclo para la siguiente fila
-                    print(
-                        "+-----------------------------------------------------------------------------------------------------------------------------------------------------------+")
+                        print("---------------------------------------------------------+")
 
                 elif opcion2 == "2":  # Condicion dada por la variable "Opcion2"
                     palabra = input(
@@ -263,27 +284,85 @@ def mainBDMAntigua():
                                 lista_ME.append(
                                     linea)  # Almacena en la lista de materias encontradas la lista total de la linea del archivo
                                 indicador = False  # Vuelve a poner el indicador en False
-                    Tabla = "+-----------------------------------------------------------------------------------------------------------------------------------------------------------+\n| Indice | Código de la Materia | Documento de identidad |\n|-----------------------------------------------------------------------------------------------------------------------------------------------------------|"
+                    
+                    if lista_ME == []:            
+                        print("No se encontró el valor buscado en la base de datos")
 
-                    print(Tabla)
-                    for fila in lista_ME:  # Para cada lista en la lista total realiza el codigo siguiente:
-                        a, b, c = fila  # Desempaqueta las variables de la lista en varias variables llamadas a,b,c, etc que en realidad serían a=Indice, b= Codidog de la materia, C= Nombre. etc--
-                        stringdetabla = "|{:^8}|{:^22}|{:^22}|".format(a, b,
-                                                                       c)  # Usando el metodo format crea un string con los valores de las variables almacenadas y los centra segun el valor, por ejemplo "^8" lo centra a 8 espacios a izquierda y derecha
-                        print(
-                            stringdetabla)  # imprime cada string, o sea cada fila de la tabla y continua el ciclo para la siguiente fila
-                    print(
-                        "+-----------------------------------------------------------------------------------------------------------------------------------------------------------+")
+                    else:
+                        Tabla = "+--------------------------------------------------------+\n| Indice | Código de la Materia | Documento de identidad |\n|--------------------------------------------------------|"
+
+                        print(Tabla)
+                        for fila in lista_ME:  # Para cada lista en la lista total realiza el codigo siguiente:
+                            a, b, c = fila  # Desempaqueta las variables de la lista en varias variables llamadas a,b,c, etc que en realidad serían a=Indice, b= Codidog de la materia, C= Nombre. etc--
+                            stringdetabla = "|{:^8}|{:^22}|{:^24}|".format(a, b,
+                                                                        c)  # Usando el metodo format crea un string con los valores de las variables almacenadas y los centra segun el valor, por ejemplo "^8" lo centra a 8 espacios a izquierda y derecha
+                            print(
+                                stringdetabla)  # imprime cada string, o sea cada fila de la tabla y continua el ciclo para la siguiente fila
+                            print("+--------------------------------------------------------+")
+
                 elif opcion2 == "3":
-                    continue
+                    CompE = True
+                    while CompE:
+                        EstR = input("ingrese el documento del estudiante:")
+                        with open('BD-Materias-Antigua.txt') as file:
+                            listaCMB = []
+                            for line in file:
+                                listamaterias = line.strip().split(';')
+                                CMB = listamaterias[2]
+                                listaCMB.append(CMB)
+                        if EstR not in listaCMB:
+                            print("El estudiante no está en la base de datos, o no tiene materias aprobadas")
+                        else:
+                            CompE = False
+                    
+                    MateriasM = []    
+                    with open('BD-Materias-Antigua.txt') as file:
+                        for line in file:
+                            listamaterias = line.strip().split(';')
+                            CMB = listamaterias[2]
+                            if EstR == CMB:
+                                MateriasM.append(listamaterias[1])
+                    print(MateriasM)
+                    indicador = False  # Inicializa el indicador en False
+                    lista_ME = []  # Crea una lista de Materias Encontradas
+                    with open("BD-Materias.txt",
+                              "r") as file:  # Abre el archivo en modo lectura con el metodo with, llamando al archivo file , ejecutando el codigo anidado cuando el archivo este abierto y cuando termina cierra el archivo
+                        for linea in file:  # Recorre cada linea del archivo usando un ciclo For
+                            linea = linea.strip().split(
+                                ";")  # con la función strip quita los saltos de linea "\n", con la función split, divide las palabras segun cuando encuentra un ";" y devuelve una lista, la cual es almacenada en la variable lineas
+                            if linea[1] in MateriasM:  # Recorre la lista par ver si se encuentra el código en la lista de materias
+                                indicador = True  # Indicador de materia encontrada puesto en TRUE
+                            if indicador:  # Si el indicador es verdadero
+                                lista_ME.append(
+                                    linea)  # Almacena en la lista de materias encontradas la lista total de la linea del archivo
+                                indicador = False  # Vuelve a poner el indicador en False
+                    
+                            
+                    Tabla = "+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n| índice | Documento de identidad | Código de la Materia | Nombre de la Materia | Código de facultad | Código de departamento | Cantidad de créditos | Código de la materia anterior |\n|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|"
+                    BID = EstR
+                    print(Tabla)
+                    for fila in lista_ME:         #Para cada lista en la lista total realiza el codigo siguiente:
+                        if len(fila[2]) < 20:       #Si la longitud del item 2 de la lista es menor a 20 entra al ciclo, esto se hace para verificar si la palabra cabe en la celda
+                            a, b, c, d, e, f, g = fila         #Desempaqueta las variables de la lista en varias variables llamadas a,b,c, etc que en realidad serían a=Indice, b= Codidog de la materia, C= Nombre. etc--
+                            stringdetabla = "|{:^8}|{:^24}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(a, BID, b, c, d, e, f,g)    # Usando el metodo format crea un string con los valores de las variables almacenadas y los centra segun el valor, por ejemplo "^8" lo centra a 8 espacios a izquierda y derecha
+                            print(stringdetabla)    #imprime cada string, o sea cada fila de la tabla y continua el ciclo para la siguiente fila
+                        else:
+                            a, b, c, d, e, f, g = fila     # entra a esta parte si el Nombre de la Materia es muy largo, y hace el mismo procedimiento ya explicado desempaquetando y almacenando las variables
+                            stringdetabla = "|{:^8}|{:^24}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(a, BID, b, c[0:19] + "-", d, e, f, g)       #con el metodo format pone las varibales, y en el caso de la variable del nombre de la amteria imprime los primeros 19 caracteres mas un guion
+
+                            print(stringdetabla)
+                            stringdetabla = "|{:^8}|{:^24}|{:^22}|{:^22}|{:^20}|{:^24}|{:^22}|{:^31}|".format(" "," ", " ", c[19:38]," ", " ", " "," ")  #Imprime la siguiente parte que faltó del Nombre de la materia
+                            print(stringdetabla)
+                            print("+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+")
+             
                 elif opcion2 == "4":
+                    continue
+                elif opcion2 == "5":
                     break
                 else:
                     print("Opción no valida")
             else:
                 print("Aún no existe una Base de datos")
-            print(
-                "-------------------------------------------------------------------------------------------------------------------------------------------------------------")
             menu_opcionesBDM()
             opcion2 = input("\n Ingrese el número de la opción: ")
             if opcion2 == "0":
@@ -301,6 +380,4 @@ def mainBDMAntigua():
             print("Opción no valida")
             print("Saliendo...")
             break
-
-
 

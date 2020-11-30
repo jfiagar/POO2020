@@ -52,6 +52,7 @@ def borrarPantalla():                       #Definimos la función estableciendo
         os.system ("cls")                       #Si el sistema es DOS/Windows limpia la consola con la función system cls
 
 def Comprobacion(dato,longitud,texto):#Función para comprobar si la longitud y el tipo de dato corresponde
+    dato = dato.replace(" ", "")
     if texto:
         a = dato.isalpha()
     else:
@@ -71,8 +72,11 @@ def ComprobarEsp(dato,longitud,texto,comparar,parametro,mensaje):#Función para 
         a = dato.isalpha()
     else:
         a = dato.isdigit()
+
     if len(dato) <= longitud:
         if a:
+            if not texto:
+                comparar = int(comparar)
             if comparar in parametro:
                 return True
             else:
@@ -109,30 +113,40 @@ def mostrartabla(listatotal):
     print(
         "+----------------------------------------------------------------------------------------------------------------------------------------------------------------+")
 
-def listasordenarytexto(lista): #ordenar y pone en texto las casillas con mas de un dato
-    for i in range(len(lista)):
-        lista[i] = lista[i].strip().split("-")
+def listasordenarytexto(lista, opcion, texto): #ordenar y pone en texto las casillas con mas de un dato
+    if texto:
+        for i in range(len(lista)):
+            lista[i] = lista[i].strip().split("-")
+    else:
+        for i in range(len(lista)):
+            lista[i] = lista[i].strip().split("-")
+            lista2 = lista[i]
+            for i in range(len(lista2)):
+                lista2[i] = int(lista2[i])
+            lista[i]=lista2
     for i in range(len(lista)):
         lista[i] = sorted(lista[i])
+    if not opcion:
+        lista.reverse()
     for i in range(len(lista)):
         a = lista[i]
         listatexto = ""
         for j in range(len(a)):
             if j == (len(a) - 1):
-                listatexto = listatexto + a[j]
+                listatexto = listatexto + str(a[j])
             else:
-                listatexto = listatexto + a[j] + "-"
+                listatexto = listatexto + str(a[j]) + "-"
         lista[i] = listatexto
     return lista
 
 class Persona:
     def __init__(self):
-        self.__ID = ""
+        self.__DI = ""
         self.__N = ""
         self.__A = ""
 
     def getID(self):
-        return self.__ID
+        return self.__DI
     def getN(self):
         return self.__N
     def getA(self):
@@ -140,10 +154,28 @@ class Persona:
 
     def setID(self):
         comprobar = False
-        while not comprobar:
-            ID = input("Ingrese el número de documento de indentidad del Docente: ")  # Número de documento del Docente
-            comprobar = Comprobacion(ID, 10, False)
-        self.__ID = ID
+        while not comprobar :
+            DI = input("Ingrese el número de documento de indentidad del Docente: ")  # Número de documento del Docente
+            comprobar = Comprobacion(DI, 10, False)
+            indicador = False
+            if os.path.isfile("BD-Docentes.txt"):
+                with open("BD-Docentes.txt", "r") as file:  # Verifica si el docente existe en la base de datos de docentes
+                    for linea in file:
+                        linea = linea.strip().split(";")
+                        for items in linea:
+                            if DI == items:
+                                indicador = True
+            if os.path.isfile("BD-Estudiantes.txt"):
+                with open("BD-Estudiantes.txt","r") as file:  # Verifica si el docente existe en la base de datos de docentes
+                    for linea in file:
+                        linea = linea.strip().split(";")
+                        for items in linea:
+                            if DI == items:
+                                indicador = True
+            if indicador == True:
+                print("Documento de identidad se encuentra en las bases de datos")
+                comprobar = False
+        self.__DI = DI
 
     def setN(self):
         comprobar = False
@@ -202,17 +234,19 @@ class Docente(Persona):
     def setHC(self):
         comprobar = False
         while not comprobar:
-            HC = input(
-                "Ingrese la hora que se dicta la clase (Si la clase es a las 7 am ingrese 700): ")  # Hora que se dicta la materia
-            comprobar = ComprobarEsp(HC, 4, False, int(HC), range(700, 2000),
-                                     "La hora esta fuera del horario permitido, desde las 700 hasta las 2000")
+            HC = input("Ingrese la hora que se dicta la clase (Si la clase es a las 7 am ingrese 700): ")  # Hora que se dicta la materia
+            comprobar = ComprobarEsp(HC, 4, False, HC, range(700, 2000),"La hora esta fuera del horario permitido, desde las 700 hasta las 2000")
         self.__HC = HC
 
     def setDH(self):
         comprobar = False
         while not comprobar:
             DH = input("Ingrese la cantidad de horas dictadas: ")  # Cantidad de horas dictadas
-            comprobar = ComprobarEsp(DH, 1, False, int(HC) + int(DH) * 100, range(700, 2001), "La duración esta fuera del horario permitido, desde las 700 hasta las 2000")
+            try:
+                D=int(self.__HC)+int(DH)*100
+            except:
+                D=0
+            comprobar = ComprobarEsp(DH, 1, False, D, range(700, 2001), "La duración esta fuera del horario permitido, desde las 700 hasta las 2000")
         self.__DH = DH
 
 def baseDocentes():
@@ -297,13 +331,15 @@ def baseDocentes():
                             print("Opción no valida")
 
                     elif opcion3 == "4":
-                        listaCM = listasordenarytexto(listaCM)
-                        dic = dict(zip(listaIN, listaCM))
                         menu_opcionesBDDordenadanum()
                         opcion4 = input("Ingrese el número de la opción: ")
                         if opcion4 == "1":
+                            listaCM = listasordenarytexto(listaCM,True, False)
+                            dic = dict(zip(listaIN, listaCM))
                             valores_ord = dict(sorted(dic.items(), key=operator.itemgetter(1)))
                         elif opcion4 == "2":
+                            listaCM = listasordenarytexto(listaCM,False, False)
+                            dic = dict(zip(listaIN, listaCM))
                             valores_ord = sorted(dic.items(), key=operator.itemgetter(1))
                             valores_ord.reverse()
                             valores_ord = dict(valores_ord)
@@ -311,13 +347,15 @@ def baseDocentes():
                             print("Opción no valida")
 
                     elif opcion3 == "5":
-                        listaDC = listasordenarytexto(listaDC)
-                        dic = dict(zip(listaIN, listaDC))
                         menu_opcionesBDDordenadaalfa()
                         opcion4 = input("Ingrese el número de la opción: ")
                         if opcion4 == "1":
+                            listaDC = listasordenarytexto(listaDC, True, True)
+                            dic = dict(zip(listaIN, listaDC))
                             valores_ord = dict(sorted(dic.items(), key=operator.itemgetter(1)))
                         elif opcion4 == "2":
+                            listaDC = listasordenarytexto(listaDC, False, True)
+                            dic = dict(zip(listaIN, listaDC))
                             valores_ord = sorted(dic.items(), key=operator.itemgetter(1))
                             valores_ord.reverse()
                             valores_ord = dict(valores_ord)
@@ -326,13 +364,15 @@ def baseDocentes():
 
 
                     elif opcion3 == "6":
-                        listaHC = listasordenarytexto(listaHC)
-                        dic = dict(zip(listaIN, listaHC))
                         menu_opcionesBDDordenadanum()
                         opcion4 = input("Ingrese el número de la opción: ")
                         if opcion4 == "1":
+                            listaHC = listasordenarytexto(listaHC,True, False)
+                            dic = dict(zip(listaIN, listaHC))
                             valores_ord = dict(sorted(dic.items(), key=operator.itemgetter(1)))
                         elif opcion4 == "2":
+                            listaHC = listasordenarytexto(listaHC, False, False)
+                            dic = dict(zip(listaIN, listaHC))
                             valores_ord = sorted(dic.items(), key=operator.itemgetter(1))
                             valores_ord.reverse()
                             valores_ord = dict(valores_ord)
@@ -340,13 +380,15 @@ def baseDocentes():
                             print("Opción no valida")
 
                     elif opcion3 == "7":
-                        listaCH = listasordenarytexto(listaCH)
-                        dic = dict(zip(listaIN, listaCH))
                         menu_opcionesBDDordenadanum()
                         opcion4 = input("Ingrese el número de la opción: ")
                         if opcion4 == "1":
+                            listaCH = listasordenarytexto(listaCH,True, False)
+                            dic = dict(zip(listaIN, listaCH))
                             valores_ord = dict(sorted(dic.items(), key=operator.itemgetter(1)))
                         elif opcion4 == "2":
+                            listaCH = listasordenarytexto(listaCH, False, False)
+                            dic = dict(zip(listaIN, listaCH))
                             valores_ord = sorted(dic.items(), key=operator.itemgetter(1))
                             valores_ord.reverse()
                             valores_ord = dict(valores_ord)
@@ -366,7 +408,7 @@ def baseDocentes():
 
                     with open("BD-Docentes-ORDENADA.txt", "w") as file:
                         for indices in val:
-                            listaordenada = str(indices) + ";" + str(listaID[indices - 1]) + ";" + listaN[indices - 1] + ";" + listaA[indices - 1] + ";" + listaCM[indices - 1] + ";"  + listaDC[indices - 1] + ";"  + listaHC[indices - 1] + ";" + listaCH[indices-1]
+                            listaordenada = str(indices) + ";" + str(listaID[indices - 1]) + ";" + listaN[indices - 1] + ";" + listaA[indices - 1] + ";" + str(listaCM[indices - 1]) + ";"  + listaDC[indices - 1] + ";"  + listaHC[indices - 1] + ";" + listaCH[indices-1]
                             file.write(listaordenada + "\n")
 
                     with open("BD-Docentes-ORDENADA.txt", "r") as file:
@@ -384,9 +426,9 @@ def baseDocentes():
                     with open("BD-Docentes.txt", "r") as file:
                         for linea in file:
                             linea = linea.strip().split(";")
-                            for items in linea:
-                                if palabra == items:
-                                    indicador = True
+                            print(linea[1])
+                            if palabra == linea[1]:
+                                indicador = True
                             if indicador:
                                 lista_DE.append(linea)
                                 indicador = False
@@ -415,6 +457,15 @@ def baseDocentes():
             opcion2 = input("Ingrese el número de la opción: ")
             if opcion2 == "0":
 
+                creacion = False
+                if not os.path.isfile("BD-Docentes.txt"):  # Verificación de que la base de datos exista usando "isfile" de la libreria os.path , si existe el archivo el valor es True, sino False .Por lo tanto si el archivo no existe entonces entra a la condición
+                    BDM = open("BD-Docentes.txt","w")  # Este modo abre el archivo para escritura. Si el archivo no existe, crea un nuevo archivo.
+                    BDM.close()
+                    BDM = open("ContadorBD-Docentes.txt", "w")
+                    BDM.close()
+                    creacion = True
+
+
                 mi_docente=Docente()
                 mi_docente.setID()
                 mi_docente.setN()
@@ -427,19 +478,14 @@ def baseDocentes():
 
                 docente = mi_docente.getID() + ";" + mi_docente.getN() + ";" + mi_docente.getA() + ";" + mi_docente.getCM() + ";" + mi_docente.getDC() + ";" + mi_docente.getHC() + ";" + mi_docente.getDH()  # Creación del diccionario con el docente
 
-                if not os.path.isfile(
-                        "BD-Docentes.txt"):  # Verificación de que la base de datos exista usando "isfile" de la libreria os.path , si existe el archivo el valor es True, sino False .Por lo tanto si el archivo no existe entonces entra a la condición
-                    BDM = open("BD-Docentes.txt",
-                               "w")  # Este modo abre el archivo para escritura. Si el archivo no existe, crea un nuevo archivo.
+                if creacion:  # Verificación de que la base de datos exista usando "isfile" de la libreria os.path , si existe el archivo el valor es True, sino False .Por lo tanto si el archivo no existe entonces entra a la condición
+                    BDM = open("BD-Docentes.txt","w")  # Este modo abre el archivo para escritura. Si el archivo no existe, crea un nuevo archivo.
                     numerodedocentes = 1  # Establece el número de materias en 1
-                    BDM.write(
-                        str(numerodedocentes) + ";" + str(docente) + "\n")  # Escribe los datos de la primera materia
+                    BDM.write(str(numerodedocentes) + ";" + str(docente) + "\n")  # Escribe los datos de la primera materia
                     BDM.close()  # Cierra el archivo
 
-                    with open('ContadorBD-Docentes.txt',
-                              'w') as file:  # Este modo abre el archivo para escritura. Si el archivo no existe, crea un nuevo archivo.
-                        file.write(str(
-                            numerodedocentes))  # Escribe los datos  iniciales del numero de materias en la abse de datos
+                    with open('ContadorBD-Docentes.txt','w') as file:  # Este modo abre el archivo para escritura. Si el archivo no existe, crea un nuevo archivo.
+                        file.write(str(numerodedocentes))  # Escribe los datos  iniciales del numero de materias en la abse de datos
 
 
                 else:  # Si el archivo ya existe se entra a esta condicion
@@ -450,6 +496,7 @@ def baseDocentes():
                         file.write(str(numerodedocentes) + ";" + str(docente) + "\n")  # Escribe los datos de la siguiente materia
                     with open('ContadorBD-Docentes.txt','w') as file:  # Este modo abre el archivo para escritura. Si el archivo no existe, crea un nuevo archivo.
                         file.write(str(numerodedocentes))  # Actualiza el archivo sobreescribiendo el valor del numero de materias es decir borra los datos del archivo anterior y escribe de nuevo
+                print("Docente agregado exitoxamente......")
                 menu_opcionesBDD()
                 opcion3 = input("Ingrese el número de la opción: ")
                 if opcion3 == "0":
@@ -549,6 +596,8 @@ def baseDocentes():
                             a=lista_M[indices]
                             listaG = a[0]+";"+a[1]+";"+a[2]+";"+a[3]+";"+a[4]+";"+a[5]+";"+a[6]+";"+a[7]
                             file.write(listaG + "\n")
+
+                print("Materia agregada exitoxamente.......")
 
             else:
                 print("Opción no valida")
