@@ -192,7 +192,7 @@ estudiante</string>
       </property>
      </column>
     </widget>
-    <widget class="QLineEdit" name="Busqueda">
+    <widget class="QLineEdit" name="lineEdit_6">
      <property name="geometry">
       <rect>
        <x>190</x>
@@ -228,7 +228,7 @@ estudiante</string>
       <height>361</height>
      </rect>
     </property>
-    <widget class="QLineEdit" name="PAPA">
+    <widget class="QLineEdit" name="lineEdit_5">
      <property name="geometry">
       <rect>
        <x>280</x>
@@ -238,7 +238,7 @@ estudiante</string>
       </rect>
      </property>
     </widget>
-    <widget class="QLineEdit" name="Documentoiden">
+    <widget class="QLineEdit" name="lineEdit">
      <property name="geometry">
       <rect>
        <x>280</x>
@@ -251,9 +251,9 @@ estudiante</string>
     <widget class="QLabel" name="label_6">
      <property name="geometry">
       <rect>
-       <x>80</x>
+       <x>30</x>
        <y>210</y>
-       <width>121</width>
+       <width>171</width>
        <height>31</height>
       </rect>
      </property>
@@ -266,11 +266,11 @@ estudiante</string>
       <string>PAPA actual</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="CodigoPlan">
+    <widget class="QLineEdit" name="lineEdit_4">
      <property name="geometry">
       <rect>
        <x>280</x>
-       <y>140</y>
+       <y>150</y>
        <width>113</width>
        <height>20</height>
       </rect>
@@ -300,6 +300,11 @@ estudiante</string>
      </property>
      <item>
       <property name="text">
+       <string>Seleccionar</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
        <string>Matriculado</string>
       </property>
      </item>
@@ -317,9 +322,9 @@ estudiante</string>
     <widget class="QLabel" name="label_3">
      <property name="geometry">
       <rect>
-       <x>80</x>
+       <x>40</x>
        <y>140</y>
-       <width>191</width>
+       <width>231</width>
        <height>31</height>
       </rect>
      </property>
@@ -335,7 +340,7 @@ estudiante</string>
     <widget class="QLabel" name="label_2">
      <property name="geometry">
       <rect>
-       <x>80</x>
+       <x>40</x>
        <y>70</y>
        <width>91</width>
        <height>41</height>
@@ -350,7 +355,7 @@ estudiante</string>
       <string>Nombre </string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="Nombre">
+    <widget class="QLineEdit" name="lineEdit_2">
      <property name="geometry">
       <rect>
        <x>280</x>
@@ -363,9 +368,9 @@ estudiante</string>
     <widget class="QLabel" name="label_5">
      <property name="geometry">
       <rect>
-       <x>80</x>
+       <x>40</x>
        <y>110</y>
-       <width>61</width>
+       <width>101</width>
        <height>31</height>
       </rect>
      </property>
@@ -381,9 +386,9 @@ estudiante</string>
     <widget class="QLabel" name="label_4">
      <property name="geometry">
       <rect>
-       <x>80</x>
+       <x>40</x>
        <y>180</y>
-       <width>161</width>
+       <width>201</width>
        <height>21</height>
       </rect>
      </property>
@@ -396,7 +401,7 @@ estudiante</string>
       <string>Calidad de estudiante</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="Apellido">
+    <widget class="QLineEdit" name="lineEdit_3">
      <property name="geometry">
       <rect>
        <x>280</x>
@@ -409,9 +414,9 @@ estudiante</string>
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>80</x>
+       <x>40</x>
        <y>50</y>
-       <width>181</width>
+       <width>221</width>
        <height>21</height>
       </rect>
      </property>
@@ -552,12 +557,12 @@ estudiante </string>
      </property>
     </widget>
    </widget>
+   <zorder>Buscador</zorder>
    <zorder>pushButton_4</zorder>
    <zorder>Volver</zorder>
    <zorder>BaseD</zorder>
    <zorder>Menu</zorder>
    <zorder>Datos</zorder>
-   <zorder>Buscador</zorder>
   </widget>
  </widget>
  <resources/>
@@ -799,6 +804,102 @@ estudiante </string>
     <hint type="destinationlabel">
      <x>552</x>
      <y>533</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_5</sender>
+   <signal>clicked()</signal>
+   <receiver>lineEdit</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>451</x>
+     <y>332</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>510</x>
+     <y>116</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_5</sender>
+   <signal>clicked()</signal>
+   <receiver>lineEdit_2</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>451</x>
+     <y>334</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>533</x>
+     <y>147</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_5</sender>
+   <signal>clicked()</signal>
+   <receiver>lineEdit_3</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>444</x>
+     <y>333</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>476</x>
+     <y>178</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_5</sender>
+   <signal>clicked()</signal>
+   <receiver>lineEdit_4</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>450</x>
+     <y>334</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>499</x>
+     <y>217</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_5</sender>
+   <signal>clicked()</signal>
+   <receiver>comboBox</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>446</x>
+     <y>346</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>488</x>
+     <y>239</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_5</sender>
+   <signal>clicked()</signal>
+   <receiver>lineEdit_5</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>376</x>
+     <y>334</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>513</x>
+     <y>276</y>
     </hint>
    </hints>
   </connection>
