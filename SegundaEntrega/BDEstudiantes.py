@@ -7,7 +7,7 @@ def menu_principalBDM():
     print("Bienvenido a la Base de datos de Estudiantes")  # Saludo :v
     print("MENÚ PRINCIPAL")  # Imprime Menú principal
     print("[0]  Entrar a la base de datos")  # Imprime la primera opción
-    print('[1]  Ingresar info. Estudiantes a la base de datos')  # Imprime la segunda opción
+    print('[1]  Ingresar información Estudiantes a la base de datos')  # Imprime la segunda opción
     print("[2]  Salir del programa")  # Imprime la tercera opción
 
 def menu_mostrarbase():
@@ -46,7 +46,98 @@ def borrarPantalla():                       #Definimos la función estableciendo
     elif os.name == "ce" or os.name == "nt" or os.name == "dos":        #Verifica si el sistema operativo es Windows, o sistemas desarrollados por Microsoft
         os.system ("cls")                       #Si el sistema es DOS/Windows limpia la consola con la función system cls
 
+class Persona:
 
+    def __init__(self):
+        self.__DI = ""
+        self.__N = ""
+        self.__A = ""
+    def getDI(self):
+        return self.__DI
+    def getN(self):
+        return self.__N
+    def getA(self):
+        return self.__A
+    def setDI(self):
+        comprobado = True
+        while comprobado == True:
+            DI = input("Ingrese el Documento de Identidad: ")  # Código de la materia
+            if len(DI) < 12 and DI.isnumeric():
+                self.__DI=DI
+                comprobado = False
+            else:
+                print("El número es demasiado grande o no es un número, intentelo de nuevo")
+    def setN(self):
+        comprobado = True
+        while comprobado == True:
+            N = input("Ingrese el Nombre: ")  # Nombre de la materia
+            if len(N) < 40 and N.isalpha():
+                self.__N=N
+                comprobado = False
+            else:
+                print("El texto es demasiado grande o es un número, intentelo de nuevo")
+    def setA(self):
+        comprobado = True
+        while comprobado == True:
+            A = input("Ingrese el Apellido: ")  # Código facultad que la dicta
+            if len(A) < 40 and A.isalpha():
+                self.__A=A
+                comprobado = False
+            else:
+                print("El texto es demasiado grande o es un número, intentelo de nuevo")
+
+class Estudiante(Persona):
+    def __init__(self):
+        self.__CP = ""
+        self.__CE = ""
+        self.__PA = ""
+
+    def getCP(self):
+        return self.__CP
+    def getCE(self):
+        return self.__CE
+    def getPA(self):
+        return self.__PA
+
+
+    def setCP(self):
+        comprobado = True
+        while comprobado == True:
+            CP = input("Ingrese el Codigo del plan de estudio: ")  # Código departamento que la dicta
+            if len(CP) < 14 and CP.isnumeric():
+                self.__CP=CP
+                comprobado = False
+            else:
+                print("El texto es demasiado grande o no es un número, intentelo de nuevo")
+    def setCE(self):
+        comprobado = True
+        while comprobado == True:
+            CE = input("Ingrese la calidad de estudiante (matriculado [M], graduado [G], perdida de cupo [P]): ")  # Cantidad de créditos
+            if CE == "M" or CE == "G" or CE == "P":
+                self.__CE=CE
+                comprobado = False
+            else:
+                print("El texto es incorrecto, intentelo de nuevo")
+    def setPA(self):
+        comprobado = True
+        Ed = False
+        while comprobado == True:
+            PA = input("Ingrese el PAPA actual: ")  # Código materia anterior obligatoria en el plan de estudios
+            for a in PA:
+                if a == "." or a == ",":
+                    Ed = True
+            if Ed:
+                if len(PA) < 8 and int(PA[0]) < 5 or int(PA[0]) == 5 and int(PA[2]) == 0:
+                    self.__PA = PA
+                    comprobado = False
+                else:
+                    print("El texto es demasiado grande o el PAPA se pasa de lo establecido, intentelo de nuevo")
+            else:
+                if int(PA) < 5 and int(PA) > -1:
+                    self.__PA = PA
+                    comprobado = False
+                else:
+                    print("El texto es demasiado grande o el PAPA se pasa de lo establecido, intentelo de nuevo")
 
 def mainBDE():
     while True:
@@ -103,7 +194,7 @@ def mainBDE():
                     opcion3 = input("Ingrese el número de la opción: ")
 
                     if opcion3 == "1":
-                        dic = dict(zip(listaDI, listaDI))
+                        dic = dict(zip(listaIN, listaDI))
                         menu_opcionesBDMOrdenadanum()
                         opcion4 = input("Ingrese el número de la opción: ")
                         if opcion4 == "1":
@@ -260,15 +351,15 @@ def mainBDE():
 
 
         elif opcion_elegida == "1":
-            DI = input("Ingrese el Documento de Identidad: ")  # Código de la materia
-            N = input("Ingrese el Nombre: ")  # Nombre de la materia
-            A = input("Ingrese el Apellido: ")  # Código facultad que la dicta
-            CP = input("Ingrese el Codigo del plan de estudio: ")  # Código departamento que la dicta
-            CE = input(
-                "Ingrese la calidad de estudiante (matriculado [M], graduado [G], perdida de cupo [P]): ")  # Cantidad de créditos
-            PA = input(
-                "Ingrese el PAPA actual: ")  # Código materia anterior obligatoria en el plan de estudios
-            diccionario = DI + ";" + N + ";" + A + ";" + CP + ";" + CE + ";" + PA  # Creación del diccionario de la materia
+            mi_estudiante = Estudiante()
+            mi_estudiante.setDI()
+            mi_estudiante.setN()
+            mi_estudiante.setA()
+            mi_estudiante.setCP()
+            mi_estudiante.setCE()
+            mi_estudiante.setPA()
+
+            diccionario = mi_estudiante.getDI() + ";" + mi_estudiante.getN() + ";" + mi_estudiante.getA() + ";" + mi_estudiante.getCP() + ";" + mi_estudiante.getCE() + ";" + mi_estudiante.getPA()  # Creación del diccionario de la materia
 
             if not os.path.isfile("BD-Estudiantes.txt"):  # Verificación de que la base de datos exista usando "isfile" de la libreria os.path , si existe el archivo el valor es True, sino False .Por lo tanto si el archivo no existe entonces entra a la condición
                 BDM = open("BD-Estudiantes.txt","w")  # Este modo abre el archivo para escritura. Si el archivo no existe, crea un nuevo archivo.
@@ -306,4 +397,3 @@ def mainBDE():
             break
         else:
             print("Opción no valida")
-

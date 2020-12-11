@@ -48,6 +48,107 @@ def borrarPantalla():                       #Definimos la función estableciendo
         os.system ("cls")                       #Si el sistema es DOS/Windows limpia la consola con la función system cls
 
 
+class Materia:
+    def __init__(self):
+        self.__CM =  ""
+        self.__NM = ""
+        self.__CF = ""
+        self.__CD = ""
+        self.__CC = ""
+        self.__CMA = ""
+    def getCM(self):
+        return self.__CM
+    def getNM(self):
+        return self.__NM
+    def getCF(self):
+        return self.__CF
+    def getCD(self):
+        return self.__CD
+    def getCC(self):
+        return self.__CC
+    def getCMA(self):
+        return self.__CMA
+
+    def setCM(self):
+        comprobado = True
+        while comprobado == True:
+            CM = input("Ingrese el Código de la Materia: ")  # Código de la materia
+            with open('BD-Materias.txt') as file:
+                listaCMB = []
+                for line in file:
+                    listamaterias = line.strip().split(';')
+                    CMB = listamaterias[1]
+                    listaCMB.append(CMB)
+            if CM in listaCMB:
+                print("La materia ya esta en la base de datos")
+            else:
+                if len(CM) <= 9 and CC.isnumeric() and not(""):
+                    self.__CM = CM
+                    comprobado = False
+                else:
+                    print("El texto es demasiado grande o no es un número, intentelo de nuevo")
+
+
+    def setNM(self):
+        comprobado = True
+        while comprobado == True:
+            NM = input("Ingrese el Nombre de la materia: ")  # Nombre de la materia
+            if len(NM) <= 100 and not(""):
+                self.__NM = NM
+                comprobado = False
+            else:
+                print("El texto es demasiado grande, intentelo de nuevo")
+    def setCF(self):
+        comprobado = True
+        while comprobado == True:
+            CF = input("Ingrese el Código facultad que dicta la Materia: ")  # Código facultad que la dicta
+            if len(CF) <= 5 and CC.isnumeric() and not(""):
+                self.__CF=CF
+                comprobado = False
+            else:
+                print("El texto es demasiado grande o es un número, intentelo de nuevo")
+
+    def setCD(self):
+        comprobado = True
+        while comprobado == True:
+            CD = input("Ingrese el Código departamento que dicta la Materia: ")  # Código departamento que la dicta
+            if len(CD) <= 5 and CC.isnumeric() and not(""):
+                self.__CD=CD
+                comprobado = False
+            else:
+                print("El texto es demasiado grande o es un número, intentelo de nuevo")
+    def setCC(self):
+        comprobado = True
+        while comprobado == True:
+            CC = input("Ingrese la Cantidad de créditos de la Materia: ")  # Cantidad de créditos
+            if len(CC) <= 2 and CC.isnumeric() and not(""):
+                self.__CC=CC
+                comprobado = False
+            else:
+                print("El texto es demasiado grande o no es un número, intentelo de nuevo")
+    def setCMA(self):
+        comprobado = True
+        while comprobado == True:
+            CMA = input(
+                "Ingrese el Código de la materia anterior obligatoria en el plan de estudios: ")  # Código materia anterior obligatoria en el plan de estudios
+            with open('BD-Materias.txt') as file:
+                listaCMB = []
+                for line in file:
+                    listamaterias = line.strip().split(';')
+                    CMB = listamaterias[1]
+                    listaCMB.append(CMB)
+            if CMA in listaCMB:
+                if len(CMA) <= 9 and CC.isnumeric():
+                    self.__CMA=CMA
+                    comprobado = False
+                else:
+                    print("El texto es demasiado grande o no es un número, intentelo de nuevo")
+            elif CMA == "":
+                self.__CMA = CMA
+                comprobado = False
+            else:
+                print("La materia de prerequisito no está en la base de datos")
+
 
 def mainBDM():   #Función Principal de la Base de datos de Materias
     while True:        #Ciclo while inicializado en True para que el programa no cierre a menos que se lo pida
@@ -95,11 +196,11 @@ def mainBDM():   #Función Principal de la Base de datos de Materias
                         for line in file:  #Recorre la base de datos linea por linea
                             IN1, CM1, NM1, CF1, CD1, CC1, CMA1 = line.strip().split(';')    #Desempaqueta las variables de la lista en varias variables Indice,  Codidog de la materia, Nombre. etc--
                             listaIN.append(int(IN1))        #Almacena el valor del indice en la lista y lo convierte en un Int para asegurar que sea un numero y que el ordenamiento sea correcto
-                            listaCM.append(CM1)             #Almacena el codigo de la materia en la lista de codigos de materia "listaCM"
+                            listaCM.append(int(CM1))             #Almacena el codigo de la materia en la lista de codigos de materia "listaCM"
                             listaNM.append(NM1)             #Almacena el nombre de la materia en la lista de nombres de la materia
-                            listaCF.append(CF1)             # """""""""
-                            listaCD.append(CD1)
-                            listaCC.append(CC1)
+                            listaCF.append(int(CF1))            # """""""""
+                            listaCD.append(int(CD1))
+                            listaCC.append(int(CC1))
                             listaCMA.append(CMA1)
                     menu_opcionesBDMOrdenada()         #Imprime el menu de opciones de ordenamiento
                     opcion3 = input("Ingrese el número de la opción: ")        #Solicita una opcion y la almacena como string
@@ -195,7 +296,7 @@ def mainBDM():   #Función Principal de la Base de datos de Materias
 
                     with open("BD-Materias-ORDENADA.txt", "w") as file:
                         for indices in val:
-                            listaordenada = str(indices) + ";" + listaCM[indices - 1] + ";" + listaNM[indices - 1] + ";" + listaCF[indices - 1] + ";" + listaCD[indices - 1] + ";" + listaCC[indices - 1] + ";" + listaCMA[indices - 1]
+                            listaordenada = str(indices) + ";" + str(listaCM[indices - 1]) + ";" + listaNM[indices - 1] + ";" + str(listaCF[indices - 1]) + ";" + str(listaCD[indices - 1]) + ";" + str(listaCC[indices - 1]) + ";" + listaCMA[indices - 1]
                             file.write(listaordenada + "\n")
                     with open("BD-Materias-ORDENADA.txt", "r") as file:
                         listatotal = []
@@ -275,64 +376,16 @@ def mainBDM():   #Función Principal de la Base de datos de Materias
 
 
         elif opcion_elegida == "1":
-            comprobado = True
-            while comprobado == True:
-                CM = input("Ingrese el Código de la Materia: ")  # Código de la materia
-                if len(CM) <= 9:
-                        comprobado = False
-                else:
-                    print("El texto es demasiado grande, intentelo de nuevo")
 
+            mi_materia=Materia()
+            mi_materia.setCM()
+            mi_materia.setNM()
+            mi_materia.setCF()
+            mi_materia.setCD()
+            mi_materia.setCC()
+            mi_materia.setCMA()
 
-
-
-            comprobado = True
-            while comprobado == True:
-                NM = input("Ingrese el Nombre de la materia: ")  # Nombre de la materia
-                if len(NM) <= 100:
-                    comprobado = False
-                else:
-                    print("El texto es demasiado grande, intentelo de nuevo")
-            comprobado = True
-            while comprobado == True:
-                CF = input("Ingrese el Código facultad que dicta la Materia: ")  # Código facultad que la dicta
-                if len(CF) <= 5:
-                    comprobado = False
-                else:
-                    print("El texto es demasiado grande, intentelo de nuevo")
-            comprobado = True
-            while comprobado == True:
-                CD = input("Ingrese el Código departamento que dicta la Materia: ")  # Código departamento que la dicta
-                if len(CD) <= 5:
-                    comprobado = False
-                else:
-                    print("El texto es demasiado grande, intentelo de nuevo")
-            comprobado = True
-            while comprobado == True:
-                CC = input("Ingrese la Cantidad de créditos de la Materia: ")  # Cantidad de créditos
-                if len(CC) <= 2 and CC.isnumeric():
-                    comprobado = False
-                else:
-                    print("El texto es demasiado grande o no es un número, intentelo de nuevo")
-            comprobado = True
-            while comprobado == True:
-                CMA = input(
-                    "Ingrese el Código de la materia anterior obligatoria en el plan de estudios: ")  # Código materia anterior obligatoria en el plan de estudios
-                with open('BD-Materias.txt') as file:
-                    listaCMB = []
-                    for line in file:
-                        listamaterias = line.strip().split(';')
-                        CMB = listamaterias[6]
-                        listaCMB.append(CMB)
-                if CMA in listaCMB:
-                    if len(CMA) <= 9:
-                        comprobado = False
-                    else:
-                        print("El texto es demasiado grande, intentelo de nuevo")
-                else:
-                    print("La materia de prerequisito no está en la base de datos")
-
-            diccionario = CM + ";" + NM + ";" + CF + ";" + CD + ";" + CC + ";" + CMA  # Creación del diccionario de la materia
+            diccionario = mi_materia.getCM() + ";" + mi_materia.getNM() + ";" + mi_materia.getCF() + ";" + mi_materia.getCD() + ";" + mi_materia.getCC() + ";" + mi_materia.getCMA()  # Creación del diccionario de la materia
 
             if not os.path.isfile("BD-Materias.txt"):  # Verificación de que la base de datos exista usando "isfile" de la libreria os.path , si existe el archivo el valor es True, sino False .Por lo tanto si el archivo no existe entonces entra a la condición
                 BDM = open("BD-Materias.txt","w")  # Este modo abre el archivo para escritura. Si el archivo no existe, crea un nuevo archivo.
