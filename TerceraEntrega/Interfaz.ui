@@ -1,0 +1,806 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SIA</class>
+ <widget class="QMainWindow" name="SIA">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>762</width>
+    <height>495</height>
+   </rect>
+  </property>
+  <property name="mouseTracking">
+   <bool>false</bool>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="pushButton_4">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>420</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="baseSize">
+     <size>
+      <width>9</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="text">
+     <string>Salir </string>
+    </property>
+    <property name="autoRepeatDelay">
+     <number>298</number>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Volver">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>430</y>
+      <width>112</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Volver</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="Menu" native="true">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>110</y>
+      <width>421</width>
+      <height>301</height>
+     </rect>
+    </property>
+    <widget class="QPushButton" name="pushButton">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>30</y>
+       <width>211</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="mouseTracking">
+      <bool>false</bool>
+     </property>
+     <property name="text">
+      <string>Ingresar Estudiante</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_2">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>90</y>
+       <width>211</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Ver base de datos Estudiante</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>150</y>
+       <width>211</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Buscar</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="Buscador" native="true">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>711</width>
+      <height>391</height>
+     </rect>
+    </property>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>20</y>
+       <width>71</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Buscar por</string>
+     </property>
+    </widget>
+    <widget class="QTableWidget" name="tableWidget_2">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>19</x>
+       <y>90</y>
+       <width>711</width>
+       <height>281</height>
+      </rect>
+     </property>
+     <property name="autoScroll">
+      <bool>true</bool>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="tabKeyNavigation">
+      <bool>true</bool>
+     </property>
+     <property name="showGrid">
+      <bool>true</bool>
+     </property>
+     <column>
+      <property name="text">
+       <string>Índice</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Documento de 
+identidad</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Nombre</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Apellido</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Código de 
+plan de estudio</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Calidad de
+estudiante</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>PAPA actual</string>
+      </property>
+     </column>
+    </widget>
+    <widget class="QLineEdit" name="Busqueda">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>20</y>
+       <width>113</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_7">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>50</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Buscar</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="Datos" native="true">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>50</y>
+      <width>471</width>
+      <height>361</height>
+     </rect>
+    </property>
+    <widget class="QLineEdit" name="PAPA">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>210</y>
+       <width>113</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="Documentoiden">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>50</y>
+       <width>113</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>210</y>
+       <width>121</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>PAPA actual</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="CodigoPlan">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>140</y>
+       <width>113</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_5">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>260</y>
+       <width>111</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Guardar</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboBox">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>180</y>
+       <width>111</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>Matriculado</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Graduado</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Pérdida de cupo</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>140</y>
+       <width>191</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Código de plan de estudios</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>70</y>
+       <width>91</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Nombre </string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="Nombre">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>80</y>
+       <width>113</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>110</y>
+       <width>61</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Apellido</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>180</y>
+       <width>161</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Calidad de estudiante</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="Apellido">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>110</y>
+       <width>113</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>50</y>
+       <width>181</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Documento de identidad</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="BaseD" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>761</width>
+      <height>421</height>
+     </rect>
+    </property>
+    <widget class="QTableWidget" name="tableWidget">
+     <property name="geometry">
+      <rect>
+       <x>29</x>
+       <y>110</y>
+       <width>711</width>
+       <height>281</height>
+      </rect>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <column>
+      <property name="text">
+       <string>Índice </string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Documento de 
+identidad</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Nombre</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Apellido</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Código plan 
+de estudios </string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Calidad de 
+estudiante </string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>PAPA actual</string>
+      </property>
+     </column>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>30</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Ordenar por</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboBox_2">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>30</y>
+       <width>221</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>Documento de identidad</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Nombre</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Apellido</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Código plan de estudios</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Calidad de estudiante</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>PAPA actual</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QPushButton" name="pushButton_6">
+     <property name="geometry">
+      <rect>
+       <x>440</x>
+       <y>30</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Ordenar</string>
+     </property>
+    </widget>
+   </widget>
+   <zorder>pushButton_4</zorder>
+   <zorder>Volver</zorder>
+   <zorder>BaseD</zorder>
+   <zorder>Menu</zorder>
+   <zorder>Datos</zorder>
+   <zorder>Buscador</zorder>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Datos</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>240</x>
+     <y>71</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>125</x>
+     <y>28</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Menu</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>135</x>
+     <y>71</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>88</x>
+     <y>103</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>Menu</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>142</x>
+     <y>136</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>89</x>
+     <y>182</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>Buscador</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>164</x>
+     <y>192</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>239</x>
+     <y>24</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>Menu</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>132</x>
+     <y>197</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>86</x>
+     <y>267</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>Volver</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>198</x>
+     <y>200</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>104</x>
+     <y>406</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>Volver</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>126</x>
+     <y>113</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>79</x>
+     <y>381</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Volver</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>154</x>
+     <y>54</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>69</x>
+     <y>403</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Volver</sender>
+   <signal>clicked()</signal>
+   <receiver>Menu</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>123</x>
+     <y>401</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>189</x>
+     <y>358</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Volver</sender>
+   <signal>clicked()</signal>
+   <receiver>Buscador</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>144</x>
+     <y>386</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>222</x>
+     <y>21</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Volver</sender>
+   <signal>clicked()</signal>
+   <receiver>BaseD</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>52</x>
+     <y>399</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>470</x>
+     <y>96</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>BaseD</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>277</x>
+     <y>133</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>63</x>
+     <y>33</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Volver</sender>
+   <signal>clicked()</signal>
+   <receiver>Datos</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>122</x>
+     <y>383</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>66</x>
+     <y>74</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Volver</sender>
+   <signal>clicked()</signal>
+   <receiver>Volver</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>91</x>
+     <y>395</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>91</x>
+     <y>400</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_4</sender>
+   <signal>clicked()</signal>
+   <receiver>SIA</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>364</x>
+     <y>500</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>552</x>
+     <y>533</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
