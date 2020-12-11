@@ -9,7 +9,53 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import os
+import os.path
 
+class Persona:
+
+    def __init__(self):
+        self.__DI = ""
+        self.__N = ""
+        self.__A = ""
+    def getDI(self):
+        return self.__DI
+    def getN(self):
+        return self.__N
+    def getA(self):
+        return self.__A
+
+    def setDI(self,DI):
+        self.__DI=DI
+                
+    def setN(self,N):
+        self.__N=N
+        
+    def setA(self,A):
+        self.__A=A
+        
+class Estudiante(Persona):
+    def __init__(self):
+        self.__CP = ""
+        self.__CE = ""
+        self.__PA = ""
+
+    def getCP(self):
+        return self.__CP
+    def getCE(self):
+        return self.__CE
+    def getPA(self):
+        return self.__PA
+
+
+    def setCP(self,CP):
+        self.__CP=CP
+
+    def setCE(self,CE):
+        self.__CE=CE
+               
+    def setPA(self,PA):
+        self.__PA = PA
 
 class Ui_SIA(object):
     def setupUi(self, SIA):
@@ -80,24 +126,24 @@ class Ui_SIA(object):
         self.Datos.setEnabled(True)
         self.Datos.setGeometry(QtCore.QRect(150, 50, 471, 361))
         self.Datos.setObjectName("Datos")
-        self.lineEdit_5 = QtWidgets.QLineEdit(self.Datos)
-        self.lineEdit_5.setGeometry(QtCore.QRect(280, 210, 113, 20))
-        self.lineEdit_5.setObjectName("lineEdit_5")
-        self.lineEdit = QtWidgets.QLineEdit(self.Datos)
-        self.lineEdit.setGeometry(QtCore.QRect(280, 50, 113, 20))
-        self.lineEdit.setObjectName("lineEdit")
+        self.PAPA = QtWidgets.QLineEdit(self.Datos)
+        self.PAPA.setGeometry(QtCore.QRect(280, 210, 113, 20))
+        self.PAPA.setObjectName("PAPA")
+        self.Documento = QtWidgets.QLineEdit(self.Datos)
+        self.Documento.setGeometry(QtCore.QRect(280, 50, 113, 20))
+        self.Documento.setObjectName("Documento")
         self.label_6 = QtWidgets.QLabel(self.Datos)
-        self.label_6.setGeometry(QtCore.QRect(30, 210, 171, 31))
+        self.label_6.setGeometry(QtCore.QRect(40, 210, 171, 31))
         font = QtGui.QFont()
         font.setPointSize(15)
         self.label_6.setFont(font)
         self.label_6.setObjectName("label_6")
-        self.lineEdit_4 = QtWidgets.QLineEdit(self.Datos)
-        self.lineEdit_4.setGeometry(QtCore.QRect(280, 150, 113, 20))
-        self.lineEdit_4.setObjectName("lineEdit_4")
-        self.pushButton_5 = QtWidgets.QPushButton(self.Datos)
-        self.pushButton_5.setGeometry(QtCore.QRect(200, 260, 111, 41))
-        self.pushButton_5.setObjectName("pushButton_5")
+        self.Codigo = QtWidgets.QLineEdit(self.Datos)
+        self.Codigo.setGeometry(QtCore.QRect(280, 150, 113, 20))
+        self.Codigo.setObjectName("Codigo")
+        self.Guardar = QtWidgets.QPushButton(self.Datos)
+        self.Guardar.setGeometry(QtCore.QRect(200, 260, 111, 41))
+        self.Guardar.setObjectName("Guardar")
         self.comboBox = QtWidgets.QComboBox(self.Datos)
         self.comboBox.setGeometry(QtCore.QRect(280, 180, 111, 22))
         self.comboBox.setObjectName("comboBox")
@@ -117,9 +163,9 @@ class Ui_SIA(object):
         font.setPointSize(15)
         self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
-        self.lineEdit_2 = QtWidgets.QLineEdit(self.Datos)
-        self.lineEdit_2.setGeometry(QtCore.QRect(280, 80, 113, 20))
-        self.lineEdit_2.setObjectName("lineEdit_2")
+        self.Nombre = QtWidgets.QLineEdit(self.Datos)
+        self.Nombre.setGeometry(QtCore.QRect(280, 80, 113, 20))
+        self.Nombre.setObjectName("Nombre")
         self.label_5 = QtWidgets.QLabel(self.Datos)
         self.label_5.setGeometry(QtCore.QRect(40, 110, 101, 31))
         font = QtGui.QFont()
@@ -132,9 +178,9 @@ class Ui_SIA(object):
         font.setPointSize(15)
         self.label_4.setFont(font)
         self.label_4.setObjectName("label_4")
-        self.lineEdit_3 = QtWidgets.QLineEdit(self.Datos)
-        self.lineEdit_3.setGeometry(QtCore.QRect(280, 110, 113, 20))
-        self.lineEdit_3.setObjectName("lineEdit_3")
+        self.Apellido = QtWidgets.QLineEdit(self.Datos)
+        self.Apellido.setGeometry(QtCore.QRect(280, 110, 113, 20))
+        self.Apellido.setObjectName("Apellido")
         self.label = QtWidgets.QLabel(self.Datos)
         self.label.setGeometry(QtCore.QRect(40, 50, 221, 21))
         font = QtGui.QFont()
@@ -179,6 +225,11 @@ class Ui_SIA(object):
         self.pushButton_6 = QtWidgets.QPushButton(self.BaseD)
         self.pushButton_6.setGeometry(QtCore.QRect(440, 30, 81, 31))
         self.pushButton_6.setObjectName("pushButton_6")
+        self.BANDERA = QtWidgets.QLabel(self.centralwidget)
+        self.BANDERA.setGeometry(QtCore.QRect(410, 30, 121, 61))
+        self.BANDERA.hide()
+        self.BANDERA.setObjectName("BANDERA")
+        self.BANDERA.raise_()
         self.Buscador.raise_()
         self.pushButton_4.raise_()
         self.Volver.raise_()
@@ -203,13 +254,53 @@ class Ui_SIA(object):
         self.Volver.clicked.connect(self.Datos.hide)
         self.Volver.clicked.connect(self.Volver.hide)
         self.pushButton_4.clicked.connect(SIA.close)
-        self.pushButton_5.clicked.connect(self.lineEdit.clear)
-        self.pushButton_5.clicked.connect(self.lineEdit_2.clear)
-        self.pushButton_5.clicked.connect(self.lineEdit_3.clear)
-        self.pushButton_5.clicked.connect(self.lineEdit_4.clear)
-        self.pushButton_5.clicked.connect(self.comboBox.clear)
-        self.pushButton_5.clicked.connect(self.lineEdit_5.clear)
+        self.Guardar.clicked.connect(self.btnClicked)
         QtCore.QMetaObject.connectSlotsByName(SIA)
+
+    def btnClicked(self):
+        Documento=self.Documento.text()
+        Nombre=self.Nombre.text()
+        Apellido=self.Apellido.text()
+        Codigo=self.Codigo.text()
+        PAPA=self.PAPA.text()
+        comboBox=self.comboBox.currentText()
+
+
+        
+        mi_estudiante = Estudiante()
+        mi_estudiante.setDI(Documento)
+        mi_estudiante.setN(Nombre)
+        mi_estudiante.setA(Apellido)
+        mi_estudiante.setCP(Codigo)
+        mi_estudiante.setCE(comboBox)
+        mi_estudiante.setPA(PAPA)
+
+        diccionario = mi_estudiante.getDI() + ";" + mi_estudiante.getN() + ";" + mi_estudiante.getA() + ";" + mi_estudiante.getCP() + ";" + mi_estudiante.getCE() + ";" + mi_estudiante.getPA()  # Creación del diccionario de la materia
+
+        if not os.path.isfile("BD-Estudiantes.txt"):  # Verificación de que la base de datos exista usando "isfile" de la libreria os.path , si existe el archivo el valor es True, sino False .Por lo tanto si el archivo no existe entonces entra a la condición
+            BDM = open("BD-Estudiantes.txt","w")  # Este modo abre el archivo para escritura. Si el archivo no existe, crea un nuevo archivo.
+            numerodeestudiantes = 1  # Establece el número de materias en 1
+            BDM.write(str(numerodeestudiantes) + ";" + str(diccionario) + "\n")  # Escribe los datos de la primera materia
+            BDM.close()  # Cierra el archivo
+
+            with open('ContadorBD-Estudiantes.txt','w') as file:  # Este modo abre el archivo para escritura. Si el archivo no existe, crea un nuevo archivo.
+                file.write(str(numerodeestudiantes))  # Escribe los datos  iniciales del numero de materias en la abse de datos
+
+
+        else:  # Si el archivo ya existe se entra a esta condicion
+            with open('ContadorBD-Estudiantes.txt','r') as file:  # Abre el archivo del contador de materias en modo lectura
+                numerodeestudiantes = file.read()  # Almacena el numero de materias leyendo el archivo
+            numerodeestudiantes = int(numerodeestudiantes) + 1  # Como se hizo una adición a la base de datos de materias entonces se aumenta el contador en 1
+
+            with open("BD-Estudiantes.txt","a") as file:  # Abrir archivo en modo adjuntar. Si el archivo no existe, crea un nuevo archivo.
+                file.write(str(numerodeestudiantes) + ";" + str(diccionario) + "\n")  # Escribe los datos de la siguiente materia
+        
+        self.Documento.clear()
+        self.Nombre.clear()
+        self.Apellido.clear()
+        self.Codigo.clear()
+        self.PAPA.clear()
+
 
     def retranslateUi(self, SIA):
         _translate = QtCore.QCoreApplication.translate
@@ -239,7 +330,7 @@ class Ui_SIA(object):
         item.setText(_translate("SIA", "PAPA actual"))
         self.pushButton_7.setText(_translate("SIA", "Buscar"))
         self.label_6.setText(_translate("SIA", "PAPA actual"))
-        self.pushButton_5.setText(_translate("SIA", "Guardar"))
+        self.Guardar.setText(_translate("SIA", "Guardar"))
         self.comboBox.setItemText(0, _translate("SIA", "Seleccionar"))
         self.comboBox.setItemText(1, _translate("SIA", "Matriculado"))
         self.comboBox.setItemText(2, _translate("SIA", "Graduado"))
@@ -249,6 +340,7 @@ class Ui_SIA(object):
         self.label_5.setText(_translate("SIA", "Apellido"))
         self.label_4.setText(_translate("SIA", "Calidad de estudiante"))
         self.label.setText(_translate("SIA", "Documento de identidad"))
+        self.BANDERA.setText(_translate("SIA", "ERROR"))
         item = self.tableWidget.horizontalHeaderItem(0)
         item.setText(_translate("SIA", "Índice "))
         item = self.tableWidget.horizontalHeaderItem(1)
@@ -274,3 +366,4 @@ class Ui_SIA(object):
         self.comboBox_2.setItemText(4, _translate("SIA", "Calidad de estudiante"))
         self.comboBox_2.setItemText(5, _translate("SIA", "PAPA actual"))
         self.pushButton_6.setText(_translate("SIA", "Ordenar"))
+        

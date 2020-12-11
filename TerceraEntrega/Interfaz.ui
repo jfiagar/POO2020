@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>762</width>
-    <height>495</height>
+    <width>1291</width>
+    <height>843</height>
    </rect>
   </property>
   <property name="mouseTracking">
@@ -224,7 +224,7 @@ estudiante</string>
      <rect>
       <x>150</x>
       <y>50</y>
-      <width>471</width>
+      <width>551</width>
       <height>361</height>
      </rect>
     </property>
@@ -427,6 +427,19 @@ estudiante</string>
      </property>
      <property name="text">
       <string>Documento de identidad</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="BANDERA">
+     <property name="geometry">
+      <rect>
+       <x>410</x>
+       <y>30</y>
+       <width>121</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>aquiva el texto</string>
      </property>
     </widget>
    </widget>
