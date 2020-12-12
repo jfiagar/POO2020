@@ -11,6 +11,9 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import os
 import os.path
+from PyQt5.QtWidgets import QTableWidgetItem
+import operator
+
 
 class Persona:
 
@@ -63,15 +66,16 @@ class Ui_SIA(object):
         SIA.setEnabled(True)
         SIA.resize(762, 495)
         SIA.setMouseTracking(False)
+        SIA.setStyleSheet("background-color: rgb(118, 35, 47);")
         self.centralwidget = QtWidgets.QWidget(SIA)
         self.centralwidget.setObjectName("centralwidget")
         self.pushButton_4 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_4.setGeometry(QtCore.QRect(340, 420, 111, 41))
+        self.pushButton_4.setGeometry(QtCore.QRect(340, 440, 111, 41))
         self.pushButton_4.setBaseSize(QtCore.QSize(9, 0))
         self.pushButton_4.setAutoRepeatDelay(298)
         self.pushButton_4.setObjectName("pushButton_4")
         self.Volver = QtWidgets.QPushButton(self.centralwidget)
-        self.Volver.setGeometry(QtCore.QRect(110, 430, 112, 32))
+        self.Volver.setGeometry(QtCore.QRect(110, 440, 112, 41))
         self.Volver.setObjectName("Volver")
         self.Menu = QtWidgets.QWidget(self.centralwidget)
         self.Menu.setGeometry(QtCore.QRect(210, 110, 421, 301))
@@ -87,20 +91,21 @@ class Ui_SIA(object):
         self.pushButton_3.setGeometry(QtCore.QRect(80, 150, 211, 51))
         self.pushButton_3.setObjectName("pushButton_3")
         self.Buscador = QtWidgets.QWidget(self.centralwidget)
-        self.Buscador.setGeometry(QtCore.QRect(10, 20, 711, 391))
+        self.Buscador.setGeometry(QtCore.QRect(25, 20, 711, 391))
         self.Buscador.setObjectName("Buscador")
+        self.Buscador.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.label_8 = QtWidgets.QLabel(self.Buscador)
         self.label_8.setGeometry(QtCore.QRect(100, 20, 71, 21))
         self.label_8.setObjectName("label_8")
         self.tableWidget_2 = QtWidgets.QTableWidget(self.Buscador)
         self.tableWidget_2.setEnabled(True)
-        self.tableWidget_2.setGeometry(QtCore.QRect(19, 90, 711, 281))
+        self.tableWidget_2.setGeometry(QtCore.QRect(29, 110, 650, 270))
         self.tableWidget_2.setAutoScroll(True)
         self.tableWidget_2.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableWidget_2.setTabKeyNavigation(True)
         self.tableWidget_2.setShowGrid(True)
         self.tableWidget_2.setObjectName("tableWidget_2")
-        self.tableWidget_2.setColumnCount(7)
+        self.tableWidget_2.setColumnCount(6)
         self.tableWidget_2.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget_2.setHorizontalHeaderItem(0, item)
@@ -129,9 +134,12 @@ class Ui_SIA(object):
         self.PAPA = QtWidgets.QLineEdit(self.Datos)
         self.PAPA.setGeometry(QtCore.QRect(280, 210, 113, 20))
         self.PAPA.setObjectName("PAPA")
+        self.PAPA.setInputMask("9.9")
         self.Documento = QtWidgets.QLineEdit(self.Datos)
         self.Documento.setGeometry(QtCore.QRect(280, 50, 113, 20))
         self.Documento.setObjectName("Documento")
+        self.Documento.setInputMask("999999999999")
+        self.Documento.setCursorPosition(0)
         self.label_6 = QtWidgets.QLabel(self.Datos)
         self.label_6.setGeometry(QtCore.QRect(40, 210, 171, 31))
         font = QtGui.QFont()
@@ -141,6 +149,7 @@ class Ui_SIA(object):
         self.Codigo = QtWidgets.QLineEdit(self.Datos)
         self.Codigo.setGeometry(QtCore.QRect(280, 150, 113, 20))
         self.Codigo.setObjectName("Codigo")
+        self.Codigo.setInputMask("99999")
         self.Guardar = QtWidgets.QPushButton(self.Datos)
         self.Guardar.setGeometry(QtCore.QRect(200, 260, 111, 41))
         self.Guardar.setObjectName("Guardar")
@@ -166,6 +175,7 @@ class Ui_SIA(object):
         self.Nombre = QtWidgets.QLineEdit(self.Datos)
         self.Nombre.setGeometry(QtCore.QRect(280, 80, 113, 20))
         self.Nombre.setObjectName("Nombre")
+        self.Nombre.setMaxLength(20)
         self.label_5 = QtWidgets.QLabel(self.Datos)
         self.label_5.setGeometry(QtCore.QRect(40, 110, 101, 31))
         font = QtGui.QFont()
@@ -181,6 +191,7 @@ class Ui_SIA(object):
         self.Apellido = QtWidgets.QLineEdit(self.Datos)
         self.Apellido.setGeometry(QtCore.QRect(280, 110, 113, 20))
         self.Apellido.setObjectName("Apellido")
+        self.Apellido.setMaxLength(20)
         self.label = QtWidgets.QLabel(self.Datos)
         self.label.setGeometry(QtCore.QRect(40, 50, 221, 21))
         font = QtGui.QFont()
@@ -188,26 +199,32 @@ class Ui_SIA(object):
         self.label.setFont(font)
         self.label.setObjectName("label")
         self.BaseD = QtWidgets.QWidget(self.centralwidget)
-        self.BaseD.setGeometry(QtCore.QRect(0, 0, 761, 421))
+        self.BaseD.setGeometry(QtCore.QRect(25, 20, 711, 391))
         self.BaseD.setObjectName("BaseD")
         self.tableWidget = QtWidgets.QTableWidget(self.BaseD)
-        self.tableWidget.setGeometry(QtCore.QRect(29, 110, 711, 281))
+        self.tableWidget.setGeometry(QtCore.QRect(29, 110, 650, 270))
         self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.tableWidget.setObjectName("tableWidget")
-        self.tableWidget.setColumnCount(7)
+        self.tableWidget.setColumnCount(6)
         self.tableWidget.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(0, item)
+        item.setBackground(QtGui.QColor(255, 255, 255))
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(1, item)
+        item.setBackground(QtGui.QColor(255, 255, 255))
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(2, item)
+        item.setBackground(QtGui.QColor(255, 255, 255))
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(3, item)
+        item.setBackground(QtGui.QColor(255, 255, 255))
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(4, item)
+        item.setBackground(QtGui.QColor(255, 255, 255))
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(5, item)
+        item.setBackground(QtGui.QColor(255, 255, 255))
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(6, item)
         self.label_7 = QtWidgets.QLabel(self.BaseD)
@@ -225,10 +242,17 @@ class Ui_SIA(object):
         self.pushButton_6 = QtWidgets.QPushButton(self.BaseD)
         self.pushButton_6.setGeometry(QtCore.QRect(440, 30, 81, 31))
         self.pushButton_6.setObjectName("pushButton_6")
-        self.BANDERA = QtWidgets.QLabel(self.centralwidget)
-        self.BANDERA.setGeometry(QtCore.QRect(410, 30, 121, 61))
+        self.BANDERA = QtWidgets.QLabel(self.Datos)
+        self.BANDERA.setGeometry(QtCore.QRect(10, 1, 550, 30))
         self.BANDERA.hide()
         self.BANDERA.setObjectName("BANDERA")
+        self.BANDERA.setStyleSheet('QLabel {color: red;}')
+        self.label_9 = QtWidgets.QLabel(self.centralwidget)
+        self.label_9.setGeometry(QtCore.QRect(0, 0, 210, 90))
+        self.label_9.setText("")
+        self.label_9.setPixmap(QtGui.QPixmap("Imagen1.png"))
+        self.label_9.setObjectName("label_9")
+        self.label_9.raise_()
         self.BANDERA.raise_()
         self.Buscador.raise_()
         self.pushButton_4.raise_()
@@ -237,6 +261,37 @@ class Ui_SIA(object):
         self.Menu.raise_()
         self.Datos.raise_()
         SIA.setCentralWidget(self.centralwidget)
+        self.BaseD.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.Datos.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.Volver.setStyleSheet("background-color: rgb(212, 215, 221);")
+        self.Guardar.setStyleSheet("background-color: rgb(212, 215, 221);")
+        self.pushButton.setStyleSheet("background-color: rgb(212, 215, 221);")
+        self.label.setFont(QtGui.QFont('Dominican', 12))
+        self.label_2.setFont(QtGui.QFont('Dominican', 12))
+        self.label_3.setFont(QtGui.QFont('Dominican', 12))
+        self.label_4.setFont(QtGui.QFont('Dominican', 12))
+        self.label_5.setFont(QtGui.QFont('Dominican', 12))
+        self.label_6.setFont(QtGui.QFont('Dominican', 12))
+        self.label_7.setFont(QtGui.QFont('Dominican', 12))
+        self.label_8.setFont(QtGui.QFont('Dominican', 12))
+        self.pushButton.setFont(QtGui.QFont('Dominican',12))
+        self.pushButton_2.setFont(QtGui.QFont('Dominican', 12))
+        self.pushButton_3.setFont(QtGui.QFont('Dominican', 12))
+        self.pushButton_4.setFont(QtGui.QFont('Dominican', 12))
+        self.pushButton_6.setFont(QtGui.QFont('Dominican', 12))
+        self.pushButton_7.setFont(QtGui.QFont('Dominican', 12))
+        self.pushButton_2.setStyleSheet("background-color: rgb(212, 215, 221);")
+        self.pushButton_3.setStyleSheet("background-color: rgb(212, 215, 221);")
+        self.pushButton_4.setStyleSheet("background-color: rgb(212, 215, 221);")
+        self.pushButton_6.setStyleSheet("background-color: rgb(212, 215, 221);")
+        self.pushButton_7.setStyleSheet("background-color: rgb(212, 215, 221);")
+        self.comboBox.setStyleSheet("background-color: rgb(212, 215, 221);")
+        self.comboBox_2.setStyleSheet("background-color: rgb(212, 215, 221);")
+        self.Documento.setStyleSheet("background-color: rgb(212, 215, 221);")
+        self.Nombre.setStyleSheet("background-color: rgb(212, 215, 221);")
+        self.Apellido.setStyleSheet("background-color: rgb(212, 215, 221);")
+        self.Codigo.setStyleSheet("background-color: rgb(212, 215, 221);")
+        self.PAPA.setStyleSheet("background-color: rgb(212, 215, 221);")
 
         self.retranslateUi(SIA)
         self.pushButton.clicked.connect(self.Datos.show)
@@ -251,11 +306,233 @@ class Ui_SIA(object):
         self.Volver.clicked.connect(self.Buscador.hide)
         self.Volver.clicked.connect(self.BaseD.hide)
         self.pushButton_2.clicked.connect(self.BaseD.show)
+        self.pushButton_2.clicked.connect(self.actua)
         self.Volver.clicked.connect(self.Datos.hide)
         self.Volver.clicked.connect(self.Volver.hide)
         self.pushButton_4.clicked.connect(SIA.close)
         self.Guardar.clicked.connect(self.btnClicked)
+        self.pushButton_6.clicked.connect(self.ordenarclick)
+        self.pushButton_7.clicked.connect(self.buscarclick)
         QtCore.QMetaObject.connectSlotsByName(SIA)
+
+    def ordenarclick(self):
+        comboBox2=self.comboBox_2.currentText()
+
+        with open('BD-Estudiantes.txt', "r") as file:
+                        listaIN = []
+                        listaDI = []
+                        listaN = []
+                        listaA = []
+                        listaCP = []
+                        listaCE = []
+                        listaPA = []
+
+                        for line in file:
+                            IN, DI, N, A, CP, CE, PA = line.strip().split(';')
+                            listaIN.append(int(IN))
+                            listaDI.append(int(DI))
+                            listaN.append(N)
+                            listaA.append(A)
+                            listaCP.append(int(CP))
+                            listaCE.append(CE)
+                            listaPA.append(float(PA))
+        if comboBox2=="Documento de identidad":
+            dic = dict(zip(listaIN, listaDI))
+            valores_ord = dict(sorted(dic.items(), key=operator.itemgetter(1)))
+            val = list(valores_ord.keys())
+
+            with open("BD-Estudiantes-ORDENADA.txt", "w") as file:
+                for indices in val:
+                    listaordenada = str(indices) + ";" + str(listaDI[indices - 1]) + ";" + listaN[indices - 1] + ";" + listaA[indices - 1] + ";" + str(listaCP[indices - 1]) + ";" + listaCE[indices - 1] + ";" + str(listaPA[indices - 1])
+                    file.write(listaordenada + "\n")
+            with open("BD-Estudiantes-ORDENADA.txt","r") as file:  # el metodo with  abre el archivo de la base de datos de Estudiantes como modo lectura, lo abre con el nombre de "file" y ejecuta el codigo siguiente mientras esté abierto, luego cierra el archivo
+                listatotal = []  # Crea una lista llamada listatotal
+                for lineas in file:  # Recorre cada linea en el archivo usando un ciclo for
+                    lineas = lineas.strip().split(";")  # con la función strip quita los saltos de linea "\n", con la función split, divide las palabras segun cuando encuentra un ";" y devuelve una lista, la cual es almacenada en la variable lineas
+                    listatotal.append(lineas)  # se agregan las listas creadas a la lista total, creando una lista de listas con los valores separados
+
+
+            with open('BD-Estudiantes-ORDENADA.txt', "r") as file:
+                data = []
+                for line in file:
+                    IN, DI, N, A, CP, CE, PA = line.strip().split(';')
+                    data.append((DI, N, A, CP, CE, PA))
+
+        if comboBox2=="Nombre":
+            dic = dict(zip(listaIN, listaN))
+            valores_ord = dict(sorted(dic.items(), key=operator.itemgetter(1)))
+            val = list(valores_ord.keys())
+
+            with open("BD-Estudiantes-ORDENADA.txt", "w") as file:
+                for indices in val:
+                    listaordenada = str(indices) + ";" + str(listaDI[indices - 1]) + ";" + listaN[indices - 1] + ";" + listaA[indices - 1] + ";" + str(listaCP[indices - 1]) + ";" + listaCE[indices - 1] + ";" + str(listaPA[indices - 1])
+                    file.write(listaordenada + "\n")
+            with open("BD-Estudiantes-ORDENADA.txt","r") as file:  # el metodo with  abre el archivo de la base de datos de Estudiantes como modo lectura, lo abre con el nombre de "file" y ejecuta el codigo siguiente mientras esté abierto, luego cierra el archivo
+                listatotal = []  # Crea una lista llamada listatotal
+                for lineas in file:  # Recorre cada linea en el archivo usando un ciclo for
+                    lineas = lineas.strip().split(";")  # con la función strip quita los saltos de linea "\n", con la función split, divide las palabras segun cuando encuentra un ";" y devuelve una lista, la cual es almacenada en la variable lineas
+                    listatotal.append(lineas)  # se agregan las listas creadas a la lista total, creando una lista de listas con los valores separados
+
+
+            with open('BD-Estudiantes-ORDENADA.txt', "r") as file:
+                data = []
+                for line in file:
+                    IN, DI, N, A, CP, CE, PA = line.strip().split(';')
+                    data.append((DI, N, A, CP, CE, PA))
+                    
+        if comboBox2=="Apellido":
+            dic = dict(zip(listaIN, listaA))
+            valores_ord = dict(sorted(dic.items(), key=operator.itemgetter(1)))
+            val = list(valores_ord.keys())
+
+            with open("BD-Estudiantes-ORDENADA.txt", "w") as file:
+                for indices in val:
+                    listaordenada = str(indices) + ";" + str(listaDI[indices - 1]) + ";" + listaN[indices - 1] + ";" + listaA[indices - 1] + ";" + str(listaCP[indices - 1]) + ";" + listaCE[indices - 1] + ";" + str(listaPA[indices - 1])
+                    file.write(listaordenada + "\n")
+            with open("BD-Estudiantes-ORDENADA.txt","r") as file:  # el metodo with  abre el archivo de la base de datos de Estudiantes como modo lectura, lo abre con el nombre de "file" y ejecuta el codigo siguiente mientras esté abierto, luego cierra el archivo
+                listatotal = []  # Crea una lista llamada listatotal
+                for lineas in file:  # Recorre cada linea en el archivo usando un ciclo for
+                    lineas = lineas.strip().split(";")  # con la función strip quita los saltos de linea "\n", con la función split, divide las palabras segun cuando encuentra un ";" y devuelve una lista, la cual es almacenada en la variable lineas
+                    listatotal.append(lineas)  # se agregan las listas creadas a la lista total, creando una lista de listas con los valores separados
+
+
+            with open('BD-Estudiantes-ORDENADA.txt', "r") as file:
+                data = []
+                for line in file:
+                    IN, DI, N, A, CP, CE, PA = line.strip().split(';')
+                    data.append((DI, N, A, CP, CE, PA))
+
+
+        if comboBox2=="Código plan de estudios":
+            dic = dict(zip(listaIN, listaCP))
+            valores_ord = dict(sorted(dic.items(), key=operator.itemgetter(1)))
+            val = list(valores_ord.keys())
+
+            with open("BD-Estudiantes-ORDENADA.txt", "w") as file:
+                for indices in val:
+                    listaordenada = str(indices) + ";" + str(listaDI[indices - 1]) + ";" + listaN[indices - 1] + ";" + listaA[indices - 1] + ";" + str(listaCP[indices - 1]) + ";" + listaCE[indices - 1] + ";" + str(listaPA[indices - 1])
+                    file.write(listaordenada + "\n")
+            with open("BD-Estudiantes-ORDENADA.txt","r") as file:  # el metodo with  abre el archivo de la base de datos de Estudiantes como modo lectura, lo abre con el nombre de "file" y ejecuta el codigo siguiente mientras esté abierto, luego cierra el archivo
+                listatotal = []  # Crea una lista llamada listatotal
+                for lineas in file:  # Recorre cada linea en el archivo usando un ciclo for
+                    lineas = lineas.strip().split(";")  # con la función strip quita los saltos de linea "\n", con la función split, divide las palabras segun cuando encuentra un ";" y devuelve una lista, la cual es almacenada en la variable lineas
+                    listatotal.append(lineas)  # se agregan las listas creadas a la lista total, creando una lista de listas con los valores separados
+
+
+            with open('BD-Estudiantes-ORDENADA.txt', "r") as file:
+                data = []
+                for line in file:
+                    IN, DI, N, A, CP, CE, PA = line.strip().split(';')
+                    data.append((DI, N, A, CP, CE, PA))
+
+        if comboBox2=="Calidad de estudiante":
+            dic = dict(zip(listaIN, listaCE))
+            valores_ord = dict(sorted(dic.items(), key=operator.itemgetter(1)))
+            val = list(valores_ord.keys())
+
+            with open("BD-Estudiantes-ORDENADA.txt", "w") as file:
+                for indices in val:
+                    listaordenada = str(indices) + ";" + str(listaDI[indices - 1]) + ";" + listaN[indices - 1] + ";" + listaA[indices - 1] + ";" + str(listaCP[indices - 1]) + ";" + listaCE[indices - 1] + ";" + str(listaPA[indices - 1])
+                    file.write(listaordenada + "\n")
+            with open("BD-Estudiantes-ORDENADA.txt","r") as file:  # el metodo with  abre el archivo de la base de datos de Estudiantes como modo lectura, lo abre con el nombre de "file" y ejecuta el codigo siguiente mientras esté abierto, luego cierra el archivo
+                listatotal = []  # Crea una lista llamada listatotal
+                for lineas in file:  # Recorre cada linea en el archivo usando un ciclo for
+                    lineas = lineas.strip().split(";")  # con la función strip quita los saltos de linea "\n", con la función split, divide las palabras segun cuando encuentra un ";" y devuelve una lista, la cual es almacenada en la variable lineas
+                    listatotal.append(lineas)  # se agregan las listas creadas a la lista total, creando una lista de listas con los valores separados
+
+
+            with open('BD-Estudiantes-ORDENADA.txt', "r") as file:
+                data = []
+                for line in file:
+                    IN, DI, N, A, CP, CE, PA = line.strip().split(';')
+                    data.append((DI, N, A, CP, CE, PA))
+
+        if comboBox2=="PAPA actual":
+            dic = dict(zip(listaIN, listaPA))
+            valores_ord = dict(sorted(dic.items(), key=operator.itemgetter(1)))
+            val = list(valores_ord.keys())
+
+            with open("BD-Estudiantes-ORDENADA.txt", "w") as file:
+                for indices in val:
+                    listaordenada = str(indices) + ";" + str(listaDI[indices - 1]) + ";" + listaN[indices - 1] + ";" + listaA[indices - 1] + ";" + str(listaCP[indices - 1]) + ";" + listaCE[indices - 1] + ";" + str(listaPA[indices - 1])
+                    file.write(listaordenada + "\n")
+            with open("BD-Estudiantes-ORDENADA.txt","r") as file:  # el metodo with  abre el archivo de la base de datos de Estudiantes como modo lectura, lo abre con el nombre de "file" y ejecuta el codigo siguiente mientras esté abierto, luego cierra el archivo
+                listatotal = []  # Crea una lista llamada listatotal
+                for lineas in file:  # Recorre cada linea en el archivo usando un ciclo for
+                    lineas = lineas.strip().split(";")  # con la función strip quita los saltos de linea "\n", con la función split, divide las palabras segun cuando encuentra un ";" y devuelve una lista, la cual es almacenada en la variable lineas
+                    listatotal.append(lineas)  # se agregan las listas creadas a la lista total, creando una lista de listas con los valores separados
+
+
+            with open('BD-Estudiantes-ORDENADA.txt', "r") as file:
+                data = []
+                for line in file:
+                    IN, DI, N, A, CP, CE, PA = line.strip().split(';')
+                    data.append((DI, N, A, CP, CE, PA))
+                
+
+        with open('ContadorBD-Estudiantes.txt','r') as file:  # Abre el archivo del contador de materias en modo lectura
+            numerodeestudiantes = file.read()  # Almacena el numero de materias leyendo el archivo
+        self.tableWidget.setRowCount(int(numerodeestudiantes))
+        self.tableWidget.setColumnCount(6)
+        row=0
+        for tup in data:
+             col=0
+             for item in tup:
+                 cellinfo=QTableWidgetItem(item)
+                 self.tableWidget.setItem(row, col, cellinfo)
+                 col+=1
+             row += 1
+
+    def actua(self):
+        with open('BD-Estudiantes.txt', "r") as file:
+            data = []
+            for line in file:
+                IN, DI, N, A, CP, CE, PA = line.strip().split(';')
+                data.append((DI, N, A, CP, CE, PA))
+
+        with open('ContadorBD-Estudiantes.txt','r') as file:  # Abre el archivo del contador de materias en modo lectura
+            numerodeestudiantes = file.read()  # Almacena el numero de materias leyendo el archivo
+        self.tableWidget.setRowCount(int(numerodeestudiantes))
+        self.tableWidget.setColumnCount(6)
+        row=0
+        for tup in data:
+             col=0
+             for item in tup:
+                 cellinfo=QTableWidgetItem(item)
+                 self.tableWidget.setItem(row, col, cellinfo)
+                 col+=1
+             row += 1
+        
+
+    def buscarclick(self):
+        Item = self.lineEdit_6.text()
+        f=0
+        
+        with open('BD-Estudiantes.txt', "r") as file:
+            data = []
+            indicador = False
+            for linea in file:
+                linea = linea.strip().split(";")
+                for palabra in linea:
+                    if palabra == Item:
+                        indicador = True
+                if indicador:
+                    IN, DI, N, A, CP, CE, PA = linea
+                    data.append((DI, N, A, CP, CE, PA))
+                    indicador = False
+                    f+=1
+                
+        self.tableWidget_2.setRowCount(int(f))
+        self.tableWidget_2.setColumnCount(6)
+        row=0
+        for tup in data:
+             col=0
+             for item in tup:
+                 cellinfo=QTableWidgetItem(item)
+                 self.tableWidget_2.setItem(row, col, cellinfo)
+                 col+=1
+             row += 1
+
 
     def btnClicked(self):
         Documento=self.Documento.text()
@@ -265,36 +542,52 @@ class Ui_SIA(object):
         PAPA=self.PAPA.text()
         comboBox=self.comboBox.currentText()
 
-
-        
-        mi_estudiante = Estudiante()
-        mi_estudiante.setDI(Documento)
-        mi_estudiante.setN(Nombre)
-        mi_estudiante.setA(Apellido)
-        mi_estudiante.setCP(Codigo)
-        mi_estudiante.setCE(comboBox)
-        mi_estudiante.setPA(PAPA)
-
-        diccionario = mi_estudiante.getDI() + ";" + mi_estudiante.getN() + ";" + mi_estudiante.getA() + ";" + mi_estudiante.getCP() + ";" + mi_estudiante.getCE() + ";" + mi_estudiante.getPA()  # Creación del diccionario de la materia
-
         if not os.path.isfile("BD-Estudiantes.txt"):  # Verificación de que la base de datos exista usando "isfile" de la libreria os.path , si existe el archivo el valor es True, sino False .Por lo tanto si el archivo no existe entonces entra a la condición
             BDM = open("BD-Estudiantes.txt","w")  # Este modo abre el archivo para escritura. Si el archivo no existe, crea un nuevo archivo.
-            numerodeestudiantes = 1  # Establece el número de materias en 1
-            BDM.write(str(numerodeestudiantes) + ";" + str(diccionario) + "\n")  # Escribe los datos de la primera materia
             BDM.close()  # Cierra el archivo
+            BDM = open("ContadorBD-Estudiantes.txt","w")# Este modo abre el archivo para escritura. Si el archivo no existe, crea un nuevo archivo.
+            BDM.close()  # Cierra el archivo
+            with open('ContadorBD-Estudiantes.txt','w') as file:# Este modo abre el archivo para escritura. Si el archivo no existe, crea un nuevo archivo.
+                file.write(str(0))
+            
+        with open("BD-Estudiantes.txt", "r") as file:
+            listaCMB = []
+            for line in file:
+                listamaterias = line.strip().split(';')
+                CMB = listamaterias[1]
+                listaCMB.append(CMB)
+            if Documento in listaCMB:
+                self.BANDERA.setText("Documento de identidad ya se encuentra en la base de datos, por favor revise sus datos")
+                self.BANDERA.show()
+            else:
+                if Documento!="" and Nombre!="" and Apellido!="" and Codigo!="" and PAPA!="." and comboBox!="": 
+                    mi_estudiante = Estudiante()
+                    mi_estudiante.setDI(Documento)
+                    mi_estudiante.setN(Nombre)
+                    mi_estudiante.setA(Apellido)
+                    mi_estudiante.setCP(Codigo)
+                    mi_estudiante.setCE(comboBox)
+                    if float(PAPA)<= 5.0: 
+                        mi_estudiante.setPA(PAPA)
 
-            with open('ContadorBD-Estudiantes.txt','w') as file:  # Este modo abre el archivo para escritura. Si el archivo no existe, crea un nuevo archivo.
-                file.write(str(numerodeestudiantes))  # Escribe los datos  iniciales del numero de materias en la abse de datos
-
-
-        else:  # Si el archivo ya existe se entra a esta condicion
-            with open('ContadorBD-Estudiantes.txt','r') as file:  # Abre el archivo del contador de materias en modo lectura
-                numerodeestudiantes = file.read()  # Almacena el numero de materias leyendo el archivo
-            numerodeestudiantes = int(numerodeestudiantes) + 1  # Como se hizo una adición a la base de datos de materias entonces se aumenta el contador en 1
-
-            with open("BD-Estudiantes.txt","a") as file:  # Abrir archivo en modo adjuntar. Si el archivo no existe, crea un nuevo archivo.
-                file.write(str(numerodeestudiantes) + ";" + str(diccionario) + "\n")  # Escribe los datos de la siguiente materia
+                        diccionario = mi_estudiante.getDI() + ";" + mi_estudiante.getN() + ";" + mi_estudiante.getA() + ";" + mi_estudiante.getCP() + ";" + mi_estudiante.getCE() + ";" + mi_estudiante.getPA()  # Creación del diccionario de la materia
+                        with open('ContadorBD-Estudiantes.txt','r') as file:  # Abre el archivo del contador de materias en modo lectura
+                            numerodeestudiantes = file.read()  # Almacena el numero de materias leyendo el archivo
+                        numerodeestudiantes = int(numerodeestudiantes) + 1  # Como se hizo una adición a la base de datos de materias entonces se aumenta el contador en 1
+                        with open("BD-Estudiantes.txt","a") as file:  # Abrir archivo en modo adjuntar. Si el archivo no existe, crea un nuevo archivo.
+                            file.write(str(numerodeestudiantes) + ";" + str(diccionario) + "\n")  # Escribe los datos de la siguiente materia
+                        with open('ContadorBD-Estudiantes.txt','w') as file:  # Este modo abre el archivo para escritura. Si el archivo no existe, crea un nuevo archivo.
+                            file.write(str(numerodeestudiantes))
+                        self.BANDERA.hide()
+                    else:
+                        self.BANDERA.setText("PAPA inválido, por favor revise sus datos")
+                        self.BANDERA.show()  
+                else:
+                    self.BANDERA.setText("Espacios vacios, por favor revise sus datos")
+                    self.BANDERA.show()
         
+
+                                
         self.Documento.clear()
         self.Nombre.clear()
         self.Apellido.clear()
@@ -312,26 +605,24 @@ class Ui_SIA(object):
         self.pushButton_3.setText(_translate("SIA", "Buscar"))
         self.label_8.setText(_translate("SIA", "Buscar por"))
         item = self.tableWidget_2.horizontalHeaderItem(0)
-        item.setText(_translate("SIA", "Índice"))
-        item = self.tableWidget_2.horizontalHeaderItem(1)
         item.setText(_translate("SIA", "Documento de \n"
 "identidad"))
-        item = self.tableWidget_2.horizontalHeaderItem(2)
+        item = self.tableWidget_2.horizontalHeaderItem(1)
         item.setText(_translate("SIA", "Nombre"))
-        item = self.tableWidget_2.horizontalHeaderItem(3)
+        item = self.tableWidget_2.horizontalHeaderItem(2)
         item.setText(_translate("SIA", "Apellido"))
-        item = self.tableWidget_2.horizontalHeaderItem(4)
+        item = self.tableWidget_2.horizontalHeaderItem(3)
         item.setText(_translate("SIA", "Código de \n"
 "plan de estudio"))
-        item = self.tableWidget_2.horizontalHeaderItem(5)
+        item = self.tableWidget_2.horizontalHeaderItem(4)
         item.setText(_translate("SIA", "Calidad de\n"
 "estudiante"))
-        item = self.tableWidget_2.horizontalHeaderItem(6)
+        item = self.tableWidget_2.horizontalHeaderItem(5)
         item.setText(_translate("SIA", "PAPA actual"))
         self.pushButton_7.setText(_translate("SIA", "Buscar"))
         self.label_6.setText(_translate("SIA", "PAPA actual"))
         self.Guardar.setText(_translate("SIA", "Guardar"))
-        self.comboBox.setItemText(0, _translate("SIA", "Seleccionar"))
+        self.comboBox.setItemText(0, _translate("SIA", ""))
         self.comboBox.setItemText(1, _translate("SIA", "Matriculado"))
         self.comboBox.setItemText(2, _translate("SIA", "Graduado"))
         self.comboBox.setItemText(3, _translate("SIA", "Pérdida de cupo"))
@@ -341,22 +632,21 @@ class Ui_SIA(object):
         self.label_4.setText(_translate("SIA", "Calidad de estudiante"))
         self.label.setText(_translate("SIA", "Documento de identidad"))
         self.BANDERA.setText(_translate("SIA", "ERROR"))
+
         item = self.tableWidget.horizontalHeaderItem(0)
-        item.setText(_translate("SIA", "Índice "))
-        item = self.tableWidget.horizontalHeaderItem(1)
         item.setText(_translate("SIA", "Documento de \n"
 "identidad"))
-        item = self.tableWidget.horizontalHeaderItem(2)
+        item = self.tableWidget.horizontalHeaderItem(1)
         item.setText(_translate("SIA", "Nombre"))
-        item = self.tableWidget.horizontalHeaderItem(3)
+        item = self.tableWidget.horizontalHeaderItem(2)
         item.setText(_translate("SIA", "Apellido"))
-        item = self.tableWidget.horizontalHeaderItem(4)
+        item = self.tableWidget.horizontalHeaderItem(3)
         item.setText(_translate("SIA", "Código plan \n"
 "de estudios "))
-        item = self.tableWidget.horizontalHeaderItem(5)
+        item = self.tableWidget.horizontalHeaderItem(4)
         item.setText(_translate("SIA", "Calidad de \n"
 "estudiante "))
-        item = self.tableWidget.horizontalHeaderItem(6)
+        item = self.tableWidget.horizontalHeaderItem(5)
         item.setText(_translate("SIA", "PAPA actual"))
         self.label_7.setText(_translate("SIA", "Ordenar por"))
         self.comboBox_2.setItemText(0, _translate("SIA", "Documento de identidad"))
