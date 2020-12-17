@@ -1,5 +1,0 @@
-1;500;Juan;Chica;12;Matriculado;4.0
-2;210;Hola;Mundo;13;Matriculado;3.4
-3;201;Lola;Lala;14;Graduado;3.5
-4;1324214;asdd;dsad;12321;Pérdida de cupo;1.2
-5;123214;dads;ada;123;Pérdida de cupo;1.2
